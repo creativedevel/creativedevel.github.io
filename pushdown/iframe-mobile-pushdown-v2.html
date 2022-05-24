@@ -1,0 +1,231 @@
+<!-- Client's script here -->
+<div style="width: 320px; height:480px; position: relative; overflow: hidden">    
+    <a href="https://www.tribunnews.com" target="_blank">
+        <img src="materi-320x480-djarum24mei.png" width="320" height="480" alt="Premium Topframe">   
+    </a>
+</div>
+<script>
+    var getBodyIframe = document.querySelector("body");
+    getBodyIframe.style.overflow = "hidden";
+</script>
+<!-- Endof Client's script -->
+
+<script type="text/javascript">
+    var dfp_heightRequest = 500;
+    var dfp_closeButton = "yes";
+    var dfp_thirdPartyImpression = "";
+    var premiumTopframe_style = '\
+/* #### All Screen Portrait and Landscape #### */ \
+    #adsoutofpage-premiumTopframe { \
+        display: block; \
+        width: auto!important; \
+        position: relative!important; \
+        left: 0px!important; \
+        top: 0px!important; \
+        z-index: 3!important; \
+        overflow: hidden!important; \
+        border:medium none! \
+        important; padding: 0px !important; \
+        margin:-18px 0px 0px!important; \
+        height: 0px; \
+        text-align: center; \
+        text-align: -webkit-center; \
+        text-align: -moz-center; \
+    } \
+    #div-Premium-Topframe { \
+        width: 100%; /*Ganti dari width*/\
+        height: 100%; \
+        position: absolute; \
+        top: 0; \
+        left: 0; \
+        clip: rect(auto,auto,auto,auto); \
+    } \
+    #div-Premium-Topframe div { \
+        width: 100%; /*Ganti dari width*/\
+        position: fixed!important; \
+        left: auto; \
+        top: 0px!important; \
+        z-index: 0!important; \
+        -moz-transform: translateZ(0); \
+        -webkit-transform: translateZ(0); \
+        -ms-transform: translateZ(0); \
+        -o-transform: translateZ(0); \
+        transform: translateZ(0); \
+    } \
+\
+div#dfp-closeButton-premTopFrame { \
+    position: fixed; \
+    width: 15px; \
+    height: 15px; \
+    right: 0; \
+    top: 0px; \
+    display: none; \
+    margin: 10px \
+} \
+div#dfp-closeButton-premTopFrame img { \
+    width: 100%; \
+} \
+.ol_swipe { \
+    position: relative; \
+    bottom: 0; \
+    width: 100%; \
+    height: 20px; \
+    color: #fff; \
+    line-height: 2; \
+    font-size: 10px; \
+    text-align: center; \
+    letter-spacing: 1px; \
+    background: #212121 !important; \
+    text-transform: uppercase; \
+    z-index: 3; \
+} \
+    ';
+    
+var premiumTopframe_template = ' \
+    <div id="dfp-beacon-%%CACHEBUSTER%%" class="dfp-beacon-premium-topframe"> \
+        <img src="%%VIEW_URL_UNESC%%https://cdn-3.tstatic.net/ads/pixel.png" width="0" border="0" height="0" style="display:none; visibility:hidden;"> \
+        <img src="'+dfp_thirdPartyImpression+'" width="0" border="0" height="0" style="display:none; visibility:hidden;"> \
+    </div> \
+    \
+    <div id="dfp-closeButton-premTopFrame" aria-label="Close Premium Topframe"> \
+        <img src="https://cdn-3.tstatic.net/ads/close.png" alt="Close Ad" width="15" height="15"> \
+    </div> \
+    ';
+    
+var premiumTopframe_script = '\
+    /* Tweaking for parent*/ \
+    var dfp_topHeader =  document.querySelector("div.theader"); \
+    dfp_topHeader.style.position = "relative"; \
+    \
+    var dfp_tweak1 =  document.querySelector("div#div-Premium-Topframe"); \
+    dfp_tweak1.style.marginTop = "0px"; \
+    \
+    var dfp_tweak2 =  document.querySelector("div#div-Top-MediumRectangle"); \
+    /* End of tweaking for parent */ \
+    \
+    /** Adding swipeup and delay the swipe **/ \
+        var htmlliftdown = document.getElementsByTagName("html")[0]; \
+        htmlliftdown.style.overflowY = "scroll";\
+        \
+        $("#div-Premium-Topframe").css("background-color", "#212121"); \
+        \
+           $(document).ready(function() {\
+            var ldSwipe = document.createElement("div");\
+            ldSwipe.setAttribute("class", "ol_swipe");\
+            $("#adsoutofpage-premiumTopframe").after(ldSwipe);\
+            $(".ol_swipe").html("Swipe up untuk membaca artikel");\
+        });\
+    \
+    var getUrlAppend = "?google_preview"; \
+    if(window.location.search.split("=")[0] == getUrlAppend){ \
+        console.log("YOU ARE IN PREVIEW MODE : "+window.location.search.split("=")[0]); \
+        var getSwipeUp = document.querySelectorAll(".ol_swipe"), i; \
+        for (i = 0; i < getSwipeUp.length; ++i) { \
+            if(i !== 0){ \
+                getSwipeUp[i].style.display = "none"; \
+            } \
+        } \
+    } \
+    \
+    /** Get height of screen in user browser **/ \
+    var hScreen = window.innerHeight || window.document.documentElement.clientHeight|| window.document.body.clientHeight; \
+    var heightSet = hScreen - 100; /** to get position at 50px space on the top of sticky bottom ad **/ \
+    var heightRequest = "'+dfp_heightRequest+'"; \
+    \
+    if(heightRequest == "Full") { \
+        heightRequest = heightSet; \
+    } \
+    else { \
+         heightRequest = "'+dfp_heightRequest+'"; \
+    } \
+    \
+    /** get theader **/ \
+    var elTopHeader =  document.querySelector("div.theader"); \
+    \
+    /** Height Materi **/ \
+    var dfpBigTop = document.getElementById("adsoutofpage-premiumTopframe"); \
+    var dfpMateriPort = document.querySelector("#div-Premium-Topframe div iframe"); \
+    dfpBigTop.style.height = heightRequest+"px"; /* div container big */ \
+    dfpMateriPort.style.height = heightRequest+"px"; /* materi portrait */ \
+    \
+    \
+    window.addEventListener("scroll", function(){  \
+        /** Get the top position value  of body in client browser **/ \
+        var dfp_scrollTop =  document.documentElement.scrollTop ||  document.body.scrollTop ||  window.pageYOffset; \
+        \
+        var heightMateriSmall = 0; \
+        /** Changing theader **/ \
+        if (dfp_scrollTop > heightRequest){ \
+            elTopHeader.style.position = "fixed"; /*theader*/ \
+            elTopHeader.style.top = heightMateriSmall+"px"; \
+        } \
+        else if (dfp_scrollTop < heightRequest && dfpBigTop.style.display == "none"){ \
+            elTopHeader.style.position = "fixed"; /*theader*/ \
+            elTopHeader.style.top = heightMateriSmall+"px"; \
+        } \
+        else { \
+            elTopHeader.style.position = "relative"; \
+        } \
+    }); \
+    \
+    /* Close the banner when user click/tap the close button */ \
+    var theCloseEl_ptf = document.getElementById("dfp-closeButton-premTopFrame"); \
+    var theCloseButtonStatus = "'+dfp_closeButton+'"; \
+    if( theCloseButtonStatus == "yes"){ \
+        theCloseEl_ptf.style.display = "block"; \
+    } \
+    else { \
+        theCloseEl_ptf.style.display = "none"; \
+    } \
+    theCloseEl_ptf.addEventListener("click",  removeElPremiumTopFrame, false); \
+    function removeElPremiumTopFrame(){ \
+        /* Hide the frame banner */ \
+        dfpBigTop.style.height = "18px"; \
+            dfpBigTop.style.display = "none"; \
+            dfp_topHeader.style.top = "0"; \
+            dfp_topHeader.style.position = "fixed"; \
+            theCloseEl_ptf.parentNode.removeChild(theCloseEl_ptf); \
+    } \
+';
+ 
+    var iframeEl             = window.frameElement;
+
+    //get frame parent
+    var iframeParentEl       = iframeEl.parentElement;
+    var tweakTop = window.parent.document.getElementById("adsoutofpage-premiumTopframe");
+    tweakTop.style.display = "block";
+    
+    /** NEW SETUP **/
+    iframeEl.style.width = "320px";
+    iframeEl.style.height = dfp_heightRequest+"px";
+    iframeParentEl.style.textAlign = "center";
+    /** ENDOF NEW SETUP **/
+    
+    /** For style element **/
+    //create premium topframe element to containing premium topframe template
+    var styleTopframe        = document.createElement('style');
+    styleTopframe.innerHTML  = premiumTopframe_style;
+
+    //add premium topframe style element to parent frame
+    iframeParentEl.appendChild(styleTopframe);
+    
+    /** For template element **/
+    var containerEl          = document.createElement('div');
+    containerEl.innerHTML = premiumTopframe_template;
+    iframeParentEl.appendChild(containerEl);
+      
+    /** For script element **/
+    //create container for premium topframe script
+    var containerScript      = document.createElement('script');
+    containerScript.setAttribute('type', 'text/javascript');
+
+    //assign script to script container, note in firefox innerText is not available so use textContent instead
+    if( typeof containerScript.innerText == 'undefined') {
+        containerScript.textContent = premiumTopframe_script;
+    } 
+    else {
+        containerScript.innerText = premiumTopframe_script;
+    }
+    //add premium topframe script container to premium topframe element
+    containerEl.appendChild(containerScript);
+</script>
