@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad sizes example</title>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+      window.googletag = window.googletag || {cmd: []};
+      googletag.cmd.push(function() {
+          
+        var dmmr = googletag.defineSlot('/31800665/testingWaterfall', [[300, 250],[336, 280]], 'div-Middle-MediumRectangle');
+        dmmr.setTargeting('pos',['MiddleMediumRectangle']);
+        dmmr.setTargeting('page',['home']);
+        dmmr.addService(googletag.pubads());
+        
+        googletag.pubads().setTargeting('currentUrl','test-waterfall');
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    </script>
+      
+    <style>
+      .ad-container {
+        border: solid;
+        width: 100%;
+      }
+
+      .ad-slot {
+        border-style: dashed;
+        display: inline-block;
+      }
+
+      .native-slot {
+        width: 50%;
+      }
+    </style>
+      
+  </head>
+  <body>
+    <h1>Multi-size ad slot</h1>
+    <p>This ad slot will display an ad with any of the following dimensions: 300x250, 336x280.</p>
+    <div class="ad-container">
+        <div id="div-Middle-MediumRectangle" class="ad-slot">
+          <script>
+            googletag.cmd.push(function() {googletag.display('div-Middle-MediumRectangle');});
+            </script>
+        </div>
+    </div>
+  </body>
+</html>
