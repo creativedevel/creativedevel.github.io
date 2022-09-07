@@ -2047,7 +2047,7 @@ var getHoradEvent = googletag.cmd.push(function() {
         console.log("Status Line Item Horad (OUT) : "+statusLineItem);
         if(statusLineItem === "no" ){
             if (isBlockingFrame){
-                refreshad();
+                //refreshad();
                 refreshBid();
             }
             else if(!isBlockingFrame){
@@ -2057,7 +2057,7 @@ var getHoradEvent = googletag.cmd.push(function() {
                     var findNoRefresh = iframeContentHor.match(/\b(NO REFRESH|NO_REFRESH)\b/i);
                     console.log("FIND NO REFRESH Horad : "+findNoRefresh);
                     if(!findNoRefresh || findNoRefresh == null){
-                        refreshad();
+                        //refreshad();
                         refreshBid();
                     }
                 }
