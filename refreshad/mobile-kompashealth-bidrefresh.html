@@ -2002,19 +2002,20 @@ z-index: 9999;
                 adUnitCodes: ['/31800665/KOMPAS.COM_Mobile_Web/properti'],
                 bidsBackHandler: function() {
                     pbjs.setTargetingForGPTAsync(['/31800665/KOMPAS.COM_Mobile_Web/properti']);
+                    adSlotHorad.setTargeting('reloaded','Horizontal_Ad');
                     googletag.pubads().refresh([adSlotHorad]);
                     console.log("Refresh Bid 30s");
                 }
             });
         });
     }
-    
+    /**
     var refreshad = function() {
         adSlotHorad.setTargeting('reloaded','Horizontal_Ad');
         googletag.pubads().refresh([adSlotHorad]);
         console.log("adrefresh 30s horad");
     };
-         
+    **/
 var getHoradEvent = googletag.cmd.push(function() {
     googletag.pubads().addEventListener('slotRenderEnded',function(event) {
         var found = false;    
