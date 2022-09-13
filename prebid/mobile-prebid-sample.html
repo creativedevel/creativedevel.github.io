@@ -1,0 +1,150 @@
+<head>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script> <!-- Script gpt.js -->
+<script src="https://cdn-3.tstatic.net/ads/prebid/prebid6.29.1-19082022.js" async></script> <!-- list partner prebid.js yang sudah didownload sesuaikan jumlah partner yang didownload seperti di table -->
+    
+<!-- START PREBID -->
+<script>
+    var PREBID_TIMEOUT = 1500 //Prebid Timeout Mobile setup 1500, Desktop 2000,
+        FAILSAFE_TIMEOUT = 3e3 //FAILSAFE TIMEOUT 3000,
+        adUnits = [
+            {
+                code: "div-gpt-ad-TOPMOBILE",
+                mediaTypes: {
+                    banner: {
+                        sizes: [
+                            [320, 50],
+                        ],
+                    },
+                },
+                bids: [
+                    { bidder: "ix", params: { siteId: 864975, size: [320, 50] } }, //IndexExchange
+                    { bidder: "rubicon", params: { accountId: 11834, siteId: 434088, zoneId: 2527312 } }, //Magnite
+                    { bidder: "openx", params: { unit: "557899759", delDomain: "kompascybermedia-d.openx.net" } }, //OpenX
+                    { bidder: "smartadserver", params: { networkId: "3737", siteId: "531785", pageId: "1654234", formatId: "93800", domain: "https://prg8.smartadserver.com" } }, //Smart
+                    { bidder: "triplelift", params: { inventoryCode: "kg_KompasID_mobile_display" } }, //Triplelift
+                ],
+            },
+            {
+                code: "div-gpt-ad-Bottom1",
+                mediaTypes: {
+                    banner: {
+                        sizes: [
+                            [300, 250],
+                        ],
+                    },
+                },
+                bids: [
+                    { bidder: "ix", params: { siteId: 864975, size: [320, 250] } }, //IndexExchange
+                    { bidder: "rubicon", params: { accountId: 11834, siteId: 434088, zoneId: 2527306 } }, //Magnite
+                    { bidder: "openx", params: { unit: "557899760", delDomain: "kompascybermedia-d.openx.net" } }, //OpenX
+                    { bidder: "smartadserver", params: { networkId: "3737", siteId: "531785", pageId: "1654234", formatId: "93800", domain: "https://prg8.smartadserver.com" } }, //Smart
+                    { bidder: "triplelift", params: { inventoryCode: "kg_KompasID_mobile_300x250" } }, //Triplelift
+                ],
+            },
+            /**
+            {
+                code: "div-gpt-ad-Middle1",
+                mediaTypes: {
+                    banner: {
+                        sizes: [
+                            [300, 250],
+                            [1, 1], //belum ada size 1x1 di halaman live kompas.id
+                        ],
+                    },
+                },
+                bids: [
+                    {Indexexchange },
+                    {Magnite },
+                    {OpenX },
+                    {Smart },
+                    {Triplelift },
+                    {Teads, khusus Teads ditempatkan di size 1x1 apabila ada, kalau tidak bisa skip dulu, karena formatnya video outstream },
+                ],
+            },
+            { .... dan seterusnya ...  },
+            **/
+        ]
+</script>
+
+<script>
+    var pbjs = pbjs || {};
+        pbjs.que = pbjs.que || [];
+    var googletag = googletag || {};
+    
+    function sendAdserverRequest() {
+        pbjs.adserverRequestSent ||
+            ((pbjs.adserverRequestSent = !0),
+            googletag.cmd.push(function () {
+                pbjs.que.push(function () {
+                    pbjs.setTargetingForGPTAsync(), googletag.pubads().refresh();
+                });
+            }));
+    }
+
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function() {
+        googletag.pubads().disableInitialLoad();
+    });
+
+    pbjs.que.push(function () {
+        pbjs.aliasBidder("criteo");
+        pbjs.setConfig({ enableSendAllBids: true, priceGranularity: "high" });
+        pbjs.addAdUnits(adUnits), pbjs.requestBids({ bidsBackHandler: sendAdserverRequest, timeout: PREBID_TIMEOUT });
+    }),
+        
+    // in case PBJS doesn't load
+    setTimeout(function () {
+        sendAdserverRequest();
+    }, FAILSAFE_TIMEOUT);
+</script>
+<!-- ENDOF PREBID -->
+    
+<!-- START GPT -->
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+	var dtmr = googletag.defineSlot('/31800665/Kompas.id_Mobile/Bebas_Akses', [320, 50], 'div-gpt-ad-TOPMOBILE');
+	dtmr.setTargeting('pos',['TOPMOBILE']);
+	dtmr.addService(googletag.pubads());
+
+	var dmmr = googletag.defineSlot('/31800665/Kompas.id_Mobile/Bebas_Akses', [300, 250], 'div-gpt-ad-Bottom1');
+	dmmr.setTargeting('pos',['Bottom1']);
+	dmmr.addService(googletag.pubads());
+
+	var dimr = googletag.defineSlot('/31800665/Kompas.id_Mobile/Bebas_Akses', [300, 250], 'div-gpt-ad-Middle1');
+	dimr.setTargeting('pos',['Middle1']);
+	dimr.addService(googletag.pubads());
+    
+    googletag.pubads().enableSingleRequest();
+	googletag.pubads().collapseEmptyDivs();
+	googletag.enableServices();
+});
+</script>
+<!-- ENDOF GPT -->
+    
+</head>
+
+    <body>
+        <h2>Basic Prebid.js Example</h2>
+        
+        <h5>div-gpt-ad-TOPMOBILE</h5>
+        <div id='div-gpt-ad-TOPMOBILE'>
+            <script type='text/javascript'>
+                googletag.cmd.push(function() {
+                    googletag.display('div-gpt-ad-TOPMOBILE');
+                });
+
+            </script>
+        </div>
+
+        <br>
+
+        <h5>div-gpt-ad-Bottom1</h5>
+        <div id='div-gpt-ad-Bottom1'>
+            <script type='text/javascript'>
+                googletag.cmd.push(function() {
+                    googletag.display('div-gpt-ad-Bottom1');
+                });
+
+            </script>
+        </div>
+    </body>
