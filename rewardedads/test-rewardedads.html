@@ -1,0 +1,88 @@
+<!DOCTYPE html>  
+<html>
+    <head>  
+        <meta charset="utf-8" />
+        <title> Balap Karung </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+        <link rel="stylesheet" type="text/css" href="https://play.kompas.com/pesta17an/games/BalapKarung/css/styles.css">
+        
+        <script src="https://play.kompas.com/pesta17an/games/BalapKarung/lib/jquery.min.js"></script>
+        <script src="https://play.kompas.com/pesta17an/games/BalapKarung/lib/forge.all.min.js"></script>
+        <script type="text/javascript" src="https://play.kompas.com/pesta17an/games/BalapKarung/engine/phaser-3.24.1.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+        
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        var rewardedSlot, requestedTimestamp = {};
+        googletag = window.googletag || { cmd: [] };
+        googletag.cmd.push(() => {
+
+            googletag.pubads().addEventListener('rewardedSlotReady', function (event) {
+                event.makeRewardedVisible();
+            });
+
+            googletag.pubads().addEventListener('rewardedSlotGranted', function (event) {
+                current_value = parseInt(document.getElementById("reward_label").innerHTML);
+                reward = event.payload;
+                //console.log(JSON.stringify(reward));
+                //console.log(JSON.stringify(reward.amount));
+                document.getElementById("reward_label").innerHTML = JSON.stringify(current_value + reward.amount);
+            });
+
+            googletag.pubads().addEventListener('rewardedSlotClosed', function (event) {
+                //console.log('ad slot is closed'); // alert('Closed by the user!');
+                googletag.destroySlots([rewardedSlot]);
+            });
+
+            // Enable SRA and services.
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+
+        function rewardedCall() {
+            googletag.cmd.push(function () {
+                rewardedSlot = googletag.defineOutOfPageSlot('/31800665/KOMPAS.COM_Mobile_Web/play/minigamesBalapKarung', googletag.enums.OutOfPageFormat.REWARDED);
+                rewardedSlot.setTargeting('pos', 'rewardedAds').addService(googletag.pubads());
+                googletag.display(rewardedSlot);
+
+                // This listener will be called when a slot has finished rendering.
+                googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+                    var slotId = event.slot.getSlotElementId();
+                    var isEmpty = event.isEmpty;
+                    if (isEmpty == false) {
+                        console.log("Ada Iklan");
+                        console.log('Slot has finished rendering.', slotId, details);
+                    }
+                    else {
+                        console.log("Tidak Ada Iklan");
+                    }
+                });
+            });
+        }
+    </script>
+    
+        <!-- <script type="text/javascript" src="https://play.kompas.com/pesta17an/games/BalapKarung/game.js?v=7"></script> -->
+    </head>
+
+    <body>
+        <div class="fontLoader" style="font-family: konten;">-</div>
+        <div class="fontLoader" style="font-family: judul;">-</div>
+        <div class="fontLoader" style="font-family: passionone;">-</div>
+
+        <div id="content">
+            <div id="phaser-canvas"></div>
+            
+            <div style="position: absolute">
+                <img src= "balap-karung.png" width="425" height="auto"/>
+            </div>
+            <div style="position: absolute; width: 220px; height: 90px; left: 100px; bottom: 100px; cursor: grab;" onclick='rewardedCall()'>
+            </div>
+            
+            <div>
+                <canvas id="canvas_share" style="position: absolute;top:-100vh;left: -100vw;"></canvas>
+                <img id="img_share" style="display:none;" src="https://play.kompas.com/pesta17an/games/BalapKarung/assets/BK_img_share.png" />
+            </div>
+        </div>        
+    </body>
+</html>  
