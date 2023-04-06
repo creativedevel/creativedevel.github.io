@@ -2269,7 +2269,12 @@ googletag.cmd.push(function() { googletag.display('div-Right-MediumRectangle-2')
 	</div>
 <div class="reserved_box_ads reserved_box_2_2 sticky">
 <div id='div-Right-MediumRectangle-3' style='width:300px; height:auto;min-height:250px;display:none'>
-	<script>
+    <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('div-Right-MediumRectangle-3'); });
+    </script>
+</div>
+
+    	<script>
     		function refreshBidRight() {
 				pbjs.que.push(function() {
 					pbjs.requestBids({
@@ -2279,7 +2284,7 @@ googletag.cmd.push(function() { googletag.display('div-Right-MediumRectangle-2')
 							pbjs.setTargetingForGPTAsync();
 							drmr3.setTargeting('reloaded','RightMediumRectangle-3');
 							googletag.pubads().refresh([drmr3]);
-							console.log("Refresh Bid Right-3 30s");	
+							console.log("Refresh Bid");	
 						}
 					});
 				});
@@ -2338,7 +2343,7 @@ googletag.cmd.push(function() { googletag.display('div-Right-MediumRectangle-2')
                 statClicked = true;
                 i++
                 //alert("clicked "+ i);
-                alert("clicked ");
+                //alert("clicked ");
                 console.log("Has been clicked Right-3");
                 window.focus();
                 checkRight();
@@ -2369,10 +2374,7 @@ googletag.cmd.push(function() { googletag.display('div-Right-MediumRectangle-2')
 			});
         */
     	</script>
-<script type='text/javascript'>
-googletag.cmd.push(function() { googletag.display('div-Right-MediumRectangle-3'); });
-</script>
-</div>
+    
 </div><script type="text/javascript">
 function moveScroller_boxright() {
     var moveright = function() {
