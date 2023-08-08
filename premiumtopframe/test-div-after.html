@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+    div {
+        width:100px;
+        height:100px;
+        margin:10px;
+        background:yellow;
+    }
+</style>
+</head>
+<body>
+    <h2>Append HTML after Div using JavaScript</h2>
+    <div id="myDiv"></div>
+    <br>
+    <button type="button" onclick="execute()">Click Me</button>
+    <script>
+    function execute(){
+        var anotherDiv = document.createElement('div');
+        
+        var element = document.getElementById('myDiv');
+        element.after(anotherDiv);
+    }
+    </script>
+</body>
+</html>
