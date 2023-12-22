@@ -1266,10 +1266,12 @@ $(document).ready(function(){$(window).scroll(function(){if($("#banner_status").
 
 <!-- DFP OSM Start -->
 <span id="wrap_lazy_div-gpt-ad-Zone_OSM" style="margin-top:-200px;position:absolute"></span>
-<div id="div-gpt-ad-Zone_OSM" style="width: 100%, max-height: 400px; text-align: center"></div>
+<div id="box-zone_osm" style="width: 100%; min-height: 250px; text-align: center; padding-bottom: 20px;">
+    <div id="div-gpt-ad-Zone_OSM"></div>
+</div>
 <script type="text/javascript">
-    LazyLoadOsm("div-gpt-ad-Zone_OSM", "/31800665/TribunnewsMobile/Otomotif", [[300,250], [1,1]], "zone_osm", "article", "zone_osm"); /** Init div-gpt-ad-Zone_OSM **/
-    function LazyLoadOsm(divGptSlot, adUnitName, sizeSlot, posName, pageName, posName_kg){
+    LazyLoadSlot("div-gpt-ad-Zone_OSM", "/31800665/TribunnewsMobile/Otomotif", [[300,250], [1,1]], "zone_osm", "article", "zone_osm"); /** Init div-gpt-ad-Zone_OSM **/
+    function LazyLoadSlot(divGptSlot, adUnitName, sizeSlot, posName, pageName, posName_kg){
         var observerAds = new IntersectionObserver(function(entires){
             entires.forEach(function(entry) {
                 if(entry.intersectionRatio > 0){
@@ -1287,6 +1289,7 @@ $(document).ready(function(){$(window).scroll(function(){if($("#banner_status").
             googletag.cmd.push(function() { 
                 var slotOsm = googletag.defineSlot(adUnitName, sizeSlot, divGptSlot)
                 .setTargeting('Pos',[posName])
+                .setTargeting('page', [pageName])
                 .setTargeting('kg_pos',[posName_kg])
                 .addService(googletag.pubads());
                 googletag.display(divGptSlot); 
@@ -1302,7 +1305,7 @@ $(document).ready(function(){$(window).scroll(function(){if($("#banner_status").
                 <span id="wrap_lazy_div-gpt-ad-Zone_test" style="margin-top:-200px;position:absolute"></span>
                 <div id="div-gpt-ad-Zone_test"></div>
                 <script type="text/javascript">
-                    LazyLoadOsm("div-gpt-ad-Zone_test", "/31800665/TribunnewsMobile/Otomotif", [[320,100],[320,50],[468,60]], "zone_osm", "article", "zone_osm"); 
+                    LazyLoadSlot("div-gpt-ad-Zone_test", "/31800665/TribunnewsMobile/Otomotif", [[320,100],[320,50],[468,60]], "zone_osm", "article", "zone_osm"); 
                 </script>  
                 -->
                 <!-- DFP TEST End -->
