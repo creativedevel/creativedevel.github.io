@@ -448,20 +448,20 @@ var PREBID_TIMEOUT = 1500,
             ],
         },
         {
-                code: "div-gpt-ad-Zone_OSM",
-                /* ortb2Imp: { ext: { gpid: "1000008-ybUwysXTdV", data: { pbadslot: "1000008-ybUwysXTdV" } } }, */
-                mediaTypes: {
-                    banner: {
-                        sizes: [
-                            [300, 250],
-                            [1, 1],
-                        ],
-                    },
+            code: "div-gpt-ad-Zone_OSM",
+            /* ortb2Imp: { ext: { gpid: "1000008-ybUwysXTdV", data: { pbadslot: "1000008-ybUwysXTdV" } } }, */
+            mediaTypes: {
+                banner: {
+                    sizes: [
+                        [300, 250],
+                        [1, 1],
+                    ],
                 },
-                bids: [
-                    { bidder: "teads", params: { placementId: 165952, pageId: 151713 } },
-                ],
             },
+            bids: [
+                { bidder: "teads", params: { placementId: 165952, pageId: 151713 } },
+            ],
+        },
     ],
     gptadslots = [],
     googletag = googletag || {};
@@ -3545,10 +3545,12 @@ function urlTitle(value){
             
 <!-- DFP OSM Start -->
 <span id="wrap_lazy_div-gpt-ad-Zone_OSM" style="margin-top:-200px;position:absolute"></span>
-<div id="div-gpt-ad-Zone_OSM" style="width: 100%, max-height: 400px; text-align: center"></div>
+<div id="box-zone_osm" style="width: 100%; min-height: 250px; text-align: center; padding-bottom: 20px;">
+    <div id="div-gpt-ad-Zone_OSM"></div>
+</div>
 <script type="text/javascript">
-    LazyLoadOsm("div-gpt-ad-Zone_OSM", "/31800665/KOMPAS.COM_Mobile_Web/news", [[300,250], [1,1]], "zone_osm", "article", "zone_osm"); /** Init div-gpt-ad-Zone_OSM **/
-    function LazyLoadOsm(divGptSlot, adUnitName, sizeSlot, posName, pageName, posName_kg){
+    LazyLoadSlot("div-gpt-ad-Zone_OSM", "/31800665/KOMPAS.COM_Mobile_Web/news", [[300,250], [1,1]], "zone_osm", "zone_osm"); /** Init div-gpt-ad-Zone_OSM **/
+    function LazyLoadSlot(divGptSlot, adUnitName, sizeSlot, posName, posName_kg){
         var observerAds = new IntersectionObserver(function(entires){
             entires.forEach(function(entry) {
                 if(entry.intersectionRatio > 0){
