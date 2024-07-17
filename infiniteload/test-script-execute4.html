@@ -1,0 +1,27 @@
+<div id="whatever"></div>
+
+<script>
+    function setAndExecute(divId, htmlel) {
+       var div = document.getElementById(divId);
+       div.innerHTML = htmlel;
+       var x = div.getElementsByTagName("script"); 
+       for( var i=0; i < x.length; i++) {
+         eval(x[i].text);
+       }
+    }
+
+
+    var theInnerHTML = '\
+        <div class="inhere-infinite-ads__number"></div> \
+        <script> \
+        var availPagesads__number = document.querySelector(".inhere-infinite-ads__number"); \
+        var infiniteImrDivads__number   = "<div></div>"; \
+        var wrapImrDivads__number           = document.createElement("div"); \
+        wrapImrDivads__number.id        ="wrap_insidemediumrectangle_ads__number"; \
+        wrapImrDivads__number.className ="reserved_box_ads reserved_box_2"; \
+        wrapImrDivads__number.innerHTML = infiniteImrDivads__number; \
+        availPagesads__number.after(wrapImrDivads__number) \
+        <\/script>';
+    var theID = "whatever";
+    setAndExecute(theID,theInnerHTML);
+</script>
