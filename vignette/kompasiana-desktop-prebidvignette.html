@@ -633,8 +633,34 @@ var PREBID_TIMEOUT = 2e3,
             },
             bids: [{ bidder: "teads", params: { placementId: 165898, pageId: 151659 } }],
         },
+        {
+            code: ["/31800665/KOMPASIANA.COM/olahraga/read/vignette"],
+            mediaTypes: {
+                banner: {
+                    sizes: [
+                        [300, 250],
+                        [320, 480],
+                        [336, 280],
+                    ],
+                }
+            },
+            ortb2Imp: {
+                instl:1
+            },
+            bids: [
+                { bidder: "triplelift", params: { inventoryCode: "kg_kompasasiana_desktop_article_imu_mid" } },
+                { bidder: "openx", params: { unit: "540800962", delDomain: "kompascybermedia-d.openx.net" } },
+                { bidder: "smartadserver", params: { networkId: "3727", siteId: "363586", pageId: "1293735", formatId: "93800", domain: "https://prg8.smartadserver.com" } },
+                { bidder: "teads", params: { placementId: 165898, pageId: 151659 } },
+                { bidder: "rubicon", params: { accountId: 11834, siteId: 434094, zoneId: 2484390 } },
+                { bidder: "rtbhouse", params: { region: "prebid-asia", publisherId: "0mFVRF3PIcI4RN9I4mxm" } },
+                { bidder: "jixie", params: { unit: "1000055-limofnZvc6" } },
+                { bidder: "gumgum", params: { zone: "mcxquxca", slot: 986581 } },
+                { bidder: "yandex", params: { pageId: 2392257, impId: 1, cur: "USD" } },
+            ],
+        },
     ],
-    
+    /*
     adUnitPaths = [
          {
             adUnitCodes: ["/31800665/KOMPASIANA.COM/olahraga/read/vignette"],
@@ -660,10 +686,10 @@ var PREBID_TIMEOUT = 2e3,
                 { bidder: "jixie", params: { unit: "1000055-limofnZvc6" } },
                 { bidder: "gumgum", params: { zone: "mcxquxca", slot: 986581 } },
                 { bidder: "yandex", params: { pageId: 2392257, impId: 1, cur: "USD" } },
-            ]
-        }
-    ]
-    
+            ],
+        },
+    ],
+    */
     gptadslots = [],
     googletag = googletag || {};
     (googletag.cmd = googletag.cmd || []),
@@ -693,8 +719,16 @@ var PREBID_TIMEOUT = 2e3,
                 currency: { adServerCurrency: "USD" },
             }),
             (pbjs.bidderSettings = { standard: { storageAllowed: !0 } }),
+            /*
+            pbjs.addAdUnits(
+                {deferBilling: true,
+                 adUnits,
+                }
+            ), 
+            */
             pbjs.addAdUnits(adUnits),
-            pbjs.addAdUnits(adUnitPaths),
+            //pbjs.triggerBilling(winningBidObjectToBill),
+            //pbjs.addAdUnits(adUnitPaths),
             pbjs.requestBids({ bidsBackHandler: initAdserver, timeout: PREBID_TIMEOUT });
     }),
     setTimeout(function () {
