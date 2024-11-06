@@ -1,0 +1,1368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Kompas.com - Berita Indonesia terkini terpercaya, dan terpopuler, politik, ekonomi, tekno, otomotif, dan olahraga ditulis lengkap dan akurat.">
+    <meta name="content_tags" content="" />
+    <meta name="author" content="Kompas Cyber Media">
+
+    <title>Kompas.com</title>
+    <link rel="shortcut icon" href="https://asset.kompas.com/data/2017/wp/images/favicon2017.ico">
+
+    <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOkCnqEu92Fr1Mu51xIIzIXKMny.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOjCnqEu92Fr1Mu51TzBic6CsTYl4BO.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.gstatic.com/s/robotocondensed/v17/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYb9lecyU.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.gstatic.com/s/robotocondensed/v17/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCQYbw.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <style>
+        @font-face {
+		  font-family: 'Roboto';
+		  font-display: swap;
+		  font-style: normal;
+		  font-weight: 400;
+		  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		@font-face {
+		  font-family: 'Roboto';
+		  font-display: swap;
+		  font-style: italic;
+		  font-weight: 400;
+		  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v19/KFOkCnqEu92Fr1Mu51xIIzIXKMny.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		@font-face {
+		  font-family: 'Roboto';
+		  font-display: swap;
+		  font-style: normal;
+		  font-weight: 500;
+		  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		@font-face {
+		  font-family: 'Roboto';
+		  font-display: swap;
+		  font-style: normal;
+		  font-weight: 700;
+		  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		@font-face {
+		  font-family: 'Roboto';
+		  font-display: swap;
+		  font-style: italic;
+		  font-weight: 700;
+		  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v19/KFOjCnqEu92Fr1Mu51TzBic6CsTYl4BO.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		
+		@font-face {
+		  font-family: 'Roboto Condensed';
+		  font-display: swap;
+		  font-style: normal;
+		  font-weight: 300;
+		  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(https://fonts.gstatic.com/s/robotocondensed/v17/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYb9lecyU.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		@font-face {
+		  font-family: 'Roboto Condensed';
+		  font-display: swap;
+		  font-style: normal;
+		  font-weight: 700;
+		  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(https://fonts.gstatic.com/s/robotocondensed/v17/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCQYbw.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+    </style>
+    
+    <link rel="stylesheet" href="https://asset.kompas.com/data/2023/05/19/amp/css/style-widget-rekomendasi.min.css">
+
+<script src="https://asset.kompas.com/data/2016/mobile/js/jquery-2.2.1.min.js"></script>
+
+    </head>
+
+<body>
+    <div class="wSpec-iframe">
+        <!-- Artikel Rekomendasi baru -->
+        <div id="rekomendasi-konten-pilihan-untukmu" class="wSpec -aiml -loading">
+            <a href="#" class="wSpec-secret" role="button">&nbsp;</a>
+            <h3 class="wSpec-lead">
+                Pilihan Untukmu
+                <!-- <div class="jixie__logo">
+                    <span>Powered by</span>
+                    <div class="jixie__logo__img">
+                        <img src="https://asset.kompas.com/data/2022/12/15/widget/logo-aireen.png" alt="AI Reen">
+                    </div>
+                </div> -->
+            </h3>
+            <div class="wSpec-list">
+            <!-- loader -->
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                            <div class="wSpec-item">
+                    <a href="#">
+                        <div class="wSpec-wrap">
+                            <div class="wSpec-img">
+                                <div class="wSpec-img-overlay">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="wSpec-box">
+                                <p class="wSpec-subtitle"></p>
+                                <h4 class="wSpec-title"></h4>
+                                <div class="wSpec-source"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                        </div>
+            
+            <!-- reaction modal -->
+		    <div class="modalContent reactionModal" data-modal-target="reaction-share">
+		        <div class="modalHeader">
+		            <div class="modalTitle"></div>
+		            <button class="button buttonDismiss modalDismiss" aria-label="Close" data-modal-button="dismiss">
+		                <span class="icoBase icoDismiss"></span>
+		            </button>
+		        </div>
+		        <div class="modalBody socmedModal">
+		            <div class="socmedTitle">Bagikan artikel ini melalui</div>
+		            <div class="socmedList">
+		                <a href="javascript:void(0)" onclick="shareSosmed.facebook(event)" class="button buttonFacebook socmedButton" aria-label="Share to Facebook">
+		                    <span class="icoSocmed icoFacebook"></span>
+		                    <span class="socmedTxt">Facebook</span>
+		                </a>
+		                <a href="javascript:void(0)" onclick="shareSosmed.twitter(event)" class="button buttonTwitter socmedButton" aria-label="Share to Twitter">
+		                    <span class="icoSocmed icoTwitter"></span>
+		                    <span class="socmedTxt">Twitter</span>
+		                </a>
+		                <a href="javascript:void(0)" onclick="shareSosmed.whatsapp(event)" class="button buttonWhatsapp socmedButton" aria-label="Share to Whatsapp">
+		                    <span class="icoSocmed icoWhatsapp"></span>
+		                    <span class="socmedTxt">Whatsapp</span>
+		                </a>
+		                <a href="javascript:void(0)" onclick="shareSosmed.line(event)" class="button buttonLine socmedButton" aria-label="Share to Line">
+		                    <span class="icoSocmed icoLine"></span>
+		                    <span class="socmedTxt">Line</span>
+		                </a>
+		                <a href="javascript:void(0)" onclick="shareSosmed.telegram(event)" class="button buttonTelegram socmedButton" aria-label="Share to Telegram">
+		                    <span class="icoSocmed icoTelegram"></span>
+		                    <span class="socmedTxt">Telegram</span>
+		                </a>
+		                <a href="javascript:void(0)" onclick="shareSosmed.customCopyLink(event)" class="button buttonCopyLink socmedButton" aria-label="Share to Copy Link" data-form="customCopyLinkUrl" data-copy="copy-url" data-title="URL Berhasil disalin">
+		                    <span class="icoSocmed icoCopyLink"></span>
+		                    <span class="socmedTxt">Copy Link</span>
+		                </a>
+		            </div>
+		            <input class="socmedSrc" type="text" id="copyLinkUrl" value="" style="display: none;">
+		        </div>
+		    </div>
+
+            <!-- reaction toast -->
+		    <div class="toast" data-toast="bottom">
+		        <div class="toastContent"></div>
+		        <a href="#" class="button buttonDismiss toastDismiss" aria-label="Dismiss" role="button"
+		            data-toast-button="dismiss" onclick="redirectToActivity(this)">Oke</a> 
+		    </div>
+        </div>
+    </div>
+
+    <!-- modals -->
+    <div id="kcm-modals">
+		<div class="modals__content"></div>
+	</div>
+
+    <script>
+        /*! lozad.js - v1.7.0 - 2018-11-08
+         * https://github.com/ApoorvSaxena/lozad.js
+         * Copyright (c) 2018 Apoorv Saxena; Licensed MIT */
+        ! function(t, e) {
+            "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : t.lozad = e()
+        }(this, function() {
+            "use strict";
+            var g = Object.assign || function(t) {
+                    for (var e = 1; e < arguments.length; e++) {
+                        var r = arguments[e];
+                        for (var o in r) Object.prototype.hasOwnProperty.call(r, o) && (t[o] = r[o])
+                    }
+                    return t
+                },
+                r = "undefined" != typeof document && document.documentMode,
+                l = {
+                    rootMargin: "0px",
+                    threshold: 0,
+                    load: function(t) {
+                        if ("picture" === t.nodeName.toLowerCase()) {
+                            var e = document.createElement("img");
+                            r && t.getAttribute("data-iesrc") && (e.src = t.getAttribute("data-iesrc")), t.getAttribute("data-alt") && (e.alt = t.getAttribute("data-alt")), t.appendChild(e)
+                        }
+                        t.getAttribute("data-src") && (t.src = t.getAttribute("data-src")), t.getAttribute("data-srcset") && t.setAttribute("srcset", t.getAttribute("data-srcset")), t.getAttribute("data-background-image") && (t.style.backgroundImage = "url('" + t.getAttribute("data-background-image") + "')"), t.getAttribute("data-toggle-class") && t.classList.toggle(t.getAttribute("data-toggle-class"))
+                    },
+                    loaded: function() {}
+                };
+            /**
+             * Detect IE browser
+             * @const {boolean}
+             * @private
+             */
+            function f(t) {
+                t.setAttribute("data-loaded", !0)
+            }
+            var b = function(t) {
+                return "true" === t.getAttribute("data-loaded")
+            };
+            return function() {
+                var r, o, a = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : ".lozad",
+                    t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {},
+                    e = g({}, l, t),
+                    n = e.root,
+                    i = e.rootMargin,
+                    d = e.threshold,
+                    u = e.load,
+                    c = e.loaded,
+                    s = void 0;
+                return window.IntersectionObserver && (s = new IntersectionObserver((r = u, o = c, function(t, e) {
+                    t.forEach(function(t) {
+                        (0 < t.intersectionRatio || t.isIntersecting) && (e.unobserve(t.target), b(t.target) || (r(t.target), f(t.target), o(t.target)))
+                    })
+                }), {
+                    root: n,
+                    rootMargin: i,
+                    threshold: d
+                })), {
+                    observe: function() {
+                        for (var t = function(t) {
+                                var e = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : document;
+                                return t instanceof Element ? [t] : t instanceof NodeList ? t : e.querySelectorAll(t)
+                            }(a, n), e = 0; e < t.length; e++) b(t[e]) || (s ? s.observe(t[e]) : (u(t[e]), f(t[e]), c(t[e])))
+                    },
+                    triggerLoad: function(t) {
+                        b(t) || (u(t), f(t), c(t))
+                    },
+                    observer: s
+                }
+            }
+        });
+    </script>
+    <script async>
+        console.log('show_rekomendasi_konten_pilihan_untukmu');
+
+        /**
+         * General Helper function with DOM elements creation
+         * @returns
+         */
+        function createElement(tag, id, defaultClass, customClasses, iHTML) {
+            var elm = document.createElement(tag);
+            if (id) elm.id = id;
+            if (defaultClass) elm.className = defaultClass;
+            if (customClasses && customClasses.length > 0) {
+                customClasses.forEach(function(cls) {
+                    elm.classList.add(cls);
+                });
+            }
+            if (iHTML) elm.innerHTML = iHTML;
+            return elm;
+        }
+
+        function createElementFromHTML(htmlString) {
+            var div = document.createElement('div');
+            div.innerHTML = htmlString.trim();
+
+            // Change this to div.childNodes to support multiple top-level nodes.
+            return div.firstChild;
+        }
+
+        /**
+         * General helper function
+         * @param {*} basicInfo (an obj containing client_id, sid, cohort, accountid, widget, pageurl
+         * whenever possible)
+         * needed by Jixie
+         *
+         * This function constructs the url to call the recommendation endpoint, fires the request
+         * returns a promise which should resolves to an array of objects
+         *
+         * Note we also call resolve in case of error. Just easier to report the error in the code that calls it
+         */
+        function fetchRecommendationsP(infoObj, jxUserInfo) {
+
+            let body = null;
+
+                            let s = '';
+                ["accountid", "pageurl", "widget_id", "type", "count"].forEach(function(pname) {
+                    if (infoObj[pname])
+                        s += (pname == "accountid" ? '?' : '&') + pname + '=' + encodeURIComponent(infoObj[pname]);
+                });
+                                    s += '&adpositions='+encodeURIComponent('2,4')
+                                let url = "https://recommendation.jixie.media/v1/recommendation" + s;
+            
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url);
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
+                        resolve(JSON.parse(xhr.response));
+                    } else if (this.readyState == 4 && this.status < 200 || this.status >= 300) {
+                        resolve(null);
+                    }
+                }
+                xhr.onerror = function() {
+                    resolve(null);
+                }
+                xhr.send(body);
+            });
+        }
+
+        /**
+         * General helper function
+         * @param {*} fileUrl string
+         * returns a promise which should resolves to true if all goes well
+         */
+        function fetchJSFileP(fileUrl) {
+            return new Promise(function(resolve, reject) {
+                var tag = document.createElement("script");
+                var fst = document.getElementsByTagName("script")[0];
+                fst.parentNode.insertBefore(tag, fst);
+                tag.onload = function() {
+                    resolve();
+                };
+                tag.src = fileUrl;
+            });
+        };
+
+        /**
+         * Click handler; A BOUND version is wired up to a particular DOM
+         * element as the click handler
+         * @param {*} url
+         * @param {*} pos
+         * @returns
+         */
+        function handleClick(jxRecHelper0, url, pos) {
+            /***
+             * JXRECSDK NOTES 5 of 5 calling
+             * Call clicked(pos) of helper object to report a click
+             * Here pos is the index of the item (starts from 1)
+             */
+            jxRecHelper0.clicked(pos); //we need the position of the item in the widget
+            return true;
+        }
+
+        const cssClasses = {
+            thumbnail_overlay_wrapper: 'wSpec-img-overlay',
+            thumbnail_wrapper: 'wSpec-img',
+            thumbnail: 'lozad',
+            category: 'wSpec-subtitle',
+            title: 'wSpec-title',
+            container: 'wSpec-list',
+            wrapper: 'wSpec-item',
+            wrapper_content: 'wSpec-wrap',
+            text_wrapper: 'wSpec-box',
+            source: 'wSpec-source'
+        };
+
+        function createDisplay(rand, container, resultObj, jxRecHelper) {
+            return new Promise(function(resolve, reject) {
+                let widgetWrapper = document.createElement('div');
+                widgetWrapper.classList.add(cssClasses.container); //OWN
+                container.appendChild(widgetWrapper);
+                let widgetItemArr = [];
+
+                var engine_info = '';
+                if(resultObj.options.group=='jm_kompas'){
+                    engine_info = '&engine=J';
+                }else if(resultObj.options.group=='kg_internal'){
+                    engine_info = '&engine=C';
+                }else{
+                    engine_info = '&engine=V';
+                }
+
+                try {
+                    var items = resultObj.items;
+                    if (items.length > 0) {
+                        let counterNews = 0;
+                        items.some(function(item, index) {
+
+                            // Menyisipkan iklan
+                            if (index == 5) {
+                                const range = document.createRange();
+                                    const fragment = range.createContextualFragment(`
+                                    <div class="ads-partner-wrap mgidaiml" style="height: 815px">
+                                        <!-- Start Recreativ -->
+                                        <div id="bn_QWUtu9bzR2"></div>
+                                        <!-- End Recreativ -->
+                                    </div>
+                                    <div class="gate-kgplus" amp-access="NOT noAds">
+                                    <span>Baca berita tanpa iklan. <a href="https://traid.jixie.io/sync/ck?desturl=https%3A%2F%2Fplus.kompas.com%2F%3Fsource%3DKompas.com%26medium%3Dbelowads%26campaign%3DBacaBeritaTanpaIklan&cid=3085&cpid=804">Gabung Kompas.com+</a>
+                                    </span>
+                                    </div>
+                                    `);
+                                    /**
+                                    const scriptElement = document.createElement('script');
+                                    scriptElement.src = 'https://jsc.mgid.com/p/r/premoderation.kompas.com.1341490.js';
+                                    scriptElement.async = true;
+                                    fragment.querySelector('#recreativ-widget').appendChild(scriptElement);
+                                    widgetWrapper.appendChild(fragment);
+                                    **/
+                                    var widgetAds = '\
+                                        \'use strict\';(function(C,b,m,r){function t(){b.removeEventListener("scroll",t);f()}function u(){p=new IntersectionObserver(a=>{a.forEach(n=>{n.isIntersecting&&(p.unobserve(n.target),f())})},{root:null,rootMargin:"400px 200px",threshold:0});p.observe(e)}function f(){(e=e||b.getElementById("bn_"+m))?(e.innerHTML="",e.id="bn_"+v,q={act:"init",id:m,rnd:v,ms:w},(d=b.getElementById("rcMain"))?c=d.contentWindow:D(),c.rcMain?c.postMessage(q,x):c.rcBuf.push(q)):g("!bn")}function E(a,n,F,y){function z(){var h=n.createElement("script");h.type="text/javascript";h.src=a;h.onerror=function(){k++;5>k?setTimeout(z,10):g(k+"!"+a)};h.onload=function(){y&&y();k&&g(k+"!"+a)};F.appendChild(h)}var k=0;z()}function D(){try{d=b.createElement("iframe"),d.style.setProperty("display","none","important"),d.id="rcMain",b.body.insertBefore(d,b.body.children[0]),c=d.contentWindow,l=c.document,l.open(),l.close(),A=l.body,Object.defineProperty(c,"rcBuf",{enumerable:!1,configurable:!1,writable:!1,value:[]}),E("https://go.rcvlink.com/static/main.js",l,A,function(){for(var a;c.rcBuf&&(a=c.rcBuf.shift());)c.postMessage(a,x)})}catch(a){B(a)}}function B(a){g(a.name+": "+a.message+"\t"+(a.stack?a.stack.replace(a.name+": "+a.message,""):""))}function g(a){console.error(a);(new Image).src="https://go.rcvlinks.com/err/?code="+m+"&ms="+((new Date).getTime()-w)+"&ver="+G+"&text="+encodeURIComponent(a)}try{var G="231101-0007",x=location.origin||location.protocol+"//"+location.hostname+(location.port?":"+location.port:""),e=b.getElementById("bn_"+m),v=Math.random().toString(36).substring(2,15),w=(new Date).getTime(),p,H=!("IntersectionObserver"in C),q,d,c,l,A;e?"scroll"==r?b.addEventListener("scroll",t):"lazy"==r?H?f():"loading"==b.readyState?b.addEventListener("DOMContentLoaded",u):u():f():"loading"==b.readyState?b.addEventListener("DOMContentLoaded",f):g("!bn")}catch(a){B(a)}})(window,document,"QWUtu9bzR2",""); \
+                                    ';
+                                    var containerScript = document.createElement('script');
+                                    containerScript.setAttribute('type', 'text/javascript');
+                                    containerScript.async = true;
+                                    fragment.querySelector('#bn_QWUtu9bzR2').appendChild(containerScript);
+                                    if( typeof containerScript.innerText == 'undefined') {
+                                        containerScript.textContent = widgetAds;
+                                    } 
+                                    else {
+                                        containerScript.innerText = widgetAds;
+                                    }
+                                    widgetWrapper.appendChild(fragment);
+                            }
+                                
+                            counterNews++;
+                            if (counterNews > 14) {
+                                return true;
+                            }
+                            let divid = `recItem-${rand}-${index}`;
+                            let objArr = {
+                                divid: divid,
+                                id: jxRecHelper.jxUrlCleaner(item.url),
+                                pos: index //starts from 0
+                            }
+
+                            if (typeof item.a !== "undefined") {
+                                objArr["algo"] = item.a;
+                            } 
+
+                            widgetItemArr.push(objArr);
+
+                            // checking query params in item.url
+                            var tracker_params = '?source=widgetML';
+                            var tempItemUrl = new URL(item.url)
+                            if (tempItemUrl.search) {
+                                tracker_params = tracker_params.replace('?', '&')
+                            }
+
+                            tracker_params = tracker_params + engine_info;
+
+                            /* note: We have this -rand- thing in the div id (this is just
+                             * because want the div id to be unique on the page as
+                             * in case more than 1 widget is embedded on the page) */
+                            var recItem = createElement('div', `recItem-${rand}-${index}`, null, [cssClasses.wrapper]);
+                            recItem.dataset.index = index;
+
+                            var recItemWrapperA = createElement('a', null, null, null);
+                            recItemWrapperA.setAttribute('href', item.url + tracker_params);
+                            recItemWrapperA.setAttribute('target', '_top');
+
+                            var recItemWrapper = createElement('div', null, null, [cssClasses.wrapper_content]);
+
+                            '<div class="wSpec-img-overlay"><img src="https://asset.kompas.com/data/logo/logokompas_white.png" alt="Logo Kompas.com"></div>'
+                            var imgWrapper = createElement('div', null, null, [cssClasses.thumbnail_wrapper]);
+                            var imgElm = createElement('img', null, null, [cssClasses.thumbnail]);
+                            imgElm.setAttribute('data-src', item.img);
+                            var imgOverlayWrapper = createElement('div', null, null, [cssClasses.thumbnail_overlay_wrapper]);
+                            var imgOverlay = createElement('img', null, null, null);
+                            imgOverlay.setAttribute('src', 'https://asset.kompas.com/data/logo/logokompas_white.png');
+                            imgOverlayWrapper.appendChild(imgOverlay);
+
+                            imgWrapper.appendChild(imgElm);
+                            imgWrapper.appendChild(imgOverlayWrapper);
+
+                            var itemCategory = ''
+                            if (item.hasOwnProperty('category')) {
+                                itemCategory = item.category
+                            }
+
+                                                            var categoryDiv = createElement('p', null, null, [cssClasses.category], itemCategory.toLowerCase().charAt(0).toUpperCase() + itemCategory.toLowerCase().slice(1));
+                                                        
+                            // ads
+                            if(
+                                (item.hasOwnProperty('category') && item.category == 'sponsored') // engine C
+                                || (item.hasOwnProperty('type') && item.type == 'ad') // engine V
+                                || (item.hasOwnProperty('section') && item.section == 'sponsored') // engine J
+                            ){
+                                var categoryDiv = createElement('p', null, null, ['wSpec-tag'], 'Sponsored');
+                            }else{
+                                recItem.dataset.url = item.url;
+                                // options
+                                var buttonOption = createElementFromHTML(`
+                                    <button class="button buttonMeatball" aria-label="Article Setting" data-dropdown="option"><span class="icoMeatball"></span></button>
+                                `);
+
+                                // reaction popup meatball
+                                var reactionPopup = createElementFromHTML(`
+                                    <div class="listPop">
+                                        <div class="listPop__item">
+                                            <button class="button buttonShare listPop__button">
+                                                <span class="icoBase icoShare"></span>
+                                                Bagikan artikel
+                                            </button>
+                                        </div>
+                                        <div class="listPop__item">
+                                            <button class="button buttonBookmark listPop__button" aria-label="Bookmark Article">
+                                                <span class="icoBase icoBookmark"></span>
+                                                Simpan artikel
+                                            </button>
+                                        </div>
+                                        <div class="listPop__item">
+                                            <button class="button buttonNotInterest listPop__button">
+                                                <span class="icoBase icoStop"></span>
+                                                Tidak tertarik
+                                            </button>
+                                        </div>
+                                        <div class="listPop__item">
+                                            <button class="button listPop__button">
+                                                <span class="icoBase icoClose"></span>
+                                                Tutup
+                                            </button>
+                                        </div>
+                                    </div>
+                                `)
+                                
+                                var wSpecStop = createElementFromHTML(`
+                                    <div class="wSpec-stop">
+                                        Konten disembunyikan.<br>
+                                        Muat ulang halaman untuk perbarui rekomendasi.
+                                        <button class="button wSpec-stop-undo">Urungkan</button>
+                                    </div>
+                                `);
+
+                                reactionPopup.querySelector('.buttonShare').dataset.title = item.title
+                                reactionPopup.querySelector('.buttonShare').dataset.url = item.url
+
+                                const userFeedback = new UserFeedback(resultObj.tracker_algsrc, item.url + tracker_params, jxRecHelper, index)
+
+                                // bookmark
+                                reactionPopup.querySelector('.buttonBookmark').addEventListener('click', function(elem) {
+                                    doBookmark(item.url, index, userFeedback, elem)
+                                })
+
+                                // share sosmed
+                                reactionPopup.querySelector('.buttonShare').addEventListener('click', function(elem) {
+                                    const socmedList = document.querySelector('.socmedList');
+                                    if (!!socmedList) {
+                                        socmedList.dataset.url = item.url + tracker_params;
+                                        socmedList.dataset.title = item.title;
+                                        openModal(elem.target, 'reaction-share')
+                                        userFeedback.event('share');
+                                    }
+                                });
+
+                                // not interest
+                                reactionPopup.querySelector('.buttonNotInterest').addEventListener('click', function() {
+                                    if (getCookie('kmps_usrid')) {
+                                        hideThisArt(this);
+                                        userFeedback.event('not-interested');
+                                    } else {
+                                        const parentAction = this.parentElement.parentElement.parentElement
+                                        if (!!parentAction) {
+                                            let indexElement = parentAction.getAttribute('data-index')
+                                            if (indexElement != 'undefined') {
+                                                localStorage.setItem('reaction_not_interest_temp', JSON.stringify({
+                                                    urlpage: items[indexElement].url
+                                                }))
+                                            }                                            
+                                        }
+                                        window.parent.location.href = "https://account.kompas.com/login/a29tcGFz/" + btoa(window.parent.location.href);
+                                    }
+                                });
+
+                                /**
+                                 *  trigger action "userFeedback" that user not interest item before, 
+                                 *  when not interest without login
+                                 */
+                                if (getCookie('kmps_usrid') && localStorage.getItem('reaction_not_interest_temp')) {
+                                    const tempUrlNotInterest = JSON.parse(localStorage.getItem('reaction_not_interest_temp')) 
+                                    if (item.url == tempUrlNotInterest.urlpage) {
+                                        userFeedback.event('not-interested');
+                                        localStorage.removeItem('reaction_not_interest_temp');
+                                    }
+                                }
+
+                                // urungkan
+                                wSpecStop.querySelector('.wSpec-stop-undo').addEventListener('click', function() {
+                                    showThisArt(this);
+                                    userFeedback.event('un-not-interested');
+                                });
+
+                                recItem.appendChild(buttonOption);
+                                recItem.appendChild(reactionPopup);
+                                recItem.appendChild(wSpecStop);
+                            }
+
+                            var titleDiv = createElement('h4', null, null, [cssClasses.title], item.title);
+                            
+                            var sourceDiv = null;
+                            if(item.hasOwnProperty('method')){
+                                sourceDiv = createElement('div', null, null, [cssClasses.source], 'API-1 . '+item.method.toUpperCase());   
+                            }else{
+                                var sourceDiv = createElement('div', null, null, [cssClasses.source], 'API-1');
+                            }
+
+                            var textWrapper = createElement('div', null, null, [cssClasses.text_wrapper]);
+                            textWrapper.appendChild(categoryDiv);
+                            textWrapper.appendChild(titleDiv);
+                            textWrapper.appendChild(sourceDiv);
+
+                            recItemWrapper.appendChild(imgWrapper);
+                            recItemWrapper.appendChild(textWrapper);
+
+                            recItemWrapperA.appendChild(recItemWrapper);
+                            recItem.appendChild(recItemWrapperA);
+
+                            widgetWrapper.appendChild(recItem);
+                            // hook up the click handler for this item
+                            recItemWrapperA.onclick = handleClick.bind(null, jxRecHelper, item.url + tracker_params, index);
+                        });
+                        resolve();
+
+                        /***
+                         * JXRECSDK NOTES 3 of 5 -
+                         * pass all the info about the items to the rec helper
+                         * each one is an object: ALL MANDATORY
+                         *  div
+                         *  id
+                         *  pos
+                         */
+                        jxRecHelper.items(widgetItemArr);
+                        /***
+                         * JXRECSDK NOTES 4 of 5 -
+                         * Call the ready() of the helper object when the recommendation
+                         * results have been populated to the widget
+                         * (This will register the action=ready event)
+                         */
+                                                    jxRecHelper.ready(resultObj.options.system);
+                        
+                    } else {
+                        jxRecHelper.error(204);
+                        console.error("Error: no recommendation items");
+                        return;
+                    }
+                } catch (err) {
+                    jxRecHelper.error(901);
+                    console.log(err.stack);
+                }
+            });
+        }
+
+        const _jxRecSdkURL = 'https://scripts.jixie.media/jxrecsdk.1.0.min.js';
+
+        class OneWidget {
+            constructor(options) {
+                //this is also the one we will pass to the JX rec helper object when
+                //we instantiate it:
+                //In this implementation most of these come from the options obj
+                //on the publisher page.
+                this._options = {
+                    accountid : options.accountid,
+                    pageurl: options.pageurl,
+                    widget_id: options.widgetid,
+                    system: options.system,
+                    container: options.container,
+                    keywords: options.keywords,
+                    title: options.title,
+                    type: options.type,                    
+                    customid: options.customid,
+                    count: options.count
+                };
+                this._containerId = this._options.container;
+                this._container = document.getElementById(this._containerId);
+                this._tracker_algsrc = 'V'
+            }
+            kickOff() {
+                const rand = Math.floor(Math.random() * 1000);
+                let promJXSDK = fetchJSFileP(_jxRecSdkURL);
+                let thisObj = this;
+
+                // first we wait on the JX REC SDK to be loaded and initialized
+                let recHelperObj = null;
+                let recResults = null;
+                promJXSDK
+                    .then(function() {
+                        /***
+                         * JXRECSDK NOTES 1 of 5 - INSTANTIATION OF A JX REC HELPER OBJECT
+                         * Call this AFTER JX REC SDK is loaded but BEFORE you call your REC
+                         * backend.
+                         *
+                         * param: MANDATORY options object
+                         * options object must at a minimal have
+                         *    accountid: get from jixie
+                         *    widgetid: get from jixie
+                         *    container: DIV ID of the destination div to house the widget
+                         * (for jixie widget this is just the options object passed from the page) 
+                         * 
+                         * (This will also register the action=load event)
+                         */
+                        recHelperObj = jxRecMgr.createJxRecHelper(thisObj._options);
+
+                        let basicInfo = thisObj._options;
+
+                                                    var options = {
+                                count: 14,
+                                adpositions: '2,4',
+                                keywords: "Farhat Abbas, Denny Sumargo",
+                                title: "Setelah Rumahnya Didatangi, Farhat Abbas Klarifikasi Ancam Hajar Denny Sumargo ",
+                                date_published: '2024-11-04',
+                                pagecategory: 'Hype',
+                                algo: 'mixed'
+                            };
+
+                            if(getCookie('kmps_usrid')){
+
+                                var page_status = "read";
+                                var excludeitemids = "20241104112030866";
+
+                                var kg = {
+                                    pagetype:page_status,
+                                    uid:getCookie('kmps_usrid'),
+                                    ukid:getCookie('kmp_uid')
+                                }
+
+                                if(page_status=='read'){
+                                    kg['excludeitemids'] = excludeitemids;
+                                }
+
+                                options['additional'] = {
+                                    kg:kg
+                                };
+                            }
+                            return recHelperObj.getJxRecommendations(options);
+                                            })
+                    .then(function(resp) {
+                                                    recResults = resp;
+                        
+                        var algsrc = '';
+                        if(recResults.options.group=='jm_kompas'){
+                            algsrc = 'J';
+                        }else if(recResults.options.group=='kg_internal'){
+                            algsrc = 'C';
+                        }else{
+                            algsrc = 'V';
+                        }
+
+                        recResults.tracker_algsrc = algsrc
+
+                        if (!resp || !recResults.items || recResults.items.length == 0) {
+                            /***
+                             * JXRECSDK NOTES 2 of 5 -
+                             * Call the error() function on the recHelper when either an error
+                             * has occured in the fetching or there are no recommended items
+                             *
+                             * (This will register the action=error event)
+                             */
+                            recHelperObj.error(204);
+                            throw "no recommendation results";
+                        }
+                    })
+                    .then(function() {
+                        document.getElementById("rekomendasi-konten-pilihan-untukmu").classList.remove("-loading");
+                        document.querySelector('.wSpec-list').innerHTML = '';
+
+                        // everything is ready (recommendation results, css):
+                        createDisplay(rand, thisObj._container, recResults, recHelperObj)
+                            .then(function() {
+                                //observe lozad
+                                lozad('.lozad', {
+                                    load: function(el) {
+                                        el.src = el.dataset.src;
+                                        el.onload = function() {
+                                            el.classList.add('fade')
+                                        }
+                                    }
+                                }).observe()
+
+                                toggleMeatBall();
+                            })
+                    })
+                    .catch(function(error) {
+                        console.log(`Unable to create recommendations widget ${error.stack} ${error.message}`);
+                    });
+            }
+        }
+
+        // create a new instance of our widget based on the options
+        function start_(options) {
+            const newW = new OneWidget(options);
+            newW.kickOff();
+        }
+
+        // Ensure people using the widget can 
+        // trigger it without worrying whether the script is loaded or not:
+        var JxEventsQ = function() {
+            this.push = function() {
+                for (var i = 0; i < arguments.length; i++) {
+                    try {
+                        start_(arguments[i]);
+                    } catch (e) {}
+                }
+            }
+        };
+        var ourSigQ = '_jxrwidget';
+        var _old_eventsq = window[ourSigQ];
+        window[ourSigQ] = new JxEventsQ();
+        if (_old_eventsq) {
+            window[ourSigQ].push.apply(window[ourSigQ], _old_eventsq);
+        }
+
+        window._jxrwidget.push({
+            'accountid': '9262bf2590d558736cac4fff7978fcb1', 
+            'container': 'rekomendasi-konten-pilihan-untukmu',
+            'widgetid': '1000183-6xWeiWZFIM',
+            'title': "Setelah Rumahnya Didatangi, Farhat Abbas Klarifikasi Ancam Hajar Denny Sumargo ",
+            'pageurl': 'https://amp.kompas.com/hype/read/2024/11/04/112030866/setelah-rumahnya-didatangi-farhat-abbas-klarifikasi-ancam-hajar-denny',
+            'keywords': "Farhat Abbas, Denny Sumargo",
+            'system': 'jx',
+            'type': 'pages',
+            'customid': '66',
+            'count': 14
+        });
+
+        function getCookie(name) {
+            const cookieString = "; " + window.document.cookie;
+            const cookieValue = cookieString.split("; " + name + "=").pop().split(";").shift();
+            return cookieValue || "";
+        }
+
+        document.querySelector('.wSpec-secret').addEventListener('click', function(e) {
+            e.preventDefault();
+            let wSl = document.querySelectorAll('.wSpec-source');
+            if (wSl.length > 0) {
+                for (let i = 0; i < wSl.length; i++) {
+                    wSl[i].classList.toggle('show')
+                }
+            }
+        })
+
+        class UserFeedback {
+            constructor(engine, pageurl, jxRecHelper, pos) {
+                this.engine = engine;
+                this.pageurl = pageurl;
+                this.jxRecHelper = jxRecHelper;
+                this.pos = pos;
+            }
+
+            async event(feedback) {
+                if (this.engine == 'C') {
+                    let payload = {
+                        domain: 'kompas.com',
+                        ce_userid: getCookie('kmps_usrid'),
+                        ce_sessionid: getCookie('ukid'),
+                        ce_pageurl: this.pageurl,
+                        engine: 'C',
+                        ce_feedback: feedback
+                    }
+                    try {
+                        const response = await fetch(`https://apis.kgdata.dev/v1/aiml/feedback-widgetml?${genQueryString(payload)}`);
+                        const data = await response.json();
+                    } catch (error) {
+                        console.error('Gagal store feedback engine C', error)
+                    }
+                } else if (this.engine == 'V') {
+                    switch(feedback) {
+                        case 'share': 
+                            this.jxRecHelper.shared(this.pos);
+                            break;
+                        case 'save':
+                            this.jxRecHelper.bookmarked(this.pos);
+                            break;
+                        case 'not-interested':
+                            this.jxRecHelper.hidden(this.pos);
+                            break;
+                        case 'un-not-interested':
+                            this.jxRecHelper.unhidden(this.pos);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        class Reaction {
+            apiUrl = `https://api.kompas.com/2021/reaction`;
+            constructor(pageUrl, kmps_usrid) {
+                this.guid = this.genGuid(pageUrl);
+                this.kmps_usrid = kmps_usrid;
+            }
+
+            async checkBookmark() {
+                try {
+                    const response = await fetch(`${this.apiUrl}/bookmark/list?kmps_usrid=${this.kmps_usrid}&guid=${this.guid}`);
+                    const data = await response.json();
+                    if (data.status) {
+                        return data;
+                    }
+                } catch (error) {
+                    console.error('Gagal check bookmark', error);
+                }
+            }
+
+            async setBookmark() {
+                try {
+                    const options = {
+                        method: "POST",
+                        body: genFormdata({
+                            guid: this.guid,
+                            kmps_usrid: this.kmps_usrid,
+                            type: 'article',
+                            publisher: 'kompas',
+                            platform: 'mobile'
+                        }),
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+                        }
+                    }
+                    const response = await fetch(`${this.apiUrl}/bookmark/add`, options);
+                    const data = response.json();
+                    if (data.status) {
+                        return data;
+                    }
+                } catch (error) {
+                    console.error('Gagal set bookmark', error)
+                }
+            }
+
+            async unBookmark() {
+                try {
+                    const options = {
+                        method: "POST",
+                        body: genFormdata({
+                            guid: this.guid,
+                            kmps_usrid: this.kmps_usrid,
+                            type: 'article'
+                        }),
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+                        }
+                    }
+                    const response = await fetch(`${this.apiUrl}/bookmark/delete`, options);
+                    const data = response.json();
+                    if (data.status) {
+                        return data;
+                    }
+                } catch (error) {
+                    console.error('Gagal unbookmark', error)
+                }
+            }
+
+            genGuid(pageUrl) {
+                let arrayUrl = pageUrl.split('/');
+                let readPath = arrayUrl.indexOf('read');
+                if (arrayUrl[readPath + 1] == 'xml') {
+                    readPath += 1;
+                }
+                let year = arrayUrl[readPath + 1];
+                let month = arrayUrl[readPath + 2];
+                let date = arrayUrl[readPath + 3];
+                let id = arrayUrl[readPath + 4];
+                let guid = `.xml.${year}.${month}.${date}.${id}`;
+                return guid;
+            }
+        }
+
+        function genFormdata(params) {
+            const formData = new URLSearchParams();
+            for (const key in params) {
+                formData.append(key, params[key]);
+            }
+            return formData.toString();
+        }
+
+        function genQueryString(params) {
+            return Object.keys(params)
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+                .join('&');
+        }
+
+        function doBookmark(pageUrl, pos, userFeedback, elem) {
+            const wSpecItem = document.querySelector(`.wSpec-item[data-index="${pos}"]`);
+            const btnBookmark = wSpecItem.querySelector('.buttonBookmark');
+            const kmps_usrid = getCookie('kmps_usrid');
+
+            if (kmps_usrid) {
+                const reaction = new Reaction(pageUrl, kmps_usrid)
+                if (btnBookmark.classList.contains('-active')) {
+                    reaction.unBookmark().then(function(response) {
+                        btnBookmark.classList.remove('-active');
+                        btnBookmark.innerHTML = '<span class="icoBase icoBookmark"></span>Simpan artikel';
+                        customReactionToast(elem.target, 'Artikel dihapus dari list yang disimpan');
+                        userFeedback.event('un-save');
+                    }).catch(function(response) {
+                        // message: "Data doesn't exists"
+                        if (response.hasOwnProperty('message') && response.message.includes('exist')) {
+                            btnBookmark.classList.remove('-active');
+                            btnBookmark.innerHTML = '<span class="icoBase icoBookmark"></span>Simpan artikel';
+                            customReactionToast(elem.target, 'Artikel dihapus dari list yang disimpan');
+                        }
+                    })
+                } else {
+                    const user_bookmark_url = "https://activity.kompas.com/saved?order=desc";
+                    reaction.setBookmark().then(function(response) {
+                        btnBookmark.classList.add('-active');
+                        btnBookmark.innerHTML = '<span class="icoBase icoBookmark"></span>Hapus dari tersimpan';
+                        customReactionToast(elem.target, 'Artikel berhasil disimpan', user_bookmark_url);
+                        userFeedback.event('save');
+                    }).catch(function(response) {
+                        // message: "Data already exist"
+                        if (response.hasOwnProperty('message') && response.message.includes('exist')) {
+                            btnBookmark.classList.add('-active');
+                            btnBookmark.innerHTML = '<span class="icoBase icoBookmark"></span>Hapus dari tersimpan';
+                            customReactionToast(elem.target, 'Artikel berhasil disimpan', user_bookmark_url);
+                        }
+                    })
+                }
+            } else {
+                const login_url = "https://account.kompas.com/login/a29tcGFz/" + btoa(window.parent.location.href);
+                window.parent.location.href = login_url;
+            }
+        }
+
+        function toggleMeatBall() {
+            let tdd = document.querySelectorAll('[data-dropdown]')
+            if(!!tdd) {
+                tdd.forEach((el) => {
+                    el.addEventListener('click', function(){
+                        let wi = document.querySelectorAll('.wSpec-item')
+                        wi.forEach(function(item){
+                            item.classList.remove('-active')
+                            item.classList.remove('-modal')
+                        })
+                        el.parentElement.classList.toggle('-active')
+
+                        let saved = el.parentElement.getAttribute('data-saved')
+                        let kmps_usrid = getCookie('kmps_usrid');
+
+                        if (kmps_usrid && !saved && el.parentElement.classList.contains('-active')) {
+                            let pageUrl = el.parentElement.getAttribute('data-url');
+                            const reaction = new Reaction(pageUrl, kmps_usrid);
+                            reaction.checkBookmark().then(function(response) {
+                                if (response.hasOwnProperty('total_data')) {
+                                    if (response.total_data > 0) {
+                                        el.parentElement.querySelector('.buttonBookmark').classList.add('-active');
+                                        el.parentElement.querySelector('.buttonBookmark').innerHTML = '<span class="icoBase icoBookmark"></span>Hapus dari tersimpan';
+                                        el.parentElement.setAttribute('data-saved', 'true');
+                                    } else {
+                                        el.parentElement.setAttribute('data-saved', 'false')
+                                    }
+                                }
+                            });
+                        }
+                    })
+                    document.addEventListener("click", function(e){
+                        // console.log(e.target)
+                        if(el.contains(e.target)) {
+                            // console.log(tdd)
+                        } else {
+                            el.parentElement.classList.remove('-active')
+                        }
+                    });
+                });
+            }
+        }
+
+        function customReactionToast(target, msg, link) {
+            let mdl = target.closest('.wSpec-item');
+            if (!!mdl) {
+                let ts = document.querySelector('[data-toast]')
+                if (ts) {
+                    ts.firstElementChild.innerHTML = msg
+                    ts.classList.remove('-hide')
+                    ts.classList.add('-show')
+                    let tsk = ts.getElementsByTagName('a')[0]
+                    let sec
+                    if (tsk) {
+                        if (link) {
+                            sec = 15 // 3 sec
+                            tsk.innerHTML = 'Lihat'
+                            tsk.href = link
+                        } else {
+                            sec = 15 // 3 sec
+                            tsk.innerHTML = 'Oke'
+                            tsk.href = 'javascript:void(0)'
+                        }
+                        // tsk.addEventListener('click', function (e) {
+                        //     e.preventDefault()
+                        //     if(link) {
+                        //         window.parent.location.href = link
+                        //     } else {
+                        //         ts.classList.add('-hide')
+                        //     }
+                        // })
+                    }
+                    
+                    let ox = ts.cloneNode(true);
+                    mdl.appendChild(ox);
+                    mdl.classList.add('-toast')
+
+                    reactionAutoDismiss(ox, sec)
+                } else {
+                    console.log('unknown toast target');
+                    return;
+                }
+            }
+        }
+
+        function redirectToActivity(e) {
+            let ts = document.querySelector('[data-toast]')
+            if(e.href.indexOf('https://activity.kompas.com/') > -1) {
+                window.open(e.href, '_parent')
+            } else {
+                ts.classList.add('-hide')
+            }
+        }
+
+        var shareSosmed = {
+            getTitle(e) {
+                return encodeURIComponent(e.target.parentNode.dataset.title);
+            },
+            getUrlPage(e, p = '') {
+                return encodeURIComponent(e.target.parentNode.dataset.url);
+            },
+            facebook(e) {
+                window.open(`https://www.facebook.com/sharer.php?u=${this.getUrlPage(e, 'Facebook')}&t=${this.getTitle(e)}`);
+            },
+            twitter(e) {
+                window.open(`https://twitter.com/intent/tweet?text=${this.getTitle(e)}%0D%0A%0D%0AKlik untuk baca:%0D%0A${this.getUrlPage(e, 'Twitter')}&url=${this.getUrlPage(e, 'Twitter')}%0D%0A%0D%0AKompascom+ baca berita tanpa iklan: https://kmp.im/plus2%0D%0ADownload aplikasi: https://kmp.im/app2`);
+            },
+            whatsapp(e) {
+                window.open(`https://wa.me/?text=*${this.getTitle(e)}*%0D%0A%0D%0AKlik untuk baca:%0D%0A${this.getUrlPage(e, 'Whatsapp')}%0D%0A%0D%0AKompascom+ baca berita tanpa iklan: https://kmp.im/plus3%0D%0ADownload aplikasi: https://kmp.im/app3`);
+            },
+            line(e) {
+                window.open(`https://line.me/R/msg/text/?${this.getTitle(e)}%0D%0A%0D%0AKlik untuk baca:%0D%0A${this.getUrlPage(e, 'Line')}%0D%0A%0D%0AKompascom+ baca berita tanpa iklan: https://kmp.im/plus4%0D%0ADownload aplikasi: https://kmp.im/app4`);
+            },
+            telegram(e) {
+                window.open(`https://telegram.me/share/url?url=${this.getUrlPage(e, 'Telegram')}&text=${this.getTitle(e)}%0D%0A%0D%0AKlik untuk baca:%0D%0A${this.getUrlPage(e, 'Telegram')}%0D%0A%0D%0AKompascom+ baca berita tanpa iklan: https://kmp.im/plus5%0D%0ADownload aplikasi: https://kmp.im/app5`);
+            },
+            async customCopyLink(e) {  
+                try {
+                    const permissionStatus = await navigator.permissions.query({ name: 'clipboard-write' });
+                    if (permissionStatus.state == 'granted' || permissionStatus.state == 'prompt') {
+                        await navigator.clipboard.writeText(e.target.parentNode.dataset.url);
+
+                        e.target.classList.add('-tooltip');
+                        setTimeout(function() {
+                            e.target.classList.remove('-tooltip');
+                        }, 1500);
+                    } else {
+                        console.error('Akses ke clipboard tidak diizinkan');
+                    }
+                } catch (error) {
+                    console.error('Gagal menyalin teks ke clipboard:', error);
+                }
+            }
+        }
+    </script>
+    <script src="https://asset.kompas.com/data/2023/05/19/amp/js/main-amp-aiml.min.js"></script>
+</body>
+
+</html> 
