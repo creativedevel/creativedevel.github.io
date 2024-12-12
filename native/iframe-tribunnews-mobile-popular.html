@@ -1,0 +1,61 @@
+<!-- OOP Tribunnews_Native Ads - Feed - Latest / Populer Mobile web -->
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+<style>
+* {padding:0;margin:0}
+body{font-family: 'Open Sans', sans-serif;}
+a{text-decoration:none}
+a:hover {text-decoration:underline}
+.box {;height:90px;overflow:hidden}
+.boximg {float:right;margin-left:10px;width:90px;height:90px;overflow:hidden }
+.boximg a {display: block;width: 1000px;margin-left: -450px;}
+.boximg  img {display: block;width:auto;height:90;margin: 0px auto;}
+.boxtitle {text-align:left}
+.title {text-align:left;font-size:16px;font-weight:600;line-height:20px;max-height:62px;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;text-overflow:ellipsis;-webkit-line-clamp:3;}
+.title a{color:#016fba}
+.foot {text-align:left;color:#999; font-size:12px;font-weight:700;margin-top:5px}
+</style>
+<div class="box">
+	<div class="boximg">
+		<a href="https://m.tribunnews.com" target="_blank">
+			<img src="https://asset-2.tstatic.net/tribunnews/foto/bank/thumbnails2/kongo-penyakiy-787.jpg" height="90" width="90" alt="Advertorial" />
+		</a>
+	</div>
+	<div class="boxtitle">
+		<div class="title"><a href="https://m.tribunnews.com" target="_blank">Seperti Angan yang Tak Pernah Tersampaikan, Itulah Kisahnya!</a></div>
+		<div class="foot fbo2">Sponsored</div>
+	</div>
+    <div id="dfp-beacon-%%CACHEBUSTER%%" class="dfp-beacon-native">
+        <img src="%%VIEW_URL_UNESC%%https://cdn-3.tstatic.net/ads/pixel.png" width="0" border="0" height="0" style="display:none; visibility:hidden;">
+    </div>
+</div>
+<script type="text/javascript">
+var trackerUrl = '';
+var trackerIframe = '';
+if(trackerUrl) {
+document.write('<div style="position:absolute;top:0px;right:0px;width:1px;height:1px;visibility:hidden;border:none;"><iframe src="[%ThirdpartyImpressionTracker%]" height="1" width="1" style="width:1px !important;height 1px !important"></iframe></div>');
+}
+</script>
+
+<script>
+    //Tweaking parent iframe
+    var iframeEl             = window.frameElement;
+  	var iframeParentEl       = iframeEl.parentElement;
+    var divPar               = iframeParentEl.parentElement;
+    iframeEl.style.width = "100%";
+    iframeEl.style.height = "90px";
+    iframeEl.style.backgroundColor = "#fff";
+  	iframeEl.style.maxWidth = "100%";
+  	divPar.style.maxWidth = "100%";
+  	iframeParentEl.style.maxWidth = "100%";
+
+    if (window.parent.document.querySelector("#latestul .art-list.pos_rel")) {
+        var elBlock = iframeEl.parentElement.parentElement.parentElement.parentElement;
+        elBlock.style.display = "block";
+        console.log("Class ADA : m.tribunnews.com");
+    }
+    else {
+        var elBlock = iframeEl.parentElement.parentElement.parentElement;
+        console.log("Class ADA : non m.tribunnews.com");
+    }
+</script>
