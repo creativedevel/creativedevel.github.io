@@ -5406,25 +5406,26 @@ if(document.cookie.indexOf('ukid=') == -1){
     </div>
     <div class="modal-sa-body">
         <p>Advertisement</p>
-        <div id="div-gpt-ad-Popup-Showall">
-            <script type="text/javascript">
-                LazyLoadSlotPopup('div-gpt-ad-Popup-Showall', '/31800665/KOMPAS.COM_Mobile_Web/tren', [[300, 250],[320, 480],[336, 280],[1, 1]], "popup_showall", "popup_showall"); 
-                function LazyLoadSlotPopup(divGptSlot, adUnitName, sizeSlot, posName, posName_kg) {
-                    var observerAdsPopup = new IntersectionObserver(function(entires) {
-                      entires.forEach(function(entry) {
+        <div id="div-gpt-ad-Popup-Showall"></div>
+        <script type="text/javascript">
+            LazyLoadSlotPopup('div-gpt-ad-Popup-Showall', '/31800665/KOMPAS.COM_Mobile_Web/tren', [[300, 250],[320, 480],[336, 280],[1, 1]], "popup_showall", "popup_showall"); 
+            function LazyLoadSlotPopup(divGptSlot, adUnitName, sizeSlot, posName, posName_kg) {
+                var observerAdsPopup = new IntersectionObserver(function(entires) {
+                    entires.forEach(function(entry) {
                         if (entry.intersectionRatio > 0) {
-                          showAdsPopup(entry.target)}
-                      });
-                    }, {
-                      threshold: 0
+                            showAdsPopup(entry.target)
+                        }
                     });
-                    observerAdsPopup.observe(document.querySelector('.modal-showall'));
+                }, {
+                    threshold: 0
+                });
+                observerAdsPopup.observe(document.querySelector('.modal-showall'));
 
-                    function showAdsPopup(element) {
-                      console.log('show_ads popup : ' + divGptSlotbb);
-                      observerAdsPopup.unobserve(element);
-                      observerAdsPopup.disconnect();
-                      googletag.cmd.push(function() {
+                function showAdsPopup(element) {
+                    console.log('show_ads popup : ' + divGptSlot);
+                    observerAdsPopup.unobserve(element);
+                    observerAdsPopup.disconnect();
+                    googletag.cmd.push(function() {
                         var slotPopup = googletag.defineSlot(adUnitName, sizeSlot, divGptSlot).setTargeting('Pos', [posName]).setTargeting('kg_pos', [posName_kg]).addService(googletag.pubads());
                         googletag.display(divGptSlot);
                         googletag.pubads().refresh([slotPopup]);
@@ -5441,46 +5442,24 @@ if(document.cookie.indexOf('ukid=') == -1){
                         ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="320" height="480" alt="icon"/></a>';
                     }
                     showModalAd();
-                }, 2000);
+                }, 3000);
+                
+                const confirmGoToLink = document.querySelector('.close-modal-sa-x');
+                confirmGoToLink.addEventListener('click', closeModalAd);
+
+                function showModalAd(){
+                  var modal = document.querySelector('.modal-showall');
+                  modal.classList.add('visible-modal-sa');
+                }
+
+                function closeModalAd(){
+                  var modal = document.querySelector('.modal-showall');
+                  modal.classList.remove('visible-modal-sa');
+                }
             </script>
-        </div>
     </div>
   </div>
 </div>
-            
-<script>
-    /*
-    //if(document.querySelector('#show-all')) {
-        //showModalAd();
-        const openModalButton = document.querySelector('.pright#show-all');
-        linkShowAll = document.querySelector('.pright#show-all a');
-        
-        openModalButton.addEventListener('click', event => {
-            event.preventDefault();
-            showModalAd();
-            
-            const confirmGoToLink = document.querySelector('.close-modal-sa-x');
-            confirmGoToLink.addEventListener('click', event => {
-                const url = linkShowAll.getAttribute('href');
-                window.location.href = url;
-            });
-        });
-        */
-            
-        const confirmGoToLink = document.querySelector('.close-modal-sa-x');
-        confirmGoToLink.addEventListener('click', closeModalAd);
-
-        function showModalAd(){
-          var modal = document.querySelector('.modal-showall');
-          modal.classList.add('visible-modal-sa');
-        };
-
-        function closeModalAd(){
-          var modal = document.querySelector('.modal-showall');
-          modal.classList.remove('visible-modal-sa');
-        };
-    //}
-</script>
                         
 <script>
     var addebug = document.querySelectorAll('.cpRight');
