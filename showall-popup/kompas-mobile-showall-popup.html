@@ -5270,22 +5270,22 @@ if(document.cookie.indexOf('ukid=') == -1){
 <style>
 /* Modal styles */
 .modal-showall {
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 2rem;
+  /* padding: 2rem; */
   position: fixed;
   width: 100%;
   top: 0; /* this is it */
   visibility: hidden; /* this is it */
   opacity: 0; /* this is it */
+  display: none; /* this is it */
   transition: all 0.3s ease;
   z-index: 99;
 
   .modal-sa-backdrop {
     background: #000000;
-    opacity: 0.8;
+    opacity: 0.6;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -5299,28 +5299,43 @@ if(document.cookie.indexOf('ukid=') == -1){
     transition: all 0.6s ease;
     z-index: 1000;
     border: 1px solid black;
-    background-color: var(--bg-place);
+    background-color: #F0F0F0;
+    top: 0;
+    justify-content: center;
+    text-align: center;
+    position: relative;  
   }
 
   .modal-sa-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding: 1.0rem;
+    /** border-bottom: 1px solid #ccc; **/
+    padding: 7px;
+    justify-content: right;
 
     .close-modal-sa-x {
-      font-size: 1rem;
-      padding: 0;
-      margin: 0;
-      height: 20px;
-      width: 20px;
-      text-align: center;
+        /* font-size: 1.2rem; */
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        width: 22px;
+        height: 22px;
+        background: #616161;
+        border: 1px solid hsla(0, 0%, 53%, .8);
+        border-radius: 50%;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        font-family: inherit;
     }
   }
 
   .modal-sa-body {
-    padding: 1.5rem;
+    padding: 0px 10px 10px 10px;
+    min-width: 300px;
+    min-height: 250px;
+    text-align: center;
   }
 
   .modal-sa-footer {
@@ -5330,11 +5345,13 @@ if(document.cookie.indexOf('ukid=') == -1){
   }
 
   &.visible-modal-sa {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; /* this is it */
+    visibility: visible; /* this is it */
+    display: flex; /* this is it */
+    z-index: 310; /* this is it */
 
     .modal-sa-content {
-      top: 25%;
+      /** top: 25%; **/
     }
   }
 }
@@ -5376,6 +5393,7 @@ if(document.cookie.indexOf('ukid=') == -1){
         width: 100%;
         left: 0;
         top: 40%;
+        z-index: -1;
     }
 </style>
 
@@ -5417,11 +5435,11 @@ if(document.cookie.indexOf('ukid=') == -1){
                 setTimeout(function(){ 
                     // get the ad container ID
                     var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
-                    if( 0 == ad_container.offsetHeight ) {
-                    // show fallback ad code
-                    ad_container.innerHTML = '<img src="https://creativedevel.github.io/showall-popup/hidup-dari-ngeblog-300x250.jpeg" width="300" height="250" alt="icon"/>';
-                    }
                     // check the height
+                    if( 0 == ad_container.offsetHeight ) {
+                        // show fallback ad code
+                        ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="320" height="480" alt="icon"/></a>';
+                    }
                     showModalAd();
                 }, 2000);
             </script>
@@ -5433,13 +5451,13 @@ if(document.cookie.indexOf('ukid=') == -1){
 <script>
     /*
     //if(document.querySelector('#show-all')) {
-        //showModal();
+        //showModalAd();
         const openModalButton = document.querySelector('.pright#show-all');
         linkShowAll = document.querySelector('.pright#show-all a');
         
         openModalButton.addEventListener('click', event => {
             event.preventDefault();
-            showModal();
+            showModalAd();
             
             const confirmGoToLink = document.querySelector('.close-modal-sa-x');
             confirmGoToLink.addEventListener('click', event => {
