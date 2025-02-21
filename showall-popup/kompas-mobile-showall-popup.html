@@ -5429,34 +5429,34 @@ if(document.cookie.indexOf('ukid=') == -1){
                         var slotPopup = googletag.defineSlot(adUnitName, sizeSlot, divGptSlot).setTargeting('Pos', [posName]).setTargeting('kg_pos', [posName_kg]).addService(googletag.pubads());
                         googletag.display(divGptSlot);
                         googletag.pubads().refresh([slotPopup]);
-                      });
-                    }
+                    });
                 }
+            }
                 
-                setTimeout(function(){ 
-                    // get the ad container ID
-                    var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
-                    // check the height
-                    if( 0 == ad_container.offsetHeight ) {
-                        // show fallback ad code
-                        ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="320" height="480" alt="icon"/></a>';
-                    }
-                    showModalAd();
-                }, 3000);
+            setTimeout(function(){ 
+                // get the ad container ID
+                var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
+                // check the height
+                if( 0 == ad_container.offsetHeight ) {
+                    // show fallback ad code
+                    ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="320" height="480" alt="icon"/></a>';
+                }
+                showModalAd();
+            }, 3000);
                 
-                const confirmGoToLink = document.querySelector('.close-modal-sa-x');
-                confirmGoToLink.addEventListener('click', closeModalAd);
+            const confirmGoToLink = document.querySelector('.close-modal-sa-x');
+            confirmGoToLink.addEventListener('click', closeModalAd);
 
-                function showModalAd(){
-                  var modal = document.querySelector('.modal-showall');
-                  modal.classList.add('visible-modal-sa');
-                }
+            function showModalAd(){
+                var modal = document.querySelector('.modal-showall');
+                modal.classList.add('visible-modal-sa');
+            }
 
-                function closeModalAd(){
-                  var modal = document.querySelector('.modal-showall');
-                  modal.classList.remove('visible-modal-sa');
-                }
-            </script>
+            function closeModalAd(){
+                var modal = document.querySelector('.modal-showall');
+                modal.classList.remove('visible-modal-sa');
+            }
+        </script>
     </div>
   </div>
 </div>
