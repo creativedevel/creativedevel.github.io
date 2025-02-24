@@ -34,7 +34,7 @@
     "content_total_words": 908,
     "content_autopaging": true,
     "content_total_pages": 3,
-    "content_current_page": 1
+    "content_current_page": "all"
 });</script>   
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -5333,8 +5333,8 @@ if(document.cookie.indexOf('ukid=') == -1){
 
   .modal-sa-body {
     padding: 0px 10px 10px 10px;
-    min-width: 300px;
-    min-height: 250px;
+    min-width: 320px;
+    min-height: 260px;
     text-align: center;
   }
 
@@ -5408,7 +5408,15 @@ if(document.cookie.indexOf('ukid=') == -1){
         <p>Advertisement</p>
         <div id="div-gpt-ad-Popup-Showall"></div>
         <script type="text/javascript">
-            LazyLoadSlotPopup('div-gpt-ad-Popup-Showall', '/31800665/KOMPAS.COM_Mobile_Web/tren', [[300, 250],[320, 480],[336, 280],[1, 1]], "popup_showall", "popup_showall"); 
+            //check if current page status is on show all content
+            var site_popup = dataLayer[0]['content_current_page'];
+            if(site_popup == "all") {
+                LazyLoadSlotPopup('div-gpt-ad-Popup-Showall', '/31800665/KOMPAS.COM_Mobile_Web/tren', [[300, 250],[320, 480],[336, 280],[1, 1]], "popup_showall", "popup_showall"); 
+                setTimeout(function(){ 
+                    showModalAd();
+                }, 3000);   
+            }
+        
             function LazyLoadSlotPopup(divGptSlot, adUnitName, sizeSlot, posName, posName_kg) {
                 var observerAdsPopup = new IntersectionObserver(function(entires) {
                     entires.forEach(function(entry) {
@@ -5429,21 +5437,21 @@ if(document.cookie.indexOf('ukid=') == -1){
                         var slotPopup = googletag.defineSlot(adUnitName, sizeSlot, divGptSlot).setTargeting('Pos', [posName]).setTargeting('kg_pos', [posName_kg]).addService(googletag.pubads());
                         googletag.display(divGptSlot);
                         googletag.pubads().refresh([slotPopup]);
+                        
+                        var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
+                        googletag.pubads().addEventListener('slotRenderEnded',function(event) {  
+                            const slotId = event.slot.getSlotElementId();
+                            if (slotId == "div-gpt-ad-Popup-Showall") {
+                                if(event.isEmpty) {
+                                    //show fallback ad code
+                                    ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="300" height="250" alt="icon"/></a>';
+                                }
+                            }
+                        });
                     });
                 }
             }
-                
-            setTimeout(function(){ 
-                // get the ad container ID
-                var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
-                // check the height
-                if( 0 == ad_container.offsetHeight ) {
-                    // show fallback ad code
-                    ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="320" height="480" alt="icon"/></a>';
-                }
-                showModalAd();
-            }, 3000);
-                
+            
             const confirmGoToLink = document.querySelector('.close-modal-sa-x');
             confirmGoToLink.addEventListener('click', closeModalAd);
 
@@ -5456,6 +5464,35 @@ if(document.cookie.indexOf('ukid=') == -1){
                 var modal = document.querySelector('.modal-showall');
                 modal.classList.remove('visible-modal-sa');
             }
+            
+            //Opsi 1
+            /**
+            setTimeout(function(){ 
+                // get the ad container ID
+                var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
+                // check the height
+                if( 0 == ad_container.offsetHeight ) {
+                    // show fallback ad code
+                    ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="320" height="480" alt="icon"/></a>';
+                }
+                showModalAd();
+            }, 2000);
+            **/
+            
+            //Opsi 2
+            /**
+            var ad_container = document.querySelector('#div-gpt-ad-Popup-Showall');
+            var getPopupEvent = googletag.cmd.push(function() {
+                googletag.pubads().addEventListener('slotRenderEnded',function(event) {  
+                    const slotId = event.slot.getSlotElementId();
+                    if (slotId == "div-gpt-ad-Popup-Showall") {
+                        if(event.isEmpty) {
+                            //show fallback ad code
+                            ad_container.innerHTML = '<a href="https://activity.kompas.com/baca-cepat/xplore/money/read/2024/12/09/145406526/cukup-daftar-lewat-aplikasi-qris-kini-bisa-langsung-digunakan-di-hari-yang?utm_source=Banner&utm_medium=Banner&utm_campaign=xploreboosting" target="_blank"><img src="https://creativedevel.github.io/showall-popup/300x250-bukan-hoaks.png" width="300" height="250" alt="icon"/></a>';
+                        }
+                    }
+                });  
+            });**/
         </script>
     </div>
   </div>
