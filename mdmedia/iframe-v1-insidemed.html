@@ -1,0 +1,32 @@
+<body style="border: 0; margin: 0; overflow: hidden">
+<!-- V1 300x250 MD Media -->
+<div id="mdmadctr"></div>
+<script>
+(function(doc, endpoint, unit, cid) {
+    let argsstr = 'unit=' + unit + '&creativeid=' + cid;
+    fetch(`${endpoint}?${argsstr}`, {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then((response) => response.json())
+        .then(function(json) {
+            if (json.ad) {
+                let range = doc.createRange();
+                let elt = doc.getElementById('mdmadctr');
+                range.setStart(elt, 0);
+                elt.appendChild(range.createContextualFragment(json.ad));
+            }
+        })
+        .catch(function(eee) {
+            console.log(eee);
+        })
+})(document, "https://content.telkomatic.id/directtag", "jx-1000601-vyNRWbbYPj", "1191")
+</script>
+    
+<script>
+    var iframeEl             = window.frameElement;
+  	var iframeParentEl       = iframeEl.parentElement;
+    iframeEl.style.width = "100%";
+    iframeEl.style.height = "250px";
+</script>
+</body>

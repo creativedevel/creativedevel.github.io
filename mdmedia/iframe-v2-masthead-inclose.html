@@ -1,0 +1,388 @@
+<body style="border: 0; margin: 0; overflow: hidden">
+<!-- NO_REFRESH -->
+
+<style>
+.mastheadcontainer{
+  overflow: hidden;
+  position: relative;
+}
+.mastheadcontainer .mastheadbanner{
+  float: right;
+  right: 0;
+}
+.linkLanding{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+.buttonclose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgb(0 0 0 / 40%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: Roboto, sans-serif;
+  z-index: 100;
+}
+.newbuttonclose {position: absolute;width: 40px!important;height: 40px!important;right: 3px;top: 3px;z-index: 100;}
+.newbuttonclose img{float: right;}
+
+@media screen and (min-width: 376px) {
+  .column {
+    width: 50%;
+  }
+}
+</style>
+<script>
+  var css = '.reservebox__visible{content-visibility: visible !important;padding-bottom: 150px} .sticky__top{position: fixed !important;/*width: 100%;background: rgba(255, 255, 255, 0.7);*/z-index: 3 !important;animation: bannerfade 0.7s 5s forwards !important;} .sticky__top--tribun{top: 50px !important;} .sticky__top--kompastv{top: 78px;} .sticky__top--grid{top: 0px;min-height: 100px !important;} .sticky__top--gridoto{min-height: 100px !important;top: 65px !important;z-index: 10 !important;} .sticky__top--bolasport{min-height: 100px !important;top: 60px !important;} @keyframes bannerfade { 0% { visibility: visible; opacity: 1; } to { visibility: hidden; opacity: 0; } }',
+  head = parent.document.head || parent.document.getElementsByTagName('head')[0],
+  style = parent.document.createElement('style');
+  
+  head.appendChild(style);
+
+  style.type = 'text/css';
+  if (style.styleSheet){
+    // This is required for IE8 and below.
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+  
+  var iframeEl = window.frameElement;
+  var divparentWeb = window.frameElement.parentElement.parentElement;
+
+var meta_site;
+var meta = parent.document.querySelector("meta[property='og:site_name']");
+if(meta!=null){
+    meta_site = meta.getAttribute("content");
+}
+
+//kompascom
+if(meta_site=='kompas.com'||meta_site=='KOMPAS.COM'||meta_site=='KOMPAS.com'||meta_site=='Kompas.com'){
+    iframeEl.style.height = "150px";
+		iframeEl.style.setProperty('width', 150*(64/27)+'px', 'important');
+    divparentWeb.style.padding = 0;
+    divparentWeb.style.textAlign = "center";
+    divparentWeb.style.marginLeft = "0px";
+    if(iframeEl.offsetHeight > divparentWeb.offsetHeight || iframeEl.offsetWidth > divparentWeb.offsetWidth){
+      divparentWeb.style.height = "auto";
+      divparentWeb.style.setProperty('width', 150*(64/27)+'px', 'important');
+    }
+}else{
+  if (screen.width > 360) {
+    iframeEl.style.height = screen.width*(27/64)+"px";
+		iframeEl.style.setProperty('width', screen.width+'px', 'important');
+    divparentWeb.style.padding = 0;
+    divparentWeb.style.textAlign = "center";
+    divparentWeb.style.marginLeft = "0px";
+    if(iframeEl.offsetHeight > divparentWeb.offsetHeight || iframeEl.offsetWidth > divparentWeb.offsetWidth){
+      divparentWeb.style.width = screen.width+"px";
+      divparentWeb.style.height = screen.width*(27/64)+"px";
+    }
+  }else{
+    iframeEl.style.height = "auto";
+		iframeEl.style.setProperty('width', screen.width+'px', 'important');
+    divparentWeb.style.padding = 0;
+    divparentWeb.style.textAlign = "center";
+    divparentWeb.style.marginLeft = "0px";
+    if(iframeEl.offsetHeight > divparentWeb.offsetHeight || iframeEl.offsetWidth > divparentWeb.offsetWidth){
+      divparentWeb.style.height = "auto";
+      divparentWeb.style.width = screen.width+"px";
+    }
+  }
+}
+
+//kontan
+var meta_site;
+var meta = parent.document.querySelector("meta[property='og:site_name']");
+  if(meta!=null){
+		meta_site = meta.getAttribute("content");
+  }
+if(meta_site=='kontan.co.id'||meta_site=='KONTAN.CO.ID'||meta_site=='Kontan.co.id'){
+    parent.document.querySelector(".box-center").style.maxWidth = "100%";
+  }  
+
+//kompasiana
+if(meta_site=='kompasiana'||meta_site=='KOMPASIANA'){
+  parent.document.querySelector(".banner-top").style.maxWidth = "100%";
+  parent.document.querySelector(".banner-top").style.width = "100%";
+
+  var stickyTop = parent.document.querySelector("#div-gpt-ad-651244946774867579-1");
+  var stickyTopParent = stickyTop.parentElement;
+  
+  function scrollPlay() {
+    var stickyTopParentH = stickyTopParent.getBoundingClientRect();
+    if(stickyTopParentH.top < 100){
+      stickyTop.classList.add("sticky__top");
+      stickyTop.classList.add("sticky__top--kompasiana");
+    }else{
+      stickyTop.classList.remove("sticky__top");
+      stickyTop.classList.remove("sticky__top--kompasiana");
+    }
+  }
+}  
+
+//sonora
+ var meta_site;
+ var meta = parent.document.querySelector("meta[name='content_site']");
+  if(meta!=null){
+     meta_site = meta.getAttribute("content");
+  }
+if(meta_site=='Sonora.id'||meta_site=='sonora.id'||meta_site=='SONORA.ID'){
+		parent.document.querySelector("#div-gpt-ad-top-banner").parentElement.parentElement.parentElement.style.padding = "0px";
+  }
+  
+var meta_site;
+var meta = parent.document.querySelector("meta[property='og:url']");
+if(meta!=null){
+  meta_site = meta.getAttribute("content");
+  console.log('meta site is '+meta_site);
+}
+
+//tribun
+if(meta_site.includes('tribunnews')){
+  console.log('meta site is '+meta_site);
+  var isSticky=false;
+    
+    var iframeEl             = window.frameElement;
+  	var iframeParentEl       = iframeEl.parentElement;
+  // Scroll Function 
+  
+  function scrollPlay() {
+      var scroll = parent.document.body.scrollTop || parent.document.documentElement.scrollTop;
+      var stickydiv = parent.document.querySelector("#div-Top-MediumRectangle");
+      var premiumTopFrame = parent.document.querySelector("#div-Premium-Topframe");
+      var premiumTopFrameHeight = 0;
+      var stickySosmed = parent.document.querySelector("#sf");
+      var stickySosmedHeight = 0;
+      var tappBanner = parent.document.querySelector("#tapp-banner");
+      var tappBannerHeight = 0;
+      var breakingNews = parent.document.querySelector("#breaking-news-wrapper");
+      var breakingNewsHeight = 0;
+      var reserveBox = stickydiv.parentElement;
+      
+      if(premiumTopFrame != null){
+        premiumTopFrameHeight = premiumTopFrame.offsetHeight;
+      }
+      
+      if(stickySosmed != null){
+        stickySosmedHeight = stickySosmed.offsetHeight;
+      }
+      
+      if(tappBanner != null){
+        tappBannerHeight = tappBanner.offsetHeight;
+      }
+      
+      if(breakingNews != null){
+        breakingNewsHeight = breakingNews.offsetHeight;
+      }
+      
+      if(!isSticky){
+        if(scroll-premiumTopFrameHeight>20){ 
+          reserveBox.classList.add('reservebox__visible');
+          stickydiv.classList.add('sticky__top');
+          isSticky=true;
+        }
+      }else{
+        if(scroll-premiumTopFrameHeight<20){ 
+          reserveBox.classList.remove('reservebox__visible');
+          stickydiv.classList.remove('sticky__top');
+          isSticky=false;
+        }else{
+          //var stikydivTop = 50+tappBannerHeight+breakingNewsHeight;
+          var stikydivTop = 40+tappBannerHeight+breakingNewsHeight;
+          stickydiv.style.top = stikydivTop+"px";
+            stickydiv.style.background  = "blue";
+            stickydiv.style.width       = "100%";
+            stickydiv.style.height      = "100px";
+            iframeEl.parentElement.style.top = "25%";
+            //iframeEl.parentElement.style.position = "relative";
+        }
+      }
+    }  
+  }  
+
+//kompas tv
+if(meta_site.includes('kompas.tv')){
+  var stickyTop = parent.document.querySelector("#div-gpt-ad-8835321-1");
+  var stickyTopParent = stickyTop.parentElement;
+  
+  function scrollPlay() {
+    var stickyTopParentH = stickyTopParent.getBoundingClientRect();
+    if(stickyTopParentH.top < 50){
+      stickyTop.classList.add("sticky__top");
+      stickyTop.classList.add("sticky__top--kompastv");
+    }else{
+      stickyTop.classList.remove("sticky__top");
+      stickyTop.classList.remove("sticky__top--kompastv");
+    }
+  }
+}
+
+  
+//grid.id
+if(meta_site.includes('grid.id')){
+  console.log('meta site : '+meta_site);
+  var jsBannerSticky = parent.document.querySelector("#div-top-banner-transparent");
+  var stickyTop = parent.document.querySelector("#div-gpt-ad-top-banner");
+  var stickyTopParent = stickyTop.parentElement;
+  
+  function scrollPlay() {
+    if(jsBannerSticky != null){
+      jsBannerSticky.style.setProperty('display', 'none', 'important');
+    }
+    
+    var stickyTopParentH = stickyTopParent.getBoundingClientRect();
+    if(stickyTopParentH.top < 0){
+      stickyTop.classList.add("sticky__top");
+      stickyTop.classList.add("sticky__top--grid");
+    }else{
+      stickyTop.classList.remove("sticky__top");
+      stickyTop.classList.remove("sticky__top--grid");
+    }
+  }
+}
+
+//gridoto
+if(meta_site.includes('gridoto.com')){
+  console.log('meta site : '+meta_site);
+  var jsBannerSticky = parent.document.querySelector("#js-banner-sticky");
+  var stickyTop = parent.document.querySelector("#div-gpt-ad-top-banner");
+  var stickyTopParent = stickyTop.parentElement;
+  
+  function scrollPlay() {
+    if(jsBannerSticky != null){
+      jsBannerSticky.classList.remove("banner--sticky");
+      jsBannerSticky.style.setProperty('position', 'relative', 'important');
+      jsBannerSticky.style.setProperty('z-index', '99', 'important');
+    }
+
+    var stickyTopParentH = stickyTopParent.getBoundingClientRect();
+    console.log('top parent h : '+stickyTopParentH);
+    if(stickyTopParentH.top < 60){
+      stickyTop.classList.add("sticky__top");
+      stickyTop.classList.add("sticky__top--gridoto");
+    }else{
+      stickyTop.classList.remove("sticky__top");
+      stickyTop.classList.remove("sticky__top--gridoto");
+    }
+  }
+}
+
+//bolasport
+if(meta_site.includes('bolasport.com')){
+  console.log('meta site : '+meta_site);
+  var jsBannerSticky = parent.document.querySelector("#js-banner-sticky");
+  var stickyTop = parent.document.querySelector("#div-gpt-ad-top-banner");
+  var stickyTopParent = stickyTop.parentElement;
+  
+  function scrollPlay() {
+    if(jsBannerSticky != null){
+      jsBannerSticky.classList.remove("banner--sticky");
+      jsBannerSticky.style.setProperty('position', 'relative', 'important');
+      jsBannerSticky.style.setProperty('z-index', '99', 'important');
+    }
+
+    var stickyTopParentH = stickyTopParent.getBoundingClientRect();
+    console.log('top parent h : '+stickyTopParentH);
+    if(stickyTopParentH.top < 60){
+      stickyTop.classList.add("sticky__top");
+      stickyTop.classList.add("sticky__top--bolasport");
+    }else{
+      stickyTop.classList.remove("sticky__top");
+      stickyTop.classList.remove("sticky__top--bolasport");
+    }
+  }
+}
+
+//motorplus
+if(meta_site.includes('motorplus-online.com')){
+  parent.document.querySelector(".ads-on").style.maxHeight = "180px";
+  var jsBannerSticky = parent.document.querySelector("#js-banner-sticky");
+  var stickyTop = parent.document.querySelector("#div-gpt-ad-top-banner");
+  var stickyTopParent = stickyTop.parentElement;
+  
+  function scrollPlay() {
+    if(jsBannerSticky != null){
+      jsBannerSticky.classList.remove("banner--sticky");
+    }
+    
+    var stickyTopParentH = stickyTopParent.getBoundingClientRect();
+    console.log('top parent h : '+stickyTopParentH.top);
+    if(stickyTopParentH.top < 0){
+      stickyTop.classList.add("sticky__top");
+      stickyTop.style.setProperty('top', '0px', 'important');
+    }else{
+      stickyTop.classList.remove("sticky__top");
+      stickyTop.style.setProperty('top', '0px', 'important');
+    }
+  }
+}
+  
+  window.parent.addEventListener("scroll", scrollPlay);
+</script>
+
+<div class="mastheadcontainer" style="width: 100%;height: auto;">
+  <div class="mastheadbanner">
+    <!-- <img style="width:100%;height:100%;" src="[%Image%]" alt=""> -->
+      <!-- start script here -->
+        <div id="mdmadctr"></div>
+        <script>
+        (function(doc, endpoint, unit, cid) {
+            let argsstr = 'unit=' + unit + '&creativeid=' + cid;
+            fetch(`${endpoint}?${argsstr}`, {
+                    method: 'GET',
+                    credentials: 'include'
+                })
+                .then((response) => response.json())
+                .then(function(json) {
+                    if (json.ad) {
+                        let range = doc.createRange();
+                        let elt = doc.getElementById('mdmadctr');
+                        range.setStart(elt, 0);
+                        elt.appendChild(range.createContextualFragment(json.ad));
+                    }
+                })
+                .catch(function(eee) {
+                    console.log(eee);
+                })
+        })(document, "https://content.telkomatic.id/directtag", "jx-1000601-vyNRWbbYPj", "1192")
+        </script>
+      <!-- endof script here -->
+  </div>
+  <!-- <a class="linkLanding" href="%%CLICK_URL_UNESC%%[%LandingPage%]" target="_blank" rel="noopener noreferrer"></a> -->
+  <!-- <div class="buttonclose">x</div> -->
+  <div class="newbuttonclose">
+    <a>
+      <img border="none" src="https://adsimg.kompas.com/html5/assets_ads/horads_mobile/images/closet-update.png" style="min-width: 0 !important;">
+    </a>
+  </div>
+</div>
+<div style="display:none;"></div>
+<script>
+    var iframeEl             = window.frameElement;
+  	var iframeParentEl       = iframeEl.parentElement;
+    iframeEl.style.height    = "100px!important";
+    
+  var closeBanner = document.querySelector(".newbuttonclose");
+  var banner = document.querySelector(".mastheadcontainer");
+  var jsbannersticky = parent.document.querySelector("#js-banner-sticky");
+  
+  closeBanner.addEventListener("click", function () {
+    banner.style.display = "none";
+    if (jsbannersticky != null) {
+      jsbannersticky.style.display = "none";
+    }
+  });
+</script>   
+</body>
