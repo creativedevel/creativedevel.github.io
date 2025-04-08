@@ -1021,7 +1021,7 @@ googletag.defineSlot('/31800665/GRIDOTO.COM_Mobile_Web/'+dfp_adunit, [[300,250],
     .setTargeting('kg_pos', ['zone_middle_3'])
     .addService(googletag.pubads());				
       
-googletag.pubads().setTargeting('currentUrl', '2025/03/27/224233833');
+googletag.pubads().setTargeting('currentUrl', 'refresh-rollup');
 		googletag.pubads().enableSingleRequest();
 		googletag.enableServices();
 	});
@@ -3779,24 +3779,31 @@ document.addEventListener('DOMContentLoaded', function() {
                             var iframeDoc = iframeSlot.contentDocument || iframeSlot.contentWindow.document;
                             if (iframeDoc) {
                                 var iframeContent = iframeDoc.querySelector('body').outerHTML;
-                                var findNoRefresh = iframeContent.match(/\b(adserving\/default.jpg)\b/i);
-                                console.log("FIND NO REFRESH Rollup : "+findNoRefresh);
+                                var findNoRefresh = iframeContent.match(/\b(adsimg.kompas.com\/html5\/adserving\/default.jpg)\b/i);
+                                console.log("FIND REFRESH Rollup : "+findNoRefresh);
+                                //if(findNoRefresh){
                                 if(!findNoRefresh || findNoRefresh == null){
                                     googletag.pubads().refresh([adSlotRollup]);
                                     console.log("Refresh 30s Rollup");
+                                }
+                                else{
+                                    console.log("No Refresh Rollup");
                                 }
                             }
                         }
                     }
                 };
+                
                 setInterval(function() { 
                     checkRollup(); 
-                }, 30000); 
+                }, 5000); 
+                
             </script>
             
             <script>
                 googletag.cmd.push(function() { googletag.display('div-gpt-ad-rollup'); });
             </script>
+            <!-- <div><iframe src="sample-popup.html" height="0" width="0" border="0"></iframe></div> -->
         </div>
         <!-- End DFP Rollup -->
 
