@@ -3769,6 +3769,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		<!-- DFP Rollup -->
         <div id="div-gpt-ad-rollup" style="position: absolute; width: 0px; height: 0px;">
             <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-rollup'); });
+            </script>
+            <script>
                 var checkRollup = function () {
                     var divRollup = "#div-gpt-ad-rollup";  
                     var iframeSlot = document.querySelector(divRollup+' > div > iframe');
@@ -3794,15 +3797,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 };
                 
-                setInterval(function() { 
-                    checkRollup(); 
-                }, 5000); 
-                
+                if(document.querySelector(".read_content--paragraph") !== undefined){
+                    var getParagraph = document.querySelector(".read_content--paragraph > p:nth-of-type(5)");    
+                    LazyLoadCheckRollup(); /** Init **/
+                }
+
+                function LazyLoadCheckRollup(){
+                    var observerAds = new IntersectionObserver(function(entires){
+                        entires.forEach(function(entry) {
+                            if(entry.intersectionRatio > 0){
+                                StartCheckOOP(entry.target);             
+                            }
+                        });
+                    }, {
+                        threshold: 0
+                    });
+                    observerAds.observe(getParagraph);
+                    function StartCheckOOP(element){
+                        setInterval(function() { 
+                            checkRollup(); 
+                        }, 10000); 
+                        console.log("show_ads rollup");
+                        observerAds.unobserve(element);
+                        observerAds.disconnect();
+                    }
+                }   
             </script>
             
-            <script>
-                googletag.cmd.push(function() { googletag.display('div-gpt-ad-rollup'); });
-            </script>
+            
             <!-- <div><iframe src="sample-popup.html" height="0" width="0" border="0"></iframe></div> -->
         </div>
         <!-- End DFP Rollup -->
