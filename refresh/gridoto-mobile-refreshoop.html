@@ -3793,6 +3793,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                     console.log("No Refresh Rollup");
                                 }
                             }
+                            else {
+                                console.log("No Iframe found in Rollup");
+                            }
                         }
                     }
                 };
@@ -3817,7 +3820,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         setInterval(function() { 
                             checkRollup(); 
                         }, 10000); 
-                        console.log("show_ads rollup");
+                        console.log("show_check rollup");
                         observerAds.unobserve(element);
                         observerAds.disconnect();
                     }
