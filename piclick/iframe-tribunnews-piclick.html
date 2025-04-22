@@ -1,0 +1,90 @@
+<script>
+    /*
+  var link  = window.parent.document.createElement('link');
+  link.id = 'styleframe';
+  link.rel  = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'https://thapi.aedi.ai/common/css/v1/aedi-ad-th.css';
+  link.media = 'all';
+  window.parent.document.getElementsByTagName("head")[0].appendChild(link);
+  var script = window.parent.document.createElement('script');
+  script.src = "https://thapi.aedi.ai/common/js/v1/aedi-ad-th.js";
+  window.parent.document.getElementsByTagName("head")[0].appendChild(script);   
+  var script = window.parent.document.createElement('script');
+  script.src = "https://thapi.aedi.ai/common/js/v1/aedi-tribunnews.js";
+  window.parent.document.getElementsByTagName('body')[0].appendChild(script);
+    */
+/** Start Count Impressions **/
+  var dfp_imp_script = ' \
+    /** document.addEventListener("DOMContentLoaded", (event) => { **/ \
+    /** document.querySelector("#bodyart").addEventListener("DOMContentLoaded", (event) => { **/ \
+    window.addEventListener("load", (event) => { \
+        console.log("DOM CONTENT AEDI"); \
+        if (document.querySelector("canvas.aedi-product-mobile")) { \
+            console.log("PICLICK ADA"); \
+            var containerViewPick   = document.createElement("div"); \
+            containerViewPick.id    = "view-%%CACHEBUSTER%%"; \
+            var imgPick           = document.createElement("img"); \
+            imgPick.style.display = "none"; \
+            imgPick.width         = "0"; \
+            imgPick.height        = "0"; \
+            imgPick.className     = "aedi_tracking_log"; \
+            imgPick.setAttribute("data-sr", "%%VIEW_URL_UNESC%%"); \
+            containerViewPick.appendChild(imgPick); \
+            document.body.appendChild(containerViewPick); \
+        } \
+    }); \
+  ';
+    
+    var dfp_impcheck_script = ' \
+        var int = setInterval("checkPiclickAds()",3000); \
+        var b = 1; \
+        function checkPiclickAds(){ \
+            b++; \
+            console.log("Counting Check Piclick: "+b); \
+            if (chkObject("canvas.aedi-product-mobile") == true) { \
+                var containerViewPick = document.createElement("div"); \
+                containerViewPick.id  = "view-%%CACHEBUSTER%%"; \
+                var imgPick           = document.createElement("img"); \
+                imgPick.style.display = "none"; \
+                imgPick.width         = "0"; \
+                imgPick.height        = "0"; \
+                imgPick.className     = "aedi_tracking_log"; \
+                imgPick.setAttribute("data-sr", "%%VIEW_URL_UNESC%%"); \
+                containerViewPick.appendChild(imgPick); \
+                document.body.appendChild(containerViewPick); \
+                \
+                console.log("AISUM are showing and stop checking : "+b); \
+                int = window.clearInterval(int); \
+            } \
+            else{ \
+                console.log("AISUM does not show"); \
+                if (b > 5) { \
+                    int = window.clearInterval(int); \
+                    console.log("AISUM Stop Checking"); \
+                }\
+            } \
+        } \
+        \
+        function chkObject(elem){ \
+            return (document.querySelector(elem))? true : false; \
+        } \
+    ';
+    
+    var iframeEl        = window.frameElement;
+    var iframeParentEl  = window.iframeEl.parentElement;
+    
+    var containerEl     = document.createElement('div');
+    iframeParentEl.appendChild(containerEl);
+    
+    var containerScript      = document.createElement('script');
+    containerScript.setAttribute('type', 'text/javascript');
+    if( typeof containerScript.innerText == 'undefined') {
+        containerScript.textContent = dfp_impcheck_script;
+    } 
+    else {
+        containerScript.innerText = dfp_impcheck_script;
+    }
+    containerEl.appendChild(containerScript);
+/** End Count Impressions **/
+</script>
