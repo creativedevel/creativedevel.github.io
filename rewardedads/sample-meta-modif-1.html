@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rewarded Ad Example</title>
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+        rewardedSlot = googletag.defineOutOfPageSlot('/31800665/KOMPASIANA.COM/humaniora/read/rewarded', googletag.enums.OutOfPageFormat.REWARDED)
+                       .addService(googletag.pubads());
+        rewardedSlot.setForceSafeFrame(true);
+        googletag.pubads().setTargeting('currentUrl','rewarded-test');
+        googletag.enableServices();
+    });
+
+    // Handle rewarded ad events
+    googletag.cmd.push(function() {
+        googletag.pubads().addEventListener('rewardedSlotReady', function(event) {
+            event.makeRewardedVisible();
+            console.log('Rewarded ad is ready:', event);
+            //event.preventDefault();
+        });
+        
+        googletag.pubads().addEventListener('rewardedSlotClosed', function(event) {
+            console.log('Rewarded ad was closed:', event);
+        });
+
+        googletag.pubads().addEventListener('rewardedSlotGranted', function(event) {
+            console.log('Reward granted:', event);
+        });
+        
+    });
+
+    function requestRewardedAd() {
+      googletag.cmd.push(function() {
+        googletag.display(rewardedSlot);
+      });
+    }
+  </script>
+  <style>
+    #rewarded-ad-status {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rewarded Ad Example : It works!!!</h1>
+  <button onclick="requestRewardedAd()">Request Rewarded Ad</button>
+  <div id="rewarded-ad-status"></div>
+</body>
+</html>
