@@ -1,0 +1,133 @@
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+    a {
+        text-decoration:none
+    }
+    a:hover {
+        text-decoration:underline
+    }
+    body{
+        line-height: 0.75;
+        margin: 0; 
+        padding:0;
+    }
+    .box{
+        font-family: "Open Sans", tahoma, sans-serif;
+        height:150px;
+        position:relative;
+        border:0px solid #ddd;
+        overflow:hidden;
+        width: 317px; height: 100px; border: 1.5px solid #ebebeb; /* input */
+    }
+    .topik_title {
+        background-color: #fafafa;
+        border-bottom: 1px solid #ebebeb;
+        display: block;
+        padding: 5px 15px;
+        font-size: 13px; /* input */ 
+        font-family: "Open Sans", tahoma, sans-serif;
+        color: #204e6d;
+    }
+    .topik_title a {
+        font-family: "Open Sans", tahoma, sans-serif;
+        color: #204e6d;
+        font-weight:400;
+        font-size:22px
+    }
+    .content{
+        padding: 10px 10px 0px 10px; /* input */
+        overflow: hidden;
+        background-color: #fff;
+        height: 100%;
+    }
+    .content span{
+        color:#999;
+        font-size:12px /* input */
+    } 
+    .content_in{
+        float:left;
+        width:48%;
+        padding-right:10px
+    }
+    .content_img {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        box-shadow: 0 0 3px 1px rgb(0 0 0 / 50%);
+        overflow: hidden;
+        position: absolute;
+    }
+    .content_in .content_img img{
+        float:left;
+        margin-right:10px;
+        width: 80px; /* input */
+        height: 80px /* input */
+    }
+    .content_in .content_title{
+        position: absolute; 
+        left: 100px; /* input */
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        display: -webkit-box; 
+        -webkit-line-clamp: 3; /* input */
+        line-clamp: 3; /* input */
+        -webkit-box-orient: vertical;
+    } 
+    .content_in .content_title a{
+        font-size: 13px; /* input */
+        font-weight: 600; /* input */
+        color:#204e6d;
+        line-height:17px /*input */
+    }
+    .content_in .sponsor{
+        color:#999; 
+        font-size:13px;
+        position: absolute; left: 100px; font-size: 11px; top: 73px; /* input */
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<body style="border: 0; margin: 0; overflow: hidden">
+<script type="text/javascript">
+    function getRandomItem(arr) {
+        const randomIndex = Math.floor(Math.random() * arr.length); // get random index value
+        const item = arr[randomIndex]; // get random item
+        return item;
+    }
+    const keyLength = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const number = getRandomItem(keyLength);
+    
+    jQuery(function($) {
+        $.getJSON("https://api.tribunnews.com/ajax/ga_top_article_allnetwork?callback=?", { size : "320x100"}, function(data) {
+            $("#content").html("");
+					$.each(data.posts, function(key, val) {
+                        if (key === number) { /* input */
+                           console.log("RANDOM? "+number);
+                           var newSite = "Tribun " + val.site.slice(0,1).toUpperCase() + val.site.substr(1);
+                            if (newSite == "Tribun Tribunnews"){
+                                newSite = "Tribunnews";
+                            }
+                            else if (newSite == "Tribun Newsmaker"){
+                                newSite = "Newsmaker";
+                            }
+                            $("#content").append("\
+                            <div class='content_in' style='margin-bottom:20px'> <!-- input --> \
+                                <div class='content_img'> \
+                                    <a href='%%CLICK_URL_UNESC%%"+val.urls+"' target='_blank'><img src='"+val.thumb+"'/></a> \
+                                </div> \
+                                <div class='content_title'> \
+                                    <a href='%%CLICK_URL_UNESC%%"+val.urls+"' target='_blank'>"+val.title+"</a> \
+                                </div> \
+                                <div class='sponsor'>"+newSite+"</div> \
+                            </div>");
+                        }	
+					})
+				});
+			});
+		</script>
+		<div class="box">
+			<!-- <div class="topik_title">Top Artikel</div> -->
+			<div id="content" class="content">
+				<span>Loading...</span>
+			</div>	
+		</div>
+</body>
