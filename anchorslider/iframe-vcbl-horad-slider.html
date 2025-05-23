@@ -1,0 +1,190 @@
+<!--NO REFRESH-->
+<script type="text/javascript">
+var meta_site;
+var meta = parent.document.querySelector("meta[property='og:url']");
+if(meta!=null){
+	meta_site = meta.getAttribute("content");
+  console.log('inslider : '+meta_site);
+}
+
+//kompascom
+if(meta_site.includes('kompas.com')){
+	var horad = parent.document.querySelector("#div-gpt-ad-Horizontal_Ad");
+	var sticky = parent.document.querySelector("#sticky-mobile-r");
+	var close = parent.document.querySelector("#tombolclosehorad");
+  //horad.classList.add("horad-kompascom");
+  close.style.display="none";
+  sticky.style.background="transparent";
+}
+
+//tribun
+if(meta_site.includes('tribun')){
+	var horad = parent.document.querySelector("#iklan_anchor");
+	var close = parent.document.querySelector("#closeiklan");
+	var box = parent.document.querySelector("#div-Anchor").parentElement;
+  box.classList.remove("box__reserved");
+  box.classList.remove("mh10");
+  close.style.display="none";
+  horad.style.background="transparent";
+  horad.style.boxShadow="none";
+}
+
+//grid.id
+if(meta_site.includes('grid.id')){
+	var horad = parent.document.querySelector("#div-gpt-ad-bottom-frame");
+	var box = parent.document.querySelector("#div-gpt-ad-bottom-frame").parentElement;
+  box.removeAttribute("href");
+  box.removeAttribute("target");
+  horad.style.height="unset";
+  horad.style.maxHeight="none";
+}
+  
+//bolasport
+if(meta_site.includes('bolasport')){
+	var horad = parent.document.querySelector("#div-gpt-ad-bottom-frame");
+	var box = parent.document.querySelector("#div-bottom-frame-transparent");
+  box.style.display="none";
+  horad.style.height="unset";
+  horad.style.maxHeight="none";
+}
+
+//gridoto
+if(meta_site.includes('gridoto.com')){
+	var fxd = parent.document.querySelector(".fixed-btm");
+	var horad = parent.document.querySelector("#div-gpt-ad-horizontal_ad");
+	var gframe = parent.document.querySelector("#div-gpt-ad-horizontal_ad").firstElementChild;
+	var sticky = parent.document.querySelector("#sticky-mobile-r");
+	var close = parent.document.querySelector("#sticky-mobile-r").firstElementChild;
+  //fxd.style.zIndex="11";
+  gframe.style.width=screen.width+"px";
+  horad.style.background="transparent";
+  horad.style.minHeight="unset";
+  horad.classList.add("vcbl-bgtrans");
+  sticky.style.background="transparent";
+  close.style.display="none";
+}
+
+//kompastv
+if(meta_site.includes('kompas.tv')){
+	var adsfoot = parent.document.querySelector("#ads-foot");
+	var horad = parent.document.querySelector("#ads-foot").firstElementChild;
+	var alert = parent.document.querySelector(".alertads");
+	var close = parent.document.querySelector(".closebtnads");
+  adsfoot.classList.add("vcbl-bgtrans");
+  close.style.display="none";
+  horad.style.background="transparent";
+  alert.style.background="transparent";
+}
+
+//kompasiana
+if(meta_site.includes('kompasiana.com')){
+	var horad = parent.document.querySelector("#bannerhorz");
+	var gframe = parent.document.querySelector("#div-gpt-ad-643108395629198344-Horad").firstElementChild;
+	var close = parent.document.querySelector("#closebannerhorz");
+  close.style.display="none";
+  gframe.style.width=screen.width+"px";
+  horad.style.background="transparent";
+  horad.classList.add("vcbl-bgtrans");
+}
+  
+  var iframeEl_bottom = window.frameElement;
+  iframeEl_bottom.style.height = "1px";
+  iframeEl_bottom.style.width = "1px";
+  iframeEl_bottom.style.position = "relative";
+    
+//get frame parent
+var iframeParentEl_bottom = iframeEl_bottom.parentElement;
+// create parameter for element
+var _dclkDivElement_bottom=document.createElement("DIV");
+    _dclkAdCode_bottom=`
+    <style>
+    	.insliderbottombackground{position: absolute;background: white;opacity: 0.5;width: 100%;height: 100%;} .insliderbottom{overflow: hidden;position: relative;width: 100%;height: auto;-webkit-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);-moz-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);-ms-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);-o-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);-ms-transform:translateX(-100%);-webkit-transform:translateX(-100%);transform:translateX(-100%);}.insliderbottom.insliderplay{-ms-transform:translateX(0);-webkit-transform:translateX(0);transform:translateX(0);}.insliderbottom .insliderbottombanner{position: relative;float: right;right: 0;width: 25.2%;}.insliderbottombanner img{width:100%;height:100%;}.insliderbottomvideo{position: relative;float: left;width: 74.8%;left: 0;top: 0;}.insliderbottomlanding{position: absolute;right: 0;top: 0;width: 90%;height: 100%;z-index: 99;}
+      .insliderbottomclose {position: absolute;right: 0;top: 25px;height: 40px!important;width: 40px!important;z-index: 100!important;opacity: 0;}
+      #JXAdDiv > :first-child{width:640px !important;height:360px !important;}
+  	</style>
+    <div class="insliderbottom">
+    	<div class="insliderbottombackground"></div>
+			<div class="insliderbottomwrap">
+        <div class="insliderbottombanner">
+          <img src="[%Image%]" alt="">
+        </div>
+        <div class="insliderbottomvideo">
+          <div id="containerJX" data-parent-id="component-0">
+            <div id="playerContainerJX" class="trans-text-item" style="position:relative; display: block;width: 640px;height: 360px"></div>
+          </div>
+        </div>
+        <a class="insliderbottomlanding" href="%%CLICK_URL_UNESC%%[%LandingPage%]" target="_blank" rel="noopener noreferrer"></a>
+  		</div>
+  	</div>
+    <div class="insliderbottomclose">
+    		<img border="none" src="https://adsimg.kompas.com/html5/assets_ads/horads_mobile/images/closet-update.png">
+  	</div>
+    <div style="display: none">[%TrackerOptional%]</div>`;
+ 
+_dclkDivElement_bottom.innerHTML=_dclkAdCode_bottom;
+iframeParentEl_bottom.appendChild(_dclkDivElement_bottom);
+  
+ var _dclkScriptElement3_bottom=document.createElement('SCRIPT');   
+  var _dclkScriptElement_3_bottom=`(function(d, script){script = d.createElement("script");script.type = "text/javascript";script.async = true;script.onload = function(){};script.src = "https://scripts.jixie.media/jxvideo.1.3.min.js";d.getElementsByTagName("head")[0].appendChild(script);}(document));`;
+  
+  _dclkScriptElement3_bottom.text="eval('"+_dclkScriptElement_3_bottom+"');";
+_dclkScriptElement3_bottom.setAttribute("type", "text/javascript");
+  
+   var _dclkScriptElement4_bottom=document.createElement('SCRIPT');  
+   var _dclkScriptElement_4_bottom=`var closeBanner = document.querySelector(".insliderbottomclose");
+var banner = document.querySelector(".insliderbottom");
+var wrap = document.querySelector(".insliderbottomwrap");
+var bannerParent = document.querySelector(".insliderbottom").parentElement;
+
+var meta_site;
+var meta = document.querySelector("meta[property='og:url']");
+if(meta!=null){meta_site = meta.getAttribute("content");}
+if(meta_site.includes('kompas.com')){
+  wrap.style.width="360px";
+  wrap.style.height="150px";
+  wrap.style.margin="auto";
+}else{
+  wrap.style.width=screen.width+"px";
+  wrap.style.height=screen.width*(27/64)+"px";
+}
+
+function insliderPlay() {
+	if (parent.document.body.scrollTop > 550 || parent.document.documentElement.scrollTop > 550) {
+  	banner.classList.add("insliderplay");
+    closeBanner.style.opacity="1";
+	}else{
+    banner.classList.remove("insliderplay");
+    closeBanner.style.opacity="0";
+  }
+}
+window.addEventListener("scroll", insliderPlay);
+
+closeBanner.addEventListener("click", function () {
+	banner.classList.remove("insliderplay");
+  window.removeEventListener("scroll", insliderPlay);
+  setTimeout(function(){bannerParent.style.display="none";},1000);
+});
+  
+var theContainer=document.getElementById("containerJX");var myplayer=null;function onJXPlayerReady(jx){console.log("calling onJXPlayerReady");myplayer=jx;var p={controlsColor:"[%VideoPlayerControlColor%]",container:"playerContainerJX",domain:"jixie.io",creativeid:[%JixieCreativeID%],defaultImage: "https://adsimg.kompas.com/html5/assets_ads/inslider/update/image/defaultloading.png",autoplay:true};myplayer.start(p);window.addEventListener("jxhasad",readyToPlay);window.addEventListener("jxnoad",function(e){console.log("No ad")});window.addEventListener("jxadended",function(e){console.log("Ad fully played");});window.addEventListener("jxplayvideo",function(e){console.log("We start the video")});window.addEventListener("jxadstart",function(e){console.log("Ad start")});window.addEventListener("jxadfirstQuartile",function(e){console.log("Ad first quartile")});window.addEventListener("jxadmidpoint",function(e){console.log("Ad midpoint")});window.addEventListener("jxadthirdQuartile",function(e){console.log("Ad third quartile")});window.addEventListener("jxadalladscompleted",function(e){console.log("All Ads Completed");});window.addEventListener("jxadclick",function(e){console.log("Ad click")});window.addEventListener("jxadimpression",function(e){console.log("Ad impression")});closeBanner.addEventListener("click",function(e){console.log("Close Banner");myplayer.pause();})} function readyToPlay(){console.log("We have an ad, then we play it");myplayer.play();onResize();}function onResize(){var ratio=theContainer.offsetWidth/640,newH=360*ratio;theContainer.style.transform="scale("+ratio+") translate3d(0px, 0px, 0px)";theContainer.style.transformOrigin="0px 0px 0px";theContainer.style.height=newH+"px"} function addListener(element,event,handler){if(element.addEventListener){element.addEventListener(event,handler,!1)}else if(element.attachEvent){element.attachEvent("on"+event,handler)}else{element["on"+event]=handler}} addListener(window,"resize",onResize);onResize();
+function refreshad(){console.log("refresh ad");}
+`;
+  
+_dclkScriptElement4_bottom.text=_dclkScriptElement_4_bottom;
+_dclkScriptElement4_bottom.setAttribute("type", "text/javascript");
+  
+  
+var _dclkDivElement_bottom_inlinestyle=document.createElement("STYLE");
+_dclkDivElement_bottom_inlinestyle_new=`
+	.vcbl-bgtrans:before{background: transparent!important;content: unset!important}
+  .vcbl-bgtrans:after{background: transparent!important;content: unset!important}
+  .horad-kompascom .insliderbottom {height:150px; width:auto; rgba(255,255,255,0.8)}
+  .horad-kompascom .insliderbottombanner {height:100%; width:auto; float:none;}
+  .horad-kompascom .insliderbottombanner img {height:100%; width:auto;}
+  `;
+_dclkDivElement_bottom_inlinestyle.innerHTML=_dclkDivElement_bottom_inlinestyle_new;
+
+_dclkDivElement_bottom.appendChild(_dclkScriptElement3_bottom); 
+_dclkDivElement_bottom.appendChild(_dclkScriptElement4_bottom); 
+_dclkDivElement_bottom.appendChild(_dclkDivElement_bottom_inlinestyle);
+   
+</script>

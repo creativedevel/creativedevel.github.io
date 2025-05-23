@@ -1,0 +1,174 @@
+<!--NO REFRESH-->
+<script type="text/javascript">
+var meta_site;
+var meta = parent.document.querySelector("meta[property='og:url']");
+if(meta!=null){
+	meta_site = meta.getAttribute("content");
+    console.log('inslider : '+meta_site);
+}
+
+//tribun
+if(meta_site.includes('tribun')){
+	var horad = parent.document.querySelector("#iklan_anchor");
+	var close = parent.document.querySelector("#closeiklan");
+	var box = parent.document.querySelector("#div-Anchor").parentElement;
+  box.classList.remove("box__reserved");
+  box.classList.remove("mh10");
+  close.style.display="none";
+  horad.style.background="transparent";
+  horad.style.boxShadow="none";
+}
+
+  var iframeEl_bottom = window.frameElement;
+  iframeEl_bottom.style.height = "1px";
+  iframeEl_bottom.style.width = "1px";
+  iframeEl_bottom.style.position = "relative";
+    
+    template_slider=`
+    <style>
+    	.insliderbottombackground{
+            position: absolute;
+            background: white;
+            opacity: 0.5;
+            width: 100%;
+            height: 100px;
+        } 
+        .insliderbottom{
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 100px;
+            -webkit-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -moz-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -ms-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -o-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -ms-transform:translateX(-100%);
+            -webkit-transform:translateX(-100%);
+            transform:translateX(-100%);
+        }
+        .insliderbottom.insliderplay{
+            -ms-transform:translateX(0);
+            -webkit-transform:translateX(0);
+            transform:translateX(0);
+        }
+        .insliderbottom .insliderbottombanner{
+            position: relative;
+            float: left;
+            left: 0;
+            width: 100%;
+        }
+        .insliderbottomvideo{
+            position: relative;
+            float: left;
+            width: 74.8%;
+            left: 0;
+            top: 0;
+        }
+        .insliderbottomlanding{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 90%;
+            height: 100%;
+            z-index: 99;
+        }
+        .insliderbottomclose {
+            position: absolute;
+            right: 0;top: 25px;
+            height: 40px!important;
+            width: 40px!important;  
+            z-index: 100!important;
+            opacity: 0;
+        }
+        #JXAdDiv > :first-child{
+            width:640px !important;
+            height:360px !important;
+        }
+  	</style>
+    <div class="insliderbottom">
+    	<div class="insliderbottombackground"></div>
+        <div class="insliderbottomwrap">
+            <div class="insliderbottombanner">
+                <!-- <img src="Horad_Campaign_TribunX_320x100.png" alt="Banner Horad Slider"> -->
+                <iframe src="iframe-api-article-populer.html" width="320" height="100" style="border: 0; width: 320px; height: 100px"></iframe>
+            </div>
+            <!-- <a class="insliderbottomlanding" href="https://m.tribunnews.com" target="_blank" rel="noopener noreferrer"></a> -->
+  		</div>
+  	</div>
+    <div class="insliderbottomclose">
+        <img border="none" src="https://adsimg.kompas.com/html5/assets_ads/horads_mobile/images/closet-update.png">
+  	</div>
+    <div style="display: none">[%TrackerOptional%]</div>`;
+
+var script_slider = `
+var closeHoradSlider = document.querySelector(".insliderbottomclose");
+var banner = document.querySelector(".insliderbottom");
+var wrap = document.querySelector(".insliderbottomwrap");
+var bannerParent = document.querySelector(".insliderbottom").parentElement;
+
+var meta_site;
+var meta = document.querySelector("meta[property='og:url']");
+if(meta!=null){meta_site = meta.getAttribute("content");}
+if(meta_site.includes('kompas.com')){
+    wrap.style.width="360px";
+    wrap.style.height="150px";
+    wrap.style.margin="auto";
+}
+else{
+    wrap.style.width=screen.width+"px";
+    wrap.style.height=screen.width*(27/64)+"px";
+}
+
+function insliderPlay() {
+	if (parent.document.body.scrollTop > 550 || parent.document.documentElement.scrollTop > 550) {
+  	     banner.classList.add("insliderplay");
+        closeHoradSlider.style.opacity="1";
+	}
+    else{
+        banner.classList.remove("insliderplay");
+        closeHoradSlider.style.opacity="0";
+    }
+}
+window.addEventListener("scroll", insliderPlay);
+
+closeHoradSlider.addEventListener("click", function () {
+    banner.classList.remove("insliderplay");
+    window.removeEventListener("scroll", insliderPlay);
+    setTimeout(function(){
+        bannerParent.style.display="none";
+        var elTemplateSlider = document.querySelector(".insliderbottom");
+        var elSliderClose = document.querySelector(".insliderbottomclose");
+        elTemplateSlider.parentNode.removeChild( elTemplateSlider );
+        elSliderClose.parentNode.removeChild( elSliderClose );
+    },1000);
+});
+`;
+    
+additional_style_slider = `
+  .vcbl-bgtrans:before{background: transparent!important;content: unset!important}
+  .vcbl-bgtrans:after{background: transparent!important;content: unset!important}
+  .horad-kompascom .insliderbottom {height:150px; width:auto; rgba(255,255,255,0.8)}
+  .horad-kompascom .insliderbottombanner {height:100%; width:auto; float:none;}
+  .horad-kompascom .insliderbottombanner img {height:100%; width:auto;}
+  `;
+    
+//get frame parent
+var iframeParentEl_bottom   = iframeEl_bottom.parentElement;
+    
+//building template slider and its inline style    
+var container_template        = document.createElement("DIV");
+container_template.innerHTML  = template_slider;
+iframeParentEl_bottom.appendChild(container_template);
+    
+//handling script slider
+var container_script          = document.createElement("SCRIPT");  
+container_script.text         = script_slider;
+container_script.setAttribute("type", "text/javascript");
+container_template.appendChild(container_script); 
+
+//adding inline additional style
+var container_additional_style       = document.createElement("STYLE");
+container_additional_style.innerHTML = additional_style_slider;
+container_template.appendChild(container_additional_style);
+</script>
