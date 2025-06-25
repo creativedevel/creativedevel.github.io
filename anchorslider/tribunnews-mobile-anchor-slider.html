@@ -451,7 +451,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v6.0&appId=114488588566911&autoLogAppEvents=1"></script>
 
-			<div id="anchorads">
+<span id="get_lazy_div-Anchor" style="top:1200px;position:relative;display:block;"></span>
+<div id="anchorads">
 		<script>
 $(document).ready(function(){
     $("#closeiklan").click(function(){
@@ -460,131 +461,87 @@ $(document).ready(function(){
 });
 </script>
  
-<div class="anchor_banner" id="iklan_anchor">
+<div class="anchor_banner" id="iklan_anchor" style="display: none">
 	<div class="wrap_btnclose">
         <button class="btnclose" aria-label="Close anchor ads" id="closeiklan">
         	<i class="fa fa-close"></i>
         </button>
     </div>
 	<div class="box__reserved mh10">
-		<div id='div-Anchor'>
-            <div>
-                <iframe src="iframe-anchor-slider.html" width="0" height="0" style="border: 0"></iframe>
+		<div id="div-Anchor">
+            <div> 
+                <iframe src="iframe-anchor-slider-freakout.html" width="0" height="0" style="border: 0"></iframe>
             </div>
-    <!--
-        <script>
-            // Line Items for PMP Checking
-            var lineitemIdExc = [6957467961];
-            var statusLineItem = "";
-        </script>		
-    -->
-    <!--<script type='text/javascript'>
-          var getA = googletag.cmd.push(function() {
-
-          da = googletag.defineSlot('/31800665/TribunnewsMobile/Regional', [[320, 150],[320, 100],[320, 50],[1, 1]], 'div-Anchor');
-		  da.setTargeting('pos',['Anchor']);
-						da.setTargeting('page',['article']);
-			da.setTargeting('section',['regional']);
-						da.setTargeting('kg_pos',['horizontal_ad']);
-			da.addService(googletag.pubads());
-             
-           googletag.pubads().addEventListener('slotRenderEnded', function(event) {
-               if(da === event.slot){
-                    var found = false;
-                    for (var i = 0; i < lineitemIdExc.length && !found; i++) {
-                        if(lineitemIdExc[i] === event.sourceAgnosticLineItemId){
-                            found = true;
-                            statusLineItem = "yes";
-                            break;
-                        }
-                        else if(event.sourceAgnosticLineItemId === null){
-                            found = true;
-                            statusLineItem = "yes";
-                            break;
-                        }
-                        else{
-                            found = false;
-                            statusLineItem = "no";
-                        }
-                    }
-               }
-           });
-           googletag.pubads().enableSingleRequest();
-           googletag.display('div-Anchor');
-          });
-               
-               function refreshBid() {
-				pbjs.que.push(function() {
-					pbjs.requestBids({
-						timeout: PREBID_TIMEOUT,
-						adUnitCodes: ['div-Anchor'],
-						bidsBackHandler: function() {
-							pbjs.setTargetingForGPTAsync();
-							da.setTargeting('reloaded','Anchor');
-							googletag.pubads().refresh([da]);
-							console.log("Refresh Bid 30s");
-						}
-					});
-				});
-			}
-
-			var checkHorad = function () {
-				var divHor = "#div-Anchor";  
-				var iframeHor = document.querySelector(divHor+' > div > iframe');
-				var thisFrame = iframeHor.outerHTML;
-				var isBlockingFrame = thisFrame.match(/data-is-safeframe="true"/ig);
-				if(statusLineItem === "no" ){
-					if (isBlockingFrame){
-						refreshBid();
-					}
-					else if(!isBlockingFrame){
-						var iframeDocHor = iframeHor.contentDocument || iframeHor.contentWindow.document;
-						if (iframeDocHor) {
-							var iframeContentHor = iframeDocHor.querySelector('body').outerHTML;
-							var findNoRefresh = iframeContentHor.match(/\b(NO REFRESH|NO_REFRESH)\b/i);
-							if(!findNoRefresh || findNoRefresh == null){
-								refreshBid();
-							}
-						}
-					 }
-				}
-			};
-            setInterval(function() {
-                checkHorad();
-            }, 30000);
-		</script> -->
-		</div>
-	</div>
-</div></div>
+		</div> 
+        <script type="text/javascript">
+            
+    function insliderDetection() {
+        var divGpt = "div-Anchor";
+        var divAnchor = "iklan_anchor";
+        var wrapLazyHorad = document.querySelector("#get_lazy_"+divGpt);
+        var wrapIklanAnchor = document.querySelector("#iklan_anchor");
+        if(document.body.scrollTop > 550 || document.documentElement.scrollTop > 550) {
+            console.log("SCROLL TOP ANCHOR : "+document.documentElement.scrollTop);
+            wrapLazyHorad.style.display = "block";
+            wrapIklanAnchor.style.display = "block";
+            window.removeEventListener("scroll", insliderDetection);
+            wrapLazyHorad.classList.add("letsplay");
+        }
+    }
+    
+    window.addEventListener("scroll", insliderDetection);
+    LazyLoadHorad("div-Anchor", "/31800665/TribunnewsMobile/Regional", [[320,100], [320,50], [1,1]], "Anchor", "article", "horizontal_ad");        
+            
+    function LazyLoadHorad(divGptSlot, adUnitName, sizeSlot, posName, pageName, posName_kg){
+        var observerAds = new IntersectionObserver(function(entires){
+            entires.forEach(function(entry) {
+                if(entry.intersectionRatio > 0){
+                    showAds(entry.target)                
+                }
+            });
+        }, {
+            threshold: 0
+        });        
+        observerAds.observe(document.getElementById('get_lazy_'+divGptSlot));
+        function showAds(element){
+            //window.removeEventListener("scroll", insliderDetection);
+            console.log('show_ads lazy : '+divGptSlot);
+            observerAds.unobserve(element);
+            observerAds.disconnect();        
+            googletag.cmd.push(function() {
+                var slotHorad = googletag.defineSlot(adUnitName, sizeSlot, divGptSlot)
+                .setTargeting('Pos',[posName])
+                .setTargeting('page', [pageName])
+                .setTargeting('kg_pos',[posName_kg])
+                .addService(googletag.pubads());
+                googletag.display(divGptSlot);
+                googletag.pubads().refresh([slotHorad]);
+            });
+        }
+    }      
+</script> 
+	</div> 
+</div>
+</div>
 
 		 <!-- DFP Vignette -->
  
 <script>
 
     if(document.cookie.indexOf('vignette_cookies_tribun=') == -1){
-
         var getVignette = function() {
-
                googletag.cmd.push(function() {
-
                     din = googletag.defineOutOfPageSlot('/31800665/TribunnewsMobile/Regional/vignette', googletag.enums.OutOfPageFormat.INTERSTITIAL);
-
                     if(din !== null) {
-
                         din.setTargeting('pos',['vignette']);
-                                                din.setTargeting('section',['regional']);
-                                                din.setTargeting('page',['article']);
+                        din.setTargeting('section',['regional']);
+                        din.setTargeting('page',['article']);
                         din.setTargeting('kg_pos',['vignette']);
                         din.addService(googletag.pubads());
-
                     }
-
                     googletag.pubads().enableSingleRequest();
-
                     googletag.enableServices();
-
                     googletag.pubads().refresh([din]);
-
                 });
 
         };  

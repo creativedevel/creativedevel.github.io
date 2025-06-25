@@ -1,0 +1,173 @@
+<!--NO REFRESH-->
+<script type="text/javascript">
+var meta_site;
+var meta = parent.document.querySelector("meta[property='og:url']");
+if(meta!=null){
+	meta_site = meta.getAttribute("content");
+    //console.log('inslider : '+meta_site);
+}
+var iframeEl_bottom = window.frameElement;
+    iframeEl_bottom.style.height = "100px";
+    iframeEl_bottom.style.width = "320px";
+        
+if(meta_site.includes("tribun")) {
+    var divEl1 = iframeEl_bottom.parentElement;
+    var divEl2 = iframeEl_bottom.parentElement.parentElement;
+    var divEl3 = iframeEl_bottom.parentElement.parentElement.parentElement;
+    var horad = parent.document.querySelector("#iklan_anchor");
+	var close = parent.document.querySelector("#closeiklan");
+    close.style.display="none";
+    horad.style.background="transparent";
+    horad.style.boxShadow="none";
+    
+    divEl1.classList.add("insliderbottombanner");
+    divEl2.classList.add("insliderbottomwrap");
+    divEl3.classList.add("insliderbottom");
+    /**
+    var backgroundEl        = document.createElement("DIV");
+    backgroundEl.className  = "insliderbottombackground";
+    var referenceBackEl     = iframeEl_bottom.parentElement.parentElement.parentElement; 
+    referenceBackEl.parentNode.insertBefore(backgroundEl, referenceBackEl.nextSibling);
+    **/
+}
+    
+template_slider=`
+    <style>
+    	.insliderbottombackground{
+            position: absolute;
+            background: #F1F1F1;
+            left: 0;
+            top: 0;
+            opacity: 0.5;
+            width: 100%;
+            height: 100px;
+        } 
+        .insliderbottom{
+            overflow: hidden;
+            position: relative;
+            max-width: 100%;
+            width: 100%;
+            height: 100px;
+            background-color: #EBEBEB;
+            -webkit-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -moz-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -ms-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -o-transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            -ms-transform:translateX(-100%);
+            -webkit-transform:translateX(-100%);
+            transform:translateX(-100%);
+        }
+        .insliderbottom:before{
+            background-color: #F6F6F6 !important;
+        }
+        .insliderbottom.insliderplay{
+            -ms-transform:translateX(0);
+            -webkit-transform:translateX(0);
+            transform:translateX(0);
+        }
+        .insliderbottom .insliderbottombanner{
+            position: relative;
+            float: left;
+            left: 0;
+            width: 100%;
+        }
+        .insliderbottomvideo{
+            position: relative;
+            float: left;
+            width: 74.8%;
+            left: 0;
+            top: 0;
+        }
+        .insliderbottomlanding{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 90%;
+            height: 100%;
+            z-index: 99;
+        }
+        .insliderbottomclose {
+            position: absolute;
+            right: 0;
+            bottom: 95px;
+            height: 40px!important;
+            width: 40px!important;  
+            z-index: 100!important;
+            opacity: 0;
+        }
+  	</style>
+    <div class="insliderbottomclose">
+        <img border="none" src="https://adsimg.kompas.com/html5/assets_ads/horads_mobile/images/closet-update.png">
+  	</div>
+    <div style="display: none">[%TrackerOptional%]</div>`;
+
+var script_slider = `
+var closeHs = document.querySelector(".insliderbottomclose");
+var bannerHs = document.querySelector(".insliderbottom");
+var wrapHs = document.querySelector(".insliderbottomwrap");
+var horadSliderParent = document.querySelector(".insliderbottom").parentElement;
+
+var meta_site;
+var meta = document.querySelector("meta[property='og:url']");
+if(meta!=null){meta_site = meta.getAttribute("content");}
+if(meta_site.includes('kompas.com')){
+    wrapHs.style.width="360px";
+    wrapHs.style.height="100px";
+    wrapHs.style.margin="auto";
+}
+else{
+    wrapHs.style.width=screen.width+"px";
+    /** wrapHs.style.height=screen.width*(27/64)+"px"; **/
+    wrapHs.style.height="100px";
+}
+
+function insliderPlay() {
+	if (parent.document.body.scrollTop > 550 || parent.document.documentElement.scrollTop > 550 && parent.document.querySelector(".letsplay")) {
+  	     bannerHs.classList.add("insliderplay");
+        closeHs.style.opacity="1";
+	}
+    else{
+        bannerHs.classList.remove("insliderplay");
+        closeHs.style.opacity="0";
+    }
+}
+window.addEventListener("scroll", insliderPlay);
+
+closeHs.addEventListener("click", function () {
+    bannerHs.classList.remove("insliderplay");
+    window.removeEventListener("scroll", insliderPlay);
+    setTimeout(function(){
+        horadSliderParent.style.display="none";
+        var elTemplateSlider = document.querySelector(".insliderbottom");
+        var elSliderClose = document.querySelector(".insliderbottomclose");
+        elTemplateSlider.parentNode.removeChild( elTemplateSlider );
+        elSliderClose.parentNode.removeChild( elSliderClose );
+    },1000);
+});
+`;
+    
+//get frame parent
+var iframeParentEl_bottom   = iframeEl_bottom.parentElement;
+    
+//building template and its inline style    
+/**
+var container_template        = document.createElement("DIV");
+container_template.innerHTML  = template_slider;
+container_template.id  = "gam-div-slider";
+iframeParentEl_bottom.appendChild(container_template);
+**/
+    
+var container_template        = document.createElement("DIV");
+container_template.innerHTML  = template_slider;
+container_template.id  = "gam-div-slider";
+var referenceElement          = iframeEl_bottom.parentElement.parentElement.parentElement; 
+referenceElement.parentNode.insertBefore(container_template, referenceElement.nextSibling);
+    
+//handling script
+var container_script          = document.createElement("SCRIPT");  
+container_script.text         = script_slider;
+container_script.id        = "gam-script-slider";
+container_script.setAttribute("type", "text/javascript");
+container_template.appendChild(container_script); 
+</script>
