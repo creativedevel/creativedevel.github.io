@@ -1,0 +1,581 @@
+<style>
+/** by partner **/
+    body {
+        padding: 0 !important;
+    }
+    .stickyHeaderSettleFrame,
+    .stickyHeaderExpandFrame {
+        border: none;
+        margin: 0 auto;
+    }
+    .stickyHeaderSettleFrame {
+        display: none;
+        width: 100%;
+        height: 72px;
+    }
+    .stickyHeaderExpandFrame {
+        display: block;
+        width: 100%;
+        height: 400px;
+    }
+    .floating {
+        animation-name: floating;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+    @keyframes floating {
+
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(0, -10px);
+        }
+    }
+    #clickToExpandSHImg {
+        display: none;
+        position: absolute !important;
+        top: 35px;
+        transform: translate(-50%, 0);
+        background-color: #fff;
+        border-radius: 50%;
+        padding: 5px;
+        width: 22px;
+        box-shadow: rgba(0, 0, 0, .25) 0 54px 55px,
+            rgba(0, 0, 0, .12) 0 -12px 30px,
+            rgba(0, 0, 0, .12) 0 4px 6px,
+            rgba(0, 0, 0, .17) 0 12px 13px,
+            rgba(0, 0, 0, .09) 0 -3px 5px;
+        cursor: pointer;
+        box-sizing: content-box;
+        z-index: 999999;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    #clickToExpandSHImg.show {
+        display: block;
+    }
+
+    .hideClickToExpandSH {
+        display: none;
+    }
+    div#clickToExpandSH {
+        position: absolute !important;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 0;
+    }
+    .gamin-closebig-pushdownexp {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        display: none;
+    }
+    .gamin-closemini-pushdownexp {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        display: none;
+    }
+/** by partner **/
+</style>
+
+<div class="stickyheader-frame-maincontainer" id="stickyHeaderAdContainer" style="width:100%; height:auto; text-align:center; display:block;">
+    <iframe id="stickyHeaderExpandFrame" class="stickyHeaderExpandFrame" scrolling="no"
+    sandbox="allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-modals allow-same-origin"
+    src="https://cdn.contextads.live/creatives/2025/SEA/May/Mock_Popup_AMILD_ZETTA/V4/POPUP_540x550/POPUP_AMILD.html?impTrk=bm90QWxsb3dlZA%3D%3D&isTp=dHJ1ZQ%3D%3D&clkSt=aHR0cHM6Ly9hZC5kb3VibGVjbGljay5uZXQvZGRtL3RyYWNrY2xrL04yMjI0Mjk1LjUzMjk3NjJGT1JLTUVESUFJRC9CMzM2MDgyMzEuNDIyMTQ1MzA3O2RjX3Rya19haWQ9NjE0OTQ5NDQ5O2RjX3Rya19jaWQ9MjM1OTcxMzY4O2RjX2xhdD07ZGNfcmRpZD07dGFnX2Zvcl9jaGlsZF9kaXJlY3RlZF90cmVhdG1lbnQ9O3RmdWE9O2dkcHI9JHtHRFBSfTtnZHByX2NvbnNlbnQ9JHtHRFBSX0NPTlNFTlRfNzU1fTtsdGQ9O2RjX3Rkdj0x&clkEx=aHR0cHM6Ly9hZC5kb3VibGVjbGljay5uZXQvZGRtL3RyYWNrY2xrL04yMjI0Mjk1LjUzMjk3NjJGT1JLTUVESUFJRC9CMzM2MDgyMzEuNDIyMTQ1MzA3O2RjX3Rya19haWQ9NjE0OTQ5NDQ5O2RjX3Rya19jaWQ9MjM1OTcxMzY4O2RjX2xhdD07ZGNfcmRpZD07dGFnX2Zvcl9jaGlsZF9kaXJlY3RlZF90cmVhdG1lbnQ9O3RmdWE9O2dkcHI9JHtHRFBSfTtnZHByX2NvbnNlbnQ9JHtHRFBSX0NPTlNFTlRfNzU1fTtsdGQ9O2RjX3Rkdj0x&zoneid={zoneid}&bannerid={bannerid}&amp;clickTrack=true"
+    style="display: block;"></iframe>
+    <span class="gamin-closebig-pushdownexp"></span>
+    <iframe id="stickyHeaderSettleFrame" class="stickyHeaderSettleFrame" scrolling="no"
+        sandbox="allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-modals allow-same-origin"
+        src="https://cdn.contextads.live/creatives/2025/SEA/May/Mock_Popup_AMILD_ZETTA/V4/SETTLE_540x100/SETTLE_AMILD.html?impTrk=bm90QWxsb3dlZA%3D%3D&isTp=dHJ1ZQ%3D%3D&clkSt=aHR0cHM6Ly9hZC5kb3VibGVjbGljay5uZXQvZGRtL3RyYWNrY2xrL04yMjI0Mjk1LjUzMjk3NjJGT1JLTUVESUFJRC9CMzM2MDgyMzEuNDIyMTQ1MzA3O2RjX3Rya19haWQ9NjE0OTQ5NDQ5O2RjX3Rya19jaWQ9MjM1OTcxMzY4O2RjX2xhdD07ZGNfcmRpZD07dGFnX2Zvcl9jaGlsZF9kaXJlY3RlZF90cmVhdG1lbnQ9O3RmdWE9O2dkcHI9JHtHRFBSfTtnZHByX2NvbnNlbnQ9JHtHRFBSX0NPTlNFTlRfNzU1fTtsdGQ9O2RjX3Rkdj0x&clkEx=aHR0cHM6Ly9hZC5kb3VibGVjbGljay5uZXQvZGRtL3RyYWNrY2xrL04yMjI0Mjk1LjUzMjk3NjJGT1JLTUVESUFJRC9CMzM2MDgyMzEuNDIyMTQ1MzA3O2RjX3Rya19haWQ9NjE0OTQ5NDQ5O2RjX3Rya19jaWQ9MjM1OTcxMzY4O2RjX2xhdD07ZGNfcmRpZD07dGFnX2Zvcl9jaGlsZF9kaXJlY3RlZF90cmVhdG1lbnQ9O3RmdWE9O2dkcHI9JHtHRFBSfTtnZHByX2NvbnNlbnQ9JHtHRFBSX0NPTlNFTlRfNzU1fTtsdGQ9O2RjX3Rkdj0x&zoneid={zoneid}&bannerid={bannerid}&clickTrack=true"
+        style="margin:unset !important"></iframe>
+    <span class="gamin-closemini-pushdownexp"></span>
+    <div class="clickToExpandSH" id="clickToExpandSH">
+        <img class="clickToExpandSHImg floating" id="clickToExpandSHImg"  src="https://cdn.contextads.live/creatives/2025/Tech/down.png">
+    </div>
+    <!-- START IAS Tracker -->
+    <IMG SRC="https://ad.doubleclick.net/ddm/trackimp/N2224295.5329762FORKMEDIAID/B33608231.422145307;dc_trk_aid=614949449;dc_trk_cid=235971368;ord={random};dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=;dc_tdv=1?" attributionsrc BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement">
+    <SCRIPT TYPE="application/javascript" SRC="https://pixel.adsafeprotected.com/rjss/st/2506226/87774506/skeleton.js"></SCRIPT> <NOSCRIPT><IMG SRC="https://pixel.adsafeprotected.com/rfw/st/2506226/87774505/skeleton.gif?gdpr=${GDPR}&gdpr_consent=${GDPR_CONSENT_278}&gdpr_pd=${GDPR_PD}" BORDER=0 WIDTH=1 HEIGHT=1 ALT=""></NOSCRIPT>
+    <!-- ENDOF IAS Tracker -->  
+    <div id="gam-view-%%CACHEBUSTER%%">
+        <img src="%%VIEW_URL_UNESC%%" style="display:none; width:0; height:0;">
+    </div>
+</div>
+        
+<script>
+    var gamSiteKg = "[%gamSite%]";
+    template_pushdownexp = `
+<style>
+/** by partner **/
+    .stickyHeaderSettleFrame,
+    .stickyHeaderExpandFrame {
+        border: none;
+        margin: 0 auto;
+    }
+    .stickyHeaderSettleFrame {
+        display: none;
+        width: 100%;
+        height: 72px;
+    }
+    .stickyHeaderExpandFrame {
+        display: block;
+        width: 100%;
+        height: 400px;
+    }
+/** by partner **/
+
+/** #### Start All Screen Portrait by KGMedia #### **/
+    html {
+        overflow: hidden hidden;
+    }
+    .gam-par2-pushdownexp {
+        display: block;
+        width: auto; 
+        position: relative; 
+        left: 0px; 
+        top: 0px; 
+        z-index: 99999999;
+        overflow: hidden; 
+        border:medium none;
+        important; padding: 0px;
+        height: 415px;
+        text-align: center;
+        text-align: -webkit-center;
+        text-align: -moz-center;
+    }
+    .gam-par2-pushdownexp.smooth-transition{
+        -webkit-transition: height 1s ease 0s!important;
+        -moz-transition: height 1s ease 0s!important;
+        -ms-transition: height 1s ease 0s!important;
+        transition: height 1s ease .5s!important;
+    }
+    .gam-par1-pushdownexp {
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        clip: rect(auto,auto,auto,auto);
+    }
+    .gam-par1-pushdownexp>:first-child { /** DI SINI **/
+        width: 100%; 
+        height: 400px; 
+        max-height: 415px;
+        position: fixed;
+        left: 0;
+        top: 0; 
+        /** z-index: 0; **/
+        z-index: 99999999;
+        transform: perspective(0); /** safari **/
+        -moz-transform: translateZ(0); 
+        -webkit-transform: translateZ(0); 
+        -ms-transform: translateZ(0); 
+        -o-transform: translateZ(0); 
+        transform: translateZ(0); 
+    }
+    .gam-par2-pushdownexp.gamParPdMini {
+        position: relative !important;
+        height: 72px;
+        z-index: 99999999;
+    }
+    .gam-par1-pushdownexp.gamParPdMini {
+        position: fixed !important;
+        height: 72px;
+        z-index: 99999999;
+    }
+    .gam-closebig-pushdownexp {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        display: none;
+    }
+    .gam-closemini-pushdownexp {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        display: none;
+    }
+    .gamPdMini-Header {
+        top: 72px !important;
+        position: fixed !important;
+    }
+    .gamPdBig-Header {
+        top: 0 !important;
+        position: relative !important;
+    }
+    .gamPdMini-HeaderLong {
+        top: 122px !important;
+        position: fixed !important;
+    }
+    div#body { /** Bolasport **/
+        overflow: hidden scroll;
+    }
+    .root #navRight { /** Gridoto, Bolasport, Juara **/
+        z-index: 9999;
+    }
+    .gamPdMiniScroll #navRight { /** Bolasport, Motorplus, Juara **/
+        top: 72px;
+    }
+    .root .navmenu { /** Kompasiana **/
+        top: 0;
+        position: relative;
+        height: 750px;
+    }
+    .gamPdMiniScroll .navmenu { /** Kompasiana **/
+        top: 72px;
+        position: fixed;
+        height: 100%;
+    }
+    .gamPdMini-Header #notif-popup { /** Kompasiana **/
+        display: none;
+    }
+    .gamPdMini-Header #narativ-popup {  /** Kompasiana **/
+        display: none;
+    }
+    .gamPdMiniScroll .sidenav { /** Kompastv **/
+        top: 72px;
+    }
+    .gamPdMiniScroll .alert .gamParPdMini { /** Kompas.tv **/
+        margin-bottom: 90px;
+    }
+    .gamPdMiniScroll .liftdownclass { /** Kontan **/
+        display: block !important;
+    }
+    .gamPdMiniScroll .pos_rel.gamParPdMini { /** Tribunnews **/
+        margin-bottom: 100px;
+    }
+    .theader.gamPdMini-Header #sf{ /** Tribunnews **/
+        position: relative !important;
+    }
+    #adsoutofpage-premiumTopframe #div-Premium-Topframe div { /** Parapuan, Tribunnews, Grid, Motorplus **/
+        padding: 0;
+    }
+/**
+    @media only screen and (max-width: 390px) {
+        .gam-par2-pushdownexp {
+            height: 390px;
+        }
+        .gam-par0-pushdownexp {
+            height: 382px;
+        }
+        .stickyHeaderExpandFrame {
+            height: 382px;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        .gam-par2-pushdownexp {
+            height: 375px;
+        }
+        .gam-par0-pushdownexp {
+            height: 367px;
+        }
+        .stickyHeaderExpandFrame {
+            height: 367px;
+        }
+    }
+**/
+/** #### End All Screen Portrait by KGMedia #### **/
+</style>
+    `;    
+
+    var meta       = window.parent.document.querySelector("meta[property='og:url']");
+    var metaKg     = "";
+    if(meta != null) {
+        metaKg = meta.getAttribute("content");
+    }
+    
+    //get width and height user browser
+    let viewportHeight  = window.parent.document.innerHeight;
+    let viewportWidth   = window.parent.document.innerWidth;
+    
+    //get frame parent
+    var iframeEl           = window.frameElement;
+    var iframeParentDiv_0  = window.frameElement.parentElement;
+    var iframeParentDiv_1  = window.frameElement.parentElement.parentElement;
+    var iframeParentDiv_2  = window.frameElement.parentElement.parentElement.parentElement;
+    var iframeParentDiv_3  = window.frameElement.parentElement.parentElement.parentElement.parentElement;
+    iframeParentDiv_0.style.height      = "400px";
+    iframeParentDiv_0.style.width       = viewportWidth+"px";
+    iframeEl.style.height               = "400px";
+    iframeEl.style.width                = viewportWidth+"px";
+    
+    //PREPARING container pushdown at parent element
+    var iframeBig   = window.frameElement;
+    iframeParentDiv_2.classList.add("gam-par2-pushdownexp");
+    iframeParentDiv_1.classList.add("gam-par1-pushdownexp");
+    iframeParentDiv_0.classList.add("gam-par0-pushdownexp");
+    iframeParentDiv_0.classList.add("stickyheader-frame-maincontainer");
+    iframeParentDiv_0.classList.add("stickyHeaderAdContainer");
+    iframeBig.classList.add("stickyHeaderExpandFrame");
+    var elHtml      = window.parent.document.getElementsByTagName("html")[0]; 
+    elHtml.style.overflow = "hidden hidden";
+    
+    //TWEAKING per site in order to first view
+    if (metaKg.includes("motorplus-online.com") || metaKg.includes("grid.id") ||  metaKg.includes("parapuan.co")) {
+        iframeParentDiv_2.style.setProperty("display", "block");
+    }
+    else if (metaKg.includes("bolasport.com")) {
+        iframeParentDiv_1.style.setProperty("height", "100%");         
+    }
+    else if (metaKg.includes("gridoto.com")) {
+        iframeParentDiv_2.style.setProperty("position", "relative");         
+    }
+    else if (metaKg.includes("kontan.co.id")) {
+        iframeParentDiv_1.style.position = "absolute";
+        iframeParentDiv_3.style.height   = "auto";
+        window.parent.document.querySelector(".liftsteady .wraplift").style.setProperty("display", "none");
+        window.parent.document.querySelector(".liftdownclass .ol_close_ad").style.setProperty("display", "none");
+    }
+    else if (metaKg.includes("sonora.id") || metaKg.includes("kompas.tv") || metaKg.includes("kompas.com")) {
+        iframeParentDiv_1.style.width    = "100%";
+        iframeParentDiv_3.style.top      = "0";
+        var elPushdownOri = window.parent.document.querySelector(".pushdown-banner .ol_script");
+        elPushdownOri.parentNode.style.setProperty("position", "static");
+        elPushdownOri.parentNode.parentNode.style.setProperty("position", "static");
+        elPushdownOri.parentNode.parentNode.parentNode.style.setProperty("position", "static");
+        window.parent.document.querySelector(".pushdown-banner .ol_promo").style.setProperty("display", "none");
+        window.parent.document.querySelector(".pushdown-banner .ol_container").style.height = "auto";
+        window.parent.document.querySelector(".pushdown-banner .ol_container").style.paddingTop = "0";
+        window.parent.document.querySelector(".pushdown-banner .ol_big").style.width = "100%";
+        window.parent.document.querySelector(".pushdown-banner .ol_big").style.height = "auto";
+        window.parent.document.querySelector(".pushdown-banner .ol_big_inner").style.width = "100%";
+        window.parent.document.querySelector(".pushdown-banner .ol_big_inner").style.height = "auto";
+        if (window.parent.document.querySelector(".pushdown-banner .ol_close_ad")) {
+            window.parent.document.querySelector(".pushdown-banner .ol_close_ad").style.setProperty("display", "none"); //sonora
+            window.parent.document.querySelector(".pushdown-banner .ol_swipe").style.setProperty("display", "none"); //sonora
+        }
+        else {
+            window.parent.document.querySelector(".alert .closebtnpush").style.setProperty("display", "none"); //kompas.tv
+        }
+    }
+    
+    //BUILDING template and its inline style
+    var container_template        = document.createElement("DIV");
+    container_template.innerHTML  = template_pushdownexp;
+    container_template.id         = "gam--pushdownexp";
+    var referenceElement          = iframeParentDiv_0;
+    referenceElement.appendChild(container_template);
+</script>
+
+<script>
+    var cadsshFMG = cadsshFMG || {};
+        cadsshFMG.stickyHeaderContainerID = "stickyHeaderContainer";
+        cadsshFMG.adExpanded         = false;
+        cadsshFMG.adContainer        = window.parent.document.querySelector(".stickyHeaderAdContainer");
+        cadsshFMG.expandFrame        = document.querySelector(".stickyHeaderExpandFrame");
+        cadsshFMG.settleFrame        = document.querySelector(".stickyHeaderSettleFrame");
+        cadsshFMG.clickToExpandSHImg = document.querySelector("#clickToExpandSHImg");
+        /** start tweaking **/
+        cadsshFMG.bodyKg             = window.parent.document.querySelector("body");
+        cadsshFMG.headerKg           = window.parent.document.querySelector("header.fixed");
+        cadsshFMG.elParent1          = window.parent.document.querySelector(".gam-par1-pushdownexp");
+        cadsshFMG.elParent2          = window.parent.document.querySelector(".gam-par2-pushdownexp");
+        cadsshFMG.closeBigPush       = document.querySelector(".gamin-closebig-pushdownexp");
+        cadsshFMG.closeMiniPush      = document.querySelector(".gamin-closemini-pushdownexp");
+        cadsshFMG.elHtml             = window.parent.document.getElementsByTagName("html")[0]; 
+    
+        cadsshFMG.meta          = window.parent.document.querySelector("meta[property='og:url']");
+        cadsshFMG.metaKgSite    = "kgmedia";
+        if(cadsshFMG.meta != null) {
+            cadsshFMG.metaKg    = cadsshFMG.meta.getAttribute("content");
+        }
+        //SETUP Header
+        if(cadsshFMG.metaKg.includes("bolasport.com")) { /** OK **/
+            cadsshFMG.headerKg  = window.parent.document.querySelector("header.fixed");
+        }
+        else if(cadsshFMG.metaKg.includes("gridoto.com")) { /** OK **/
+            cadsshFMG.headerKg  = window.parent.document.querySelector("header.fixed");
+        }
+        else if(cadsshFMG.metaKg.includes("motorplus-online.com")) { /** OK **/
+            cadsshFMG.metaKgSite = "motorplus"; /** not includes in metaKgSite kgmedia **/
+            cadsshFMG.elSearch   = window.parent.document.querySelector("header .search");
+        }
+        else if(cadsshFMG.metaKg.includes("juara.net")) { /** OK **/
+            cadsshFMG.headerKg   = window.parent.document.querySelector("header.fixed");
+        }
+        else if(cadsshFMG.metaKg.includes("tribunnews.com")) { /** OK **/
+            cadsshFMG.headerKg   = window.parent.document.querySelector("div.theader");
+        }
+        else if(cadsshFMG.metaKg.includes("grid.id")) { /** OK **/
+            cadsshFMG.metaKgSite = "grid"; /** not includes in metaKgSite kgmedia **/
+        }
+        else if(cadsshFMG.metaKg.includes("parapuan.co")) { /** OK **/
+            cadsshFMG.headerKg = window.parent.document.querySelector("header");
+        }
+        else if(cadsshFMG.metaKg.includes("sonora.id")) { /** OK **/
+            cadsshFMG.headerKg = window.parent.document.querySelector("#body header");
+        }
+        else if(cadsshFMG.metaKg.includes("kontan.co.id")) { /** OK **/
+            cadsshFMG.metaKgSite = "kontan"; /** not includes in metaKgSite kgmedia **/
+        }
+        else if(cadsshFMG.metaKg.includes("kompas.tv")) { /** OK **/
+            cadsshFMG.headerKg   = window.parent.document.querySelector(".container .sticky");
+        }
+        else if(cadsshFMG.metaKg.includes("kompasiana.com")) {
+            cadsshFMG.headerKg          = window.parent.document.querySelector("#page1 header");
+            cadsshFMG.closePushdownOri  = window.parent.document.querySelector(".pushdown-banner .ol_close_ad");
+            cadsshFMG.closePushdownOri.style.setProperty("display", "none");
+            cadsshFMG.swipePushdownOri  = window.parent.document.querySelector(".pushdown-banner .ol_swipe");
+            cadsshFMG.swipePushdownOri.style.setProperty("display", "none");
+        }
+        /** end tweaking **/
+
+        function delay(time) {
+            setTimeout(function(){
+                cadsshFMG.elHtml.style.overflow = "hidden scroll";
+            },time);
+        }
+        async function showScroll() {
+            await delay(3000);
+        }
+    
+        let showStickyExpandFrame = () => { /** BIG **/
+            cadsshFMG.adExpanded = true;
+            cadsshFMG.expandFrame.style.setProperty("display", "block");
+            /** start tweaking **/
+            cadsshFMG.adContainer.style.setProperty("position", "fixed", "important");
+            cadsshFMG.adContainer.style.setProperty("height", "auto", "important");
+            cadsshFMG.adContainer.style.setProperty("z-index", "99999999", "important");
+            cadsshFMG.closeBigPush.style.setProperty("display", "block");
+            if(cadsshFMG.metaKgSite == "kgmedia") {
+                cadsshFMG.headerKg.classList.add("gamPdBig-Header");
+            }
+            else if (cadsshFMG.metaKgSite == "motorplus") {
+                cadsshFMG.elSearch.style.position = "relative";
+                cadsshFMG.elSearch.style.zIndex   = "999";
+                cadsshFMG.elSearch.style.left     = "100%";
+                cadsshFMG.elSearch.style.top      = "-60px";
+            }
+            window.parent.document.body.scrollTop = 0;
+            window.parent.document.documentElement.scrollTop = 0;
+            showScroll();
+            /** end tweaking **/
+        };
+
+        let hideStickyExpandFrame = () => { /** MINI **/
+            if (cadsshFMG.adExpanded) {
+                console.log("cadsshFMG.adExpanded1 MINI: "+cadsshFMG.adExpanded);
+                cadsshFMG.expandFrame.style.setProperty("display", "none");
+                cadsshFMG.settleFrame.style.setProperty("display", "block");
+                cadsshFMG.clickToExpandSHImg.classList.remove("hideClickToExpandSH");
+                cadsshFMG.clickToExpandSHImg.classList.add("show");
+                cadsshFMG.adContainer.style.setProperty("top", "0", "important");
+                /** start tweaking **/
+                cadsshFMG.adContainer.style.setProperty("position", "fixed", "important");
+                cadsshFMG.adContainer.style.setProperty("height", "72px", "important");
+                cadsshFMG.adContainer.style.setProperty("z-index", "99999999", "important");
+                cadsshFMG.elParent1.classList.add("gamParPdMini");
+                cadsshFMG.elParent2.classList.add("gamParPdMini");
+                cadsshFMG.closeBigPush.style.setProperty("display", "none");
+                cadsshFMG.closeMiniPush.style.setProperty("display", "block");
+                cadsshFMG.bodyKg.classList.add("gamPdMiniScroll");
+                if(cadsshFMG.metaKgSite == "kgmedia") {
+                    cadsshFMG.headerKg.classList.remove("gamPdBig-Header");
+                    cadsshFMG.headerKg.classList.add("gamPdMini-Header");
+                }
+                /** end tweaking **/
+                cadsshFMG.adExpanded = false;
+                console.log("cadsshFMG.adExpanded2 MINI: "+cadsshFMG.adExpanded);
+            }
+        };
+
+        let clickToExpand = () => { /** BIG **/
+            cadsshFMG.settleFrame.setAttribute("style", "display:none");
+            cadsshFMG.expandFrame.setAttribute("style", "display:block");
+            cadsshFMG.clickToExpandSHImg.classList.remove("show");
+            cadsshFMG.clickToExpandSHImg.classList.add("hideClickToExpandSH");
+            /** start tweaking **/
+            cadsshFMG.adContainer.style.setProperty("position", "fixed", "important");
+            cadsshFMG.adContainer.style.setProperty("height", "auto", "important");
+            cadsshFMG.adContainer.style.setProperty("z-index", "99999999", "important");
+            cadsshFMG.elParent1.classList.remove("gamParPdMini");
+            cadsshFMG.elParent2.classList.remove("gamParPdMini");
+            cadsshFMG.closeMiniPush.style.setProperty("display", "none");
+            cadsshFMG.closeBigPush.style.setProperty("display", "block");
+            cadsshFMG.bodyKg.classList.remove("gamPdMiniScroll");
+            if(cadsshFMG.metaKgSite == "kgmedia") {
+                cadsshFMG.headerKg.classList.remove("gamPdMini-Header");
+                cadsshFMG.headerKg.classList.add("gamPdBig-Header");
+            }
+            else if (cadsshFMG.metaKgSite == "motorplus") {
+                cadsshFMG.elSearch.style.position = "relative";
+                cadsshFMG.elSearch.style.zIndex   = "999";
+                cadsshFMG.elSearch.style.left     = "100%";
+                cadsshFMG.elSearch.style.top      = "-60px";
+            }
+            window.parent.document.body.scrollTop = 0;
+            window.parent.document.documentElement.scrollTop = 0;
+            /** end tweaking **/
+            setTimeout(() => {
+                cadsshFMG.adExpanded = true;
+                console.log("cadsshFMG.adExpanded3 BIG: "+cadsshFMG.adExpanded);
+            }, 1000);
+        };
+
+        cadsshFMG.clickToExpandSHImg.addEventListener("click", () => {
+            clickToExpand();
+        });
+
+        /** start tweaking **/
+        cadsshFMG.closeBigPush.addEventListener("click", () => { //inframe
+            hideStickyExpandFrame();
+            cadsshFMG.adExpanded = false;
+        });
+
+        cadsshFMG.closeMiniPush.addEventListener("click", () => { //inframe
+            cadsshFMG.elParent2.style.setProperty("display", "none");
+            cadsshFMG.headerKg.classList.remove("gamPdMini-Header");
+            window.parent.removeEventListener("scroll", slideToSettle);
+        });
+        /** end tweaking **/
+
+        let slideToSettle = () => { //parent frame
+            let e = 0;
+            if (cadsshFMG.adExpanded) {
+                /** if (Math.abs(window.scrollY - e) > 328) { **/
+                if (Math.abs(window.parent.scrollY - e) > 200) {
+                    hideStickyExpandFrame();
+                    e = window.parent.scrollY;
+                    cadsshFMG.adExpanded = false;
+                }
+            } else {
+                e = window.parent.scrollY;
+            }
+        };
+
+        window.parent.addEventListener("message", function (e) { //parent frame
+            if (e.data && typeof e.data === "object" && e.data.action) {
+                if (e.data.action === "_CompleteClose_Expand") {
+                    cadsshFMG.settleFrame.style.display = "block";
+                    cadsshFMG.expandFrame.style.display = "none";
+                    cadsshFMG.clickToExpandSHImg.classList.add("show");
+                } else if (e.data.action === "_CompleteClose_Settle") {
+                    cadsshFMG.settleFrame.style.display = "none";
+                    cadsshFMG.expandFrame.style.display = "none";
+                    cadsshFMG.clickToExpandSHImg.classList.remove("show");
+                    cadsshFMG.clickToExpandSHImg.style.display = "none";
+                }
+            }
+        });
+
+        window.parent.addEventListener("scroll", slideToSettle); //parent frame
+        showStickyExpandFrame();
+</script>
