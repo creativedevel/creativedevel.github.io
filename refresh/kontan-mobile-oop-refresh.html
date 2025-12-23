@@ -952,8 +952,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div> 
         <script>
             var checkScrollExp = function () {
-                var divRollup = "#div-scrollexpand";  
-                var iframeSlot = document.querySelector(divRollup+' > div > iframe');
+                var div = "#div-scrollexpand";  
+                var iframeSlot = document.querySelector(div+' > div > iframe');
                 if(iframeSlot) {
                     var thisFrame = iframeSlot.outerHTML;
                     var isBlockingFrame = thisFrame.match(/data-is-safeframe="true"/ig);
