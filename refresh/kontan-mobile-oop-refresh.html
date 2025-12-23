@@ -961,9 +961,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         var iframeDoc = iframeSlot.contentDocument || iframeSlot.contentWindow.document;
                         if (iframeDoc) {
                             var iframeContent = iframeDoc.querySelector('body').outerHTML;
-                            //var findNoRefresh = iframeContent.match(/\b(adsimg.kompas.com\/html5\/adserving\/default.jpg)\b/i);
-                            var findNoRefresh = iframeContentHor.match(/\b(NO REFRESH|NO_REFRESH)\b/i);
-                            //console.log("FIND REFRESH scrollexpand : "+findNoRefresh);
+                            var findNoRefresh = iframeContent.match(/\b(NO REFRESH|NO_REFRESH)\b/i);
                             console.log("FIND NO_REFRESH scrollexpand : "+findNoRefresh);
                             if(!findNoRefresh || findNoRefresh == null){
                                 googletag.pubads().refresh([expandscrollmobile]);
