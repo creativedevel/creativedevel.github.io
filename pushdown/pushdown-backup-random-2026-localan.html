@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="margin:0; padding:0">
+		<script type="text/javascript">
+			var images = [],
+			index = 0;
+			images[0] = "<div style='width: 300px; height: 250px; margin: 0px auto; position: relative;'><a href='https://www.gridstore.id/?utm_source=mobile-web-internal-ad&utm_medium=Banner&utm_campaign=gridstore' target='_blank'><img src='https://ads.grid.id/HTMLADS/300x250-gridstore.jpeg' alt='Grid Store' width='100%'></a>";
+			images[1] = "<div style='width: 300px; height: 250px; margin: 0px auto; position: relative;'><a href='https://www.gridstore.id/?utm_source=mobile-web-internal-ad&utm_medium=Banner&utm_campaign=gridstore' target='_blank'><img src='https://ads.grid.id/HTMLADS/300x250-gridstore-orange.jpeg' alt='Grid Store' width='100%'></a>";
+            
+			/*images[0] =  "<div style='width: 320px; height: 480px; margin: 0px auto; position: relative;'><a href='https://app.kompas.com/download?source=Kompas.com&medium=pushdown&campaign=liveupdate' target='_blank'><img src='https://adsimg.kompas.com/html5/assets_ads/pushdown/images/pushdown_29aug.jpg' width='100%'></a>";
+			images[1] = "<div style='width: 320px; height: 480px; margin: 0px auto; position: relative;'><a href='https://plus.kompas.com/kompas-one?source=Kompas.com&medium=unsold&campaign=KompasOne' target='_blank'><img src='https://adsimg.kompas.com/html5/assets_ads/pushdown/images/Kompasone_320x480.jpg' width='100%'></a>";
+			images[2] = "<a href = 'https://www.kompas.com/topik-pilihan/list/9832/krisis.lahan.makam.di.jakarta?source=Kompas.com&amp;medium=pushdown&amp;campaign=metamesta' target='_blank'><img src='https://adsimg.kompas.com/html5/assets_ads/pushdown/images/lipsus_makam_ver_1a.png' alt=''></a>";
+			images[3] = "<a href = 'https://www.kompas.com/topik-pilihan/list/9832/krisis.lahan.makam.di.jakarta?source=Kompas.com&amp;medium=pushdown&amp;campaign=metamesta' target='_blank'><img src='https://adsimg.kompas.com/html5/assets_ads/pushdown/images/lipsus_makam_ver_1b.png' alt=''></a>";*/
+			let now  = new Date();
+			let start = new Date(2026, 0, 20);
+			let end  = new Date(2026, 0, 21);
+            //months are 0-based (Jan = 0, Feb = 1, ..., Dec = 11), so Dec is 11
+			if(now >= start && now <= end) {
+				images[0] = "<div style='width: 300px; height: 250px; margin: 0px auto; position: relative;'><a href='https://www.gridstore.id/?utm_source=mobile-web-internal-ad&utm_medium=Banner&utm_campaign=gridstore' target='_blank'><img src='https://ads.grid.id/HTMLADS/300x250-gridstore.jpeg' alt='Grid Store - Blue' width='100%'></a>";
+			}
+			var liftdown_index = localStorage.getItem('liftdown_index')
+			if (liftdown_index) {
+				if (liftdown_index < (images.length-1)) {
+					liftdown_index++
+				} else {
+					liftdown_index = 0
+				}
+				index = liftdown_index
+			} else {
+				index = Math.floor(Math.random() * images.length);
+			}
+			localStorage.setItem('liftdown_index', index)
+			document.write(images[index]);
+		</script>
+	</body>
+</html>
