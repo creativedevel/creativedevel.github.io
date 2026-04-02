@@ -1,0 +1,74 @@
+<script>
+    function refreshBidG(div, val, kgpos) {
+            pbjs.que.push(function() {
+                pbjs.setConfig({
+                    useBidCache: true,
+                    inBidCacheTTL: 60,
+                }),
+                pbjs.requestBids({
+                    timeout: PREBID_TIMEOUT,
+                    adUnitCodes: [div],
+                    bidsBackHandler: function() {
+                        pbjs.setTargetingForGPTAsync();
+                        val.setTargeting('reloaded', kgpos);
+                        googletag.pubads().refresh([val]);
+                        console.log("Refresh Bid 30s : "+kgpos);
+                    }
+                });
+            });
+        }
+
+        var checkSlotG = function (div, val, kgpos) {
+            googletag.pubads().addEventListener('slotRenderEnded',function(event) {
+                var found = false;    
+                if (val === event.slot) {
+                    for (var i = 0; i < lineitemIdExc.length && !found; i++) {
+                        if(lineitemIdExc[i] === event.sourceAgnosticLineItemId){
+                            found = true;
+                            statusLineItem = "yes";
+                            break;
+                        }
+                        else if(event.sourceAgnosticLineItemId === null){
+                            found = true;
+                            statusLineItem = "yes";
+                            break;
+                        }
+                        else{
+                            found = false;
+                            statusLineItem = "no";
+                        }
+                    }
+                }
+            });  
+            var iframeHor = document.querySelector('#'+div+' > div > iframe');
+            if (iframeHor){
+                var thisFrame = iframeHor.outerHTML;
+                var isBlockingFrame = thisFrame.match(/data-is-safeframe="true"/ig);
+                if(statusLineItem === "no" ){
+                    if (isBlockingFrame){
+                        refreshBidG(div, val, kgpos);
+                    }
+                    else if(!isBlockingFrame){
+                        var iframeDocHor = iframeHor.contentDocument || iframeHor.contentWindow.document;
+                        if (iframeDocHor) {
+                            var iframeContentHor = iframeDocHor.querySelector('body').outerHTML;
+                            var findNoRefresh = iframeContentHor.match(/\b(NO REFRESH|NO_REFRESH)\b/i);
+                            console.log("FIND NO REFRESH "+kgpos+" : "+findNoRefresh);
+                            if(!findNoRefresh || findNoRefresh == null){
+                                refreshBidG(div, val, kgpos);
+                            }
+                            else{ clearInterval(refreshMiddle1Val); }
+                        }
+                    }
+                }
+            }
+        };
+        if(dataLayer[0]['title'] && dataLayer[0]['title'] !== "") {
+            var refreshMiddle1Val = setInterval(function() {
+                checkSlotG("div-Inside-MediumRectangle", dimr, "zone_middle_1");
+            }, 30000);
+        }
+        else {
+            console.log("Not found : zone_middle_1");
+        }
+    </script>
