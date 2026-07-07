@@ -878,74 +878,50 @@ window.pbjs=window.pbjs||{},pbjs.que=pbjs.que||[],pbjs.que.push(function(){windo
     }
 **/
     oajs.que.push(function() {
-/**
+        
         var generateSafeTID = function() {
             return typeof oajs.generateTID === 'function' ? oajs.generateTID() : "";
         };
-        openAdsSlots.forEach(function(slot) {
-            slot.tid = generateSafeTID();
-        });
-        
-        adUnits.forEach(function (unit, index) {
-            var matchedSlot = openAdsSlots[index];
-            if (matchedSlot && matchedSlot.tid) {
-                // sinkronisasi TID pbjs dengan oajs
-                if (!unit.ortb2Imp) unit.ortb2Imp = { ext: {} };
+
+        if (typeof openAdsSlots !== 'undefined' && Array.isArray(openAdsSlots)) {
+            openAdsSlots.forEach(function(slot) {
+                slot.tid = generateSafeTID();
+            });
+        }
+
+        if (typeof adUnits !== 'undefined' && Array.isArray(adUnits) && typeof openAdsSlots !== 'undefined') {
+            adUnits.forEach(function (unit) {
+
+                // Cari slot openAds yg cocok
+                var matchedSlot = openAdsSlots.find(function(slot) {
+                    // Mengecek nama div-id di openads dengan di adunit
+                    return unit.code.indexOf(slot.id) !== -1 || slot.id.indexOf(unit.code) !== -1;
+                });
+
+                // Jika ketemu slot yang cocok dan punya TID, langsung masukkan
+                if (matchedSlot && matchedSlot.tid) {
+
+                    //masukkan TID ke ORTB
+                    if (!unit.ortb2Imp) unit.ortb2Imp = { ext: {} };
                     if (!unit.ortb2Imp.ext) unit.ortb2Imp.ext = {};
                     unit.ortb2Imp.ext.tid = matchedSlot.tid;
 
-                // sinkronisasi TID ke Jixie
-                if (Array.isArray(unit.bids)) {
-                    unit.bids.forEach(function (bid) {
-                        if (bid.bidder === 'jixie') {
-                            if (!bid.params) bid.params = {};
-                            if (openAdsSlots[index] && openAdsSlots[index].tid) {
-                                bid.params.tid = openAdsSlots[index].tid;
+                    //masukkan TID ke Parameter Jixie
+                    if (Array.isArray(unit.bids)) {
+                        unit.bids.forEach(function (bid) {
+                            if (bid.bidder === 'jixie') {
+                                if (!bid.params) bid.params = {};
+                                bid.params.tid = matchedSlot.tid;
                             }
-                        }
-                    });
+                        });
+                    }
                 }
-            }
-        });
-        
+            });
+        }
+    
         if (typeof pbjs !== 'undefined' && typeof pbjs.addAdUnits === 'function') {
             pbjs.addAdUnits(adUnits);
         }
-**/
-        
-     
-        var generateSafeTID = function() {
-            return typeof oajs.generateTID === 'function' ? oajs.generateTID() : "";
-        };
-
-        openAdsSlots.forEach(function(slot) {
-            slot.tid = generateSafeTID();
-        });
-
-        adUnits.forEach(function (unit, index) {
-            var matchedSlot = openAdsSlots[index];
-            if (matchedSlot && matchedSlot.tid) {
-                //ortb
-                if (!unit.ortb2Imp) unit.ortb2Imp = { ext: {} };
-                if (!unit.ortb2Imp.ext) unit.ortb2Imp.ext = {};
-                unit.ortb2Imp.ext.tid = matchedSlot.tid;
-                //jixie
-                if (Array.isArray(unit.bids)) {
-                    unit.bids.forEach(function (bid) {
-                        if (bid.bidder === 'jixie') {
-                            if (!bid.params) bid.params = {};
-                            bid.params.tid = matchedSlot.tid;
-                        }
-                    });
-                }
-            }
-        });
-        
-        // 3. DAFTARKAN ADUNITS KE PREBID (Wajib di dalam antrean oajs setelah di-suntik)
-        if (typeof pbjs !== 'undefined' && typeof pbjs.addAdUnits === 'function') {
-            pbjs.addAdUnits(adUnits);
-        }
-       
         
         oajs.setConfig({
             enableSendAllBids: true,
