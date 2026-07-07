@@ -878,6 +878,7 @@ window.pbjs=window.pbjs||{},pbjs.que=pbjs.que||[],pbjs.que.push(function(){windo
     }
 **/
     oajs.que.push(function() {
+
         var generateSafeTID = function() {
             return typeof oajs.generateTID === 'function' ? oajs.generateTID() : "";
         };
@@ -910,6 +911,41 @@ window.pbjs=window.pbjs||{},pbjs.que=pbjs.que||[],pbjs.que.push(function(){windo
         if (typeof pbjs !== 'undefined' && typeof pbjs.addAdUnits === 'function') {
             pbjs.addAdUnits(adUnits);
         }
+
+        
+        /**
+        var generateSafeTID = function() {
+            return typeof oajs.generateTID === 'function' ? oajs.generateTID() : "";
+        };
+
+        openAdsSlots.forEach(function(slot) {
+            slot.tid = generateSafeTID();
+        });
+
+        adUnits.forEach(function (unit, index) {
+            var matchedSlot = openAdsSlots[index];
+            if (matchedSlot && matchedSlot.tid) {
+                //ortb
+                if (!unit.ortb2Imp) unit.ortb2Imp = { ext: {} };
+                if (!unit.ortb2Imp.ext) unit.ortb2Imp.ext = {};
+                unit.ortb2Imp.ext.tid = matchedSlot.tid;
+                //jixie
+                if (Array.isArray(unit.bids)) {
+                    unit.bids.forEach(function (bid) {
+                        if (bid.bidder === 'jixie') {
+                            if (!bid.params) bid.params = {};
+                            bid.params.tid = matchedSlot.tid;
+                        }
+                    });
+                }
+            }
+        });
+        
+        // 3. DAFTARKAN ADUNITS KE PREBID (Wajib di dalam antrean oajs setelah di-suntik)
+        if (typeof pbjs !== 'undefined' && typeof pbjs.addAdUnits === 'function') {
+            pbjs.addAdUnits(adUnits);
+        }
+        **/
         
         oajs.setConfig({
             enableSendAllBids: true,
@@ -938,7 +974,7 @@ window.pbjs=window.pbjs||{},pbjs.que=pbjs.que||[],pbjs.que.push(function(){windo
                     }
                 },
             },
-            debugging: { enabled: true, }
+            //debugging: { enabled: true, }
         });
         
         oajs.bidderSettings = { standard: { storageAllowed: true } };
@@ -1005,7 +1041,7 @@ window.pbjs=window.pbjs||{},pbjs.que=pbjs.que||[],pbjs.que.push(function(){windo
                 endpoint: "https://prebid-server.pbstck.com/openrtb2/auction",
                 syncEndpoint: "https://prebid-server.pbstck.com/cookie_sync",
             }, 
-            //debugging: { enabled: true, }
+            debugging: { enabled: true, }
         });
         
         pbjs.bidderSettings = { standard: { storageAllowed: true } };
