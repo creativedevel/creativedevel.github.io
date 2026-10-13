@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video Kompas.com</title>
+	<link rel="preconnect" href="https://www.youtube.com">
+	<link rel="preconnect" href="https://imasdk.googleapis.com">
+	<link rel="preload" as="image" href="https://i.ytimg.com/vi/MRwM91_byUw/hqdefault.jpg" fetchpriority="high">
+	<style>
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	/* poster dioper lewat --poster di markup; hitam bila gambar gagal dimuat */
+	.container {
+		background: #000 var(--poster) center / cover no-repeat;
+	}
+	#pfp-container-ad,
+	.container,
+	.container > div,
+	.container > div > iframe {
+		width: 100vw;
+		height: 100vh;
+	}
+	</style>
+</head>
+<body>
+	<!-- container SEBELUM script: harus sudah ada di DOM saat callback dipanggil -->
+	<div class="container" style="--poster: url('https://i.ytimg.com/vi/MRwM91_byUw/hqdefault.jpg')">
+		<div id="pfp-container" data-video-id="MRwM91_byUw" data-autoplay="1" data-mute="1"></div>
+	</div>
+
+		<script>
+	(function () {
+		'use strict';
+
+		// Base tag saja. vid, cust_params, vpa ditambah PfP; correlator, url, ref, cookie, sdkv, dll.
+		// diisi IMA saat runtime — jangan di-hardcode. vpmute & description_url ditambah di makeAdsRequest.
+		var AD_TAG = 'https://pubads.g.doubleclick.net/gampad/ads?iu=/31800665/KOMPAS.COM/video/vastyoutube_watch' +
+			'&tfcd=0&npa=0&sz=640x480|1280x720|1920x1080&ciu_szs=100x90|300x600' +
+			'&gdfp_req=1&unviewed_position_start=1&output=xml_vast4&env=vp&video_offset=10000&correlator=';
+
+		var container = document.getElementById('pfp-container');
+		var videoId = container.getAttribute('data-video-id'); 
+		var autoplay = container.getAttribute('data-autoplay') === '1';
+		var muted = container.getAttribute('data-mute') === '1';
+		var started = false;
+
+		/* Dipanggil PfP (hanya bila IMA SDK termuat): (google.ima.AdsRequest, google.ima.AdsRenderingSettings) */
+		function makeAdsRequest(adsRequest, renderingSettings) {
+			var pageUrl = document.referrer || window.location.href;
+			adsRequest.adTagUrl = AD_TAG +
+				'&vpmute=' + (muted ? 1 : 0) +
+				'&description_url=' + encodeURIComponent(pageUrl);
+			renderingSettings.useStyledNonLinearAds = true;
+			renderingSettings.uiElements = [
+				window.google.ima.UiElements.AD_ATTRIBUTION,
+				window.google.ima.UiElements.COUNTDOWN
+			];
+		}
+
+		function initPlayer() {
+			if (started) return; // dipanggil oleh onYouTubeIframeAPIReady ATAU YT.ready — cukup sekali
+			started = true;
+			window.YT.createPlayerForPublishers('pfp-container', makeAdsRequest, {
+				youtubeOptions: {
+					videoId: videoId,
+					playerVars: {
+						autoplay: autoplay ? 1 : 0,
+						mute: muted ? 1 : 0,
+						playsinline: 1
+					},
+					height: '360px',
+					width: '100%',
+					embedConfig: {
+						primaryThemeColor: '#424242cc',
+						enableIma: true
+					}
+				}
+			}, function (player, imaManager) {
+				// handle untuk debugging dari console
+				window.player = player;
+				window.imaManager = imaManager;
+			});
+		}
+
+		// Didefinisikan SEBELUM iframe_api dimuat — inti perbaikan race condition
+		window.onYouTubeIframeAPIReady = initPlayer;
+	})();
+	</script>
+	<script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+	<script src="https://www.youtube.com/iframe_api?ima=1"></script>
+	<script>
+	// Pengaman: kalau widgetapi sudah jalan duluan, YT.ready() tetap memanggil callback
+	if (window.YT && typeof window.YT.ready === 'function') window.YT.ready(window.onYouTubeIframeAPIReady);
+	</script>
+</body>
+</html>
