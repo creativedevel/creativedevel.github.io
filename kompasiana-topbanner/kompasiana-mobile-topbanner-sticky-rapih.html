@@ -588,10 +588,10 @@ document.addEventListener('DOMContentLoaded', function() {
     /* 1. Kondisi Awal: Banner di posisi relative/static */
     #js-banner-sticky .banner1 { position: relative; top: 0; padding: 0; z-index: 7; visibility: visible; opacity: 1; text-align: center; width: 100%; }
 
-    /* 2. Kondisi Scroll Down (bapps-passed & pushdown-scroll aktif): Banner STICKY di top: 100px */
+    /* 2. Kondisi Scroll Down (bapps-passed aktif): Banner berubah jadi FIXED di bawah header (top: 100px) */
     .bapps-passed.pushdown-scroll #js-banner-sticky .banner1 { position: fixed !important; top: 100px !important; left: 0; width: 100%; z-index: 7; }
 
-    /* 3. Kondisi Stop Sticky / Dismiss 2s: Banner balik ke ABSOLUTE/RELATIVE (ikut hanyut) */
+    /* 3. Kondisi Stop Sticky / Scroll Naik Kembali / Dismiss 2s: Banner balik ke ABSOLUTE/RELATIVE (ikut hanyut) */
     .bapps-passed #js-banner-sticky.sticky-stop .banner1,
     #js-banner-sticky.sticky-stop .banner1 { position: absolute !important; top: 0 !important; }
 
@@ -646,36 +646,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 isTimerStarted = false;
             }
 
-            // 3. Scroll Handler Baru: Re-trigger sticky 2s langsung dari class bapps-passed pushdown-scroll
+            // 3. Scroll Handler: Cukup toggle class 'bapps-passed' di <body> seperti Kompas.com
             function handleScrollKompas() {
                 var getBoxBanner = document.getElementById('js-banner-sticky');
                 if (!getBoxBanner || isManualClosed) return;
 
                 var bodyElem = document.body;
-                var isPushdownActive = bodyElem.classList.contains('bapps-passed') && bodyElem.classList.contains('pushdown-scroll');
+                var bannerOffset = getBoxBanner.offsetTop;
+                var scrollY = window.scrollY || window.pageYOffset;
 
-                // A. SELAMA BODY MEMILIKI CLASS bapps-passed pushdown-scroll
-                if (isPushdownActive) {
-                    // Reset sticky-stop jika sempat dipasang sebelumnya agar banner kembali STICKY
-                    if (getBoxBanner.classList.contains('sticky-stop')) {
-                        getBoxBanner.classList.remove('sticky-stop');
-                        isTimerStarted = false;
-                    }
-
-                    // Mulai hitung ulang timer 2 detik dari posisi scroll ini
-                    if (!isTimerStarted) {
-                        isTimerStarted = true;
-                        if (stickyTimer) clearTimeout(stickyTimer);
-                        stickyTimer = setTimeout(function() {
-                            unstickBanner(); // Pasang sticky-stop setelah 2 detik
-                        }, 2000);
-                    }
-                } 
-                // B. JIKA CLASS KELUAR DARI STATE PUSHDOWN (Header kembali normal/posisi atas)
-                else {
+                // A. Scroll di paling atas (sebelum melewati banner): lepas class bapps-passed & reset sticky-stop
+                if (scrollY <= bannerOffset) {
+                    bodyElem.classList.remove('bapps-passed');
                     getBoxBanner.classList.remove('sticky-stop');
                     if (stickyTimer) clearTimeout(stickyTimer);
                     isTimerStarted = false;
+                    return;
+                }
+
+                // B. Scroll melewati banner: pasang class bapps-passed di body
+                if (scrollY > bannerOffset) {
+                    bodyElem.classList.add('bapps-passed');
+
+                    // Jika belum kena sticky-stop, hitung 2 detik sticky
+                    if (!getBoxBanner.classList.contains('sticky-stop') && !isTimerStarted) {
+                        isTimerStarted = true;
+                        stickyTimer = setTimeout(function() {
+                            unstickBanner(); // Tambah .sticky-stop setelah 2 detik
+                        }, 2000);
+                    }
                 }
             }
 
@@ -728,6 +727,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </script>
     </div>
 </div>
+  
             
 <div class="content relative px-16 pt-16">
     <div class="read mb-16 bg-base-white px-16 py-16">
